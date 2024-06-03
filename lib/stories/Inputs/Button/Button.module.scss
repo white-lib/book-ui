@@ -8,90 +8,71 @@
   gap: rem(6);
   font-size: $primary-font-size;
   font-weight: 500;
+  transition: box-shadow 0.1s linear, border-color 0.1s linear, background 0.1s linear;
 
   &.contained {
-    background: var(--button-color);
-    color: var(--button-text-color);
+    background: var(--primary-main);
+    color: var(--primary-text);
     border-radius: $primary-border-radius;
+    box-shadow: 0 0 1px 1px var(--primary-dark);
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        background: var(--button-hover);
+        background: var(--primary-light);
+        box-shadow: 0 0 3px 1px var(--primary-dark);
       }
 
       &:not(:disabled):not(.disabled):active {
-        background: var(--button-active);
+        box-shadow: 0 0 0 3px var(--primary-dark);
       }
     }
 
     @media (hover: none) {
       &:not(:disabled):not(.disabled):active {
-        background: var(--button-active);
+        box-shadow: 0 0 0 3px var(--primary-dark);
       }
     }
   }
 
   &.outlined {
-    border: 2px solid var(--button-color);
-    color: var(--button-text-color);
+    border: 2px solid var(--primary-main);
+    color: var(--primary-text);
     border-radius: $primary-border-radius;
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        border-color: var(--button-hover);
+        box-shadow: 0 0 3px 1px var(--primary-main);
       }
 
       &:not(:disabled):not(.disabled):active {
-        border-color: var(--button-active);
+        box-shadow: 0 0 0 2px var(--primary-main);
       }
     }
 
     @media (hover: none) {
       &:not(:disabled):not(.disabled):active {
-        border-color: var(--button-active);
-      }
-    }
-  }
-
-  &.outlined {
-    border: 2px solid var(--button-color);
-    color: var(--button-text-color);
-    border-radius: $primary-border-radius;
-
-    @media (hover: hover) {
-      &:not(:disabled):not(.disabled):hover {
-        border-color: var(--button-hover);
-      }
-
-      &:not(:disabled):not(.disabled):active {
-        border-color: var(--button-active);
-      }
-    }
-
-    @media (hover: none) {
-      &:not(:disabled):not(.disabled):active {
-        border-color: var(--button-active);
+        box-shadow: 0 0 0 2px var(--primary-main);
       }
     }
   }
 
   &.text {
-    color: var(--button-text-color);
+    color: var(--primary-text);
     border-radius: $primary-border-radius;
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        background: var(--primary-hover);
+        background: var(--primary-light);
       }
 
       &:not(:disabled):not(.disabled):active {
-        background: var(--primary-active);
+        box-shadow: 0 0 0 3px var(--primary-dark);
       }
     }
 
     @media (hover: none) {
       &:not(:disabled):not(.disabled):active {
-        background: var(--primary-active);
+        box-shadow: 0 0 0 3px var(--primary-dark);
       }
     }
   }

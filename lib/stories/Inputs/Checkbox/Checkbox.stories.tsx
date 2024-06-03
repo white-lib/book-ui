@@ -29,3 +29,18 @@ export const WithLabel: Story = {
     label: "Label",
   },
 };
+
+export const Sizes = () => (
+  <div style={{ display: "flex", gap: "12px" }}>
+    <Checkbox size="small" />
+    <Checkbox size="medium" />
+    <Checkbox size="large" />
+  </div>
+);
+
+export const Disabled = () => (
+  <div style={{ display: "flex", gap: "12px" }}>
+    <Checkbox disabled label="Disabled" />
+    <Checkbox disabled checked label="Disabled" />
+  </div>
+);

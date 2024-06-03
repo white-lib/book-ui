@@ -5,13 +5,15 @@ import styles from "./Checkbox.module.scss";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 
-export type Props = {
+type Props = {
   size?: "small" | "medium" | "large";
   label?: string;
-} & DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>;
+} & Omit<
+  DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
+  "size"
+>;
 
 export const Checkbox: FC<Props> = ({
-  children,
   size = "medium",
   label,
   className,
@@ -23,7 +25,7 @@ export const Checkbox: FC<Props> = ({
   const [isChecked, setIsChecked] = useState<boolean>(checked || false);
 
   const classNameVal = classnames(
-    createClassName("cckb"),
+    createClassName("cb"),
     styles.main,
     styles[size],
     isChecked && styles.checked,
@@ -32,12 +34,13 @@ export const Checkbox: FC<Props> = ({
   );
 
   return (
-    <label>
+    <label className={classnames(styles.label, disabled && styles.disabled)}>
       <input
         {...props}
         className={classNameVal}
         type="checkbox"
         checked={isChecked}
+        disabled={disabled}
         onChange={(e) => {
           setIsChecked((prev) => !prev);
           onChange?.(e);

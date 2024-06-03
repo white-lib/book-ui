@@ -18,26 +18,14 @@
 
 
 :root {
-  --primary: #ffde09;
-  --primary-hover: rgba(255, 222, 9, 0.5);
-  --primary-active: rgba(255, 222, 9, 0.3);
-  --primary-2: #9b24fc;
-  --secondary: #293746;
-  --button-color: #ffde09;
-  --button-text-color: #180c35;
-  --button-hover: #f9ca00;
-  --button-active: #f9aa00;
-  --error: #ff0000;
-  --warning: #e87f3b;
-  --info: #646464;
-  --success: #12b700;
-  --common: #6e14c3;
-  --grey: #444444;
-  --text: #f9f9f9;
-  --border: #293746;
-  --divider: #3e4e60;
-  --action: #004e82;
-  --background: #1c2630;
-  --surface: #ffffff;
+  --primary-light: #ffe43a;
+  --primary-main: #ffde09;
+  --primary-dark: #b29b06;
+  --primary-text: #3e2723;
+
+  --secondary-light: #af4ffc;
+  --secondary-main: #9b24fc;
+  --secondary-dark: #6c19b0;
+  --secondary-text: #311b92;
 }
 

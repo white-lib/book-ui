@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Icon } from "./Icon.tsx";
 import FavoriteIcon from "./assets/Favorite.tsx";
+import SaveIcon from "./assets/Save.tsx";
+import LoadingIcon from "./assets/Loading.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -24,8 +26,10 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Icons = () => {
   return (
-    <div style={{ display: "flex", gap: "6px" }}>
+    <div style={{ display: "flex", gap: "12px" }}>
       <FavoriteIcon />
+      <SaveIcon />
+      <LoadingIcon />
     </div>
   );
 };

@@ -59,7 +59,7 @@ export const Sizes = () => (
 );
 
 export const WithIcons = () => (
-  <div style={{ display: "flex", gap: "6px" }}>
+  <div style={{ display: "flex", gap: "12px" }}>
     <Button startIcon={<FavoriteIcon />}>Like</Button>
     <Button endIcon={<SaveIcon />}>Save</Button>
     <Button>
