@@ -18,6 +18,7 @@ export type Props = {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   loading?: boolean;
+  disableSpacing?: boolean;
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -34,6 +35,7 @@ export const Button: FC<Props> = ({
   startIcon,
   endIcon,
   loading,
+  disableSpacing,
   ...props
 }) => {
   const classNameVal = classnames(
@@ -42,6 +44,7 @@ export const Button: FC<Props> = ({
     styles[variant],
     styles[size],
     disabled && styles.disabled,
+    disableSpacing && styles.disableSpacing,
     className,
   );
 

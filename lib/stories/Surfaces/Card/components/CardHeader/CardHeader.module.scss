@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: rem(16);
+
+  .leftSide {
+    gap: 16px;
+    display: flex;
+
+    .titleSubheader {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

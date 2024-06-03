@@ -62,7 +62,7 @@ export const WithIcons = () => (
   <div style={{ display: "flex", gap: "12px" }}>
     <Button startIcon={<FavoriteIcon />}>Like</Button>
     <Button endIcon={<SaveIcon />}>Save</Button>
-    <Button>
+    <Button disableSpacing>
       <FavoriteIcon />
     </Button>
   </div>
