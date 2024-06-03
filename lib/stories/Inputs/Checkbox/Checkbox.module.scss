@@ -1,0 +1,25 @@
+.main {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 1.6em;
+  height: 1.6em;
+  border-radius: 0.15em;
+  margin-right: 0.5em;
+  border: 0.15em solid #007a7e;
+  outline: none;
+  cursor: pointer;
+
+  &.checked {
+    background-color: #007a7e;
+    position: relative;
+
+    &::before {
+      content: "";
+      font-size: 1.5em;
+      color: #fff;
+      position: absolute;
+      right: 1px;
+      top: -5px;
+    }
+  }
+}
