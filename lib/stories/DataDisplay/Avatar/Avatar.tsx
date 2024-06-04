@@ -4,6 +4,7 @@ import classnames from "classnames";
 import styles from "./Avatar.module.scss";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
+import { Box } from "../../Layout/Box";
 
 type Props = {
   children?: ReactNode;
@@ -60,7 +61,7 @@ export const Avatar: FC<Props> = ({
     }
 
     return (
-      <div
+      <Box
         className={classNameVal}
         style={{
           width,
@@ -69,7 +70,7 @@ export const Avatar: FC<Props> = ({
         }}
       >
         {children}
-      </div>
+      </Box>
     );
   }
 

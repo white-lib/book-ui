@@ -4,6 +4,7 @@ import classnames from "classnames";
 import styles from "./CardHeader.module.scss";
 
 import { Typography } from "../../../../DataDisplay/Typography";
+import { Box } from "../../../../Layout/Box";
 
 type Props = {
   title?: string;
@@ -20,16 +21,16 @@ export const CardHeader: FC<Props> = ({
   const classNameVal = classnames(styles.main);
 
   return (
-    <div {...props} className={classNameVal}>
-      <div className={styles.leftSide}>
+    <Box {...props} className={classNameVal}>
+      <Box className={styles.leftSide}>
         {avatar}
         {(title || subheader) && (
-          <div className={classnames(styles.titleSubheader)}>
+          <Box className={classnames(styles.titleSubheader)}>
             {title && <Typography variant="span">{title}</Typography>}
             {subheader && <Typography variant="span">{subheader}</Typography>}
-          </div>
+          </Box>
         )}
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 };

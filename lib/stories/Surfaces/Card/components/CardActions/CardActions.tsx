@@ -9,6 +9,7 @@ import {
 import classnames from "classnames";
 
 import styles from "./CardActions.module.scss";
+import { Box } from "../../../../Layout/Box";
 
 type Props = { disableSpacing?: boolean } & DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
@@ -23,12 +24,12 @@ export const CardActions: FC<Props> = ({
   const classNameVal = classnames(styles.main);
 
   return (
-    <div {...props} className={classNameVal}>
+    <Box {...props} className={classNameVal}>
       {Children.map(children, (child) =>
         cloneElement(child as ReactElement, {
           disableSpacing,
         }),
       )}
-    </div>
+    </Box>
   );
 };

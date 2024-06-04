@@ -13,6 +13,7 @@ import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Props as ButtonProps } from "../Button/Button.tsx";
 
 import styles from "./ButtonGroup.module.scss";
+import { Box } from "../../Layout/Box";
 
 type Props = { orientation?: "horizontal" | "vertical" } & Pick<
   ButtonProps,
@@ -36,12 +37,12 @@ export const ButtonGroup: FC<Props> = ({
   );
 
   return (
-    <div {...props} className={classNameVal}>
+    <Box {...props} className={classNameVal}>
       {Children.map(children, (child) =>
         cloneElement(child as ReactElement, {
           variant,
         }),
       )}
-    </div>
+    </Box>
   );
 };
