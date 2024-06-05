@@ -1,7 +1,7 @@
 import { FC, DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 import classnames from "classnames";
 
-import styles from "./Checkbox.module.scss";
+import styles from "./Radio.module.scss";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 
@@ -12,7 +12,7 @@ type Props = {
   "size"
 >;
 
-export const Checkbox: FC<Props> = ({
+export const Radio: FC<Props> = ({
   size = "medium",
   className,
   disabled,
