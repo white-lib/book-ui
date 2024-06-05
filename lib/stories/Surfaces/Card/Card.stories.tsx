@@ -65,3 +65,39 @@ export const Main: Story = {
     ),
   },
 };
+
+export const ImageOnTop: Story = {
+  args: {
+    style: { maxWidth: 345 },
+    topSpace: false,
+    children: (
+      <>
+        <CardMedia
+          src={MountainImg}
+          height="194px"
+          alt="Mountains"
+          aria-label="Mountains"
+        />
+        <CardHeader
+          avatar={<Avatar>A</Avatar>}
+          title="Lorem impsum dolor sit"
+          subheader="Jun 3, 2024"
+        />
+        <CardContent>
+          <Typography variant="p">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            Accusantium animi commodi consequuntur cum.
+          </Typography>
+        </CardContent>
+        <CardActions disableSpacing>
+          <Button variant="text">
+            <FavoriteIcon />
+          </Button>
+          <Button variant="text">
+            <SaveIcon />
+          </Button>
+        </CardActions>
+      </>
+    ),
+  },
+};

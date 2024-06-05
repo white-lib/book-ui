@@ -6,13 +6,23 @@ import styles from "./Card.module.scss";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box } from "../../Layout/Box";
 
-type Props = {} & DetailedHTMLProps<
+type Props = { topSpace?: boolean; bottomSpace?: boolean } & DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 >;
 
-export const Card: FC<Props> = ({ children, ...props }) => {
-  const classNameVal = classnames(createClassName("card"), styles.main);
+export const Card: FC<Props> = ({
+  topSpace = true,
+  bottomSpace = true,
+  children,
+  ...props
+}) => {
+  const classNameVal = classnames(
+    createClassName("card"),
+    styles.main,
+    topSpace && styles.topSpace,
+    bottomSpace && styles.bottomSpace,
+  );
 
   return (
     <Box {...props} className={classNameVal}>
