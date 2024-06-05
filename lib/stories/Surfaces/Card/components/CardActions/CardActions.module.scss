@@ -1,5 +1,9 @@
 .main {
-  padding-left: rem(8);
+  padding-left: rem(16);
   display: flex;
   gap: rem(4);
+
+  &.disableSpacing {
+    padding-left: rem(8);
+  }
 }

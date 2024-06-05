@@ -7,7 +7,7 @@ import { createClassName } from "../../../helpers/createClassName.tsx";
 
 type Tags = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 
-type Props = { variant: Tags; component?: Tags; children: ReactNode };
+type Props = { variant?: Tags; component?: Tags; children: ReactNode };
 
 export const Typography: FC<Props> = ({
   variant = "p",

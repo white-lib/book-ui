@@ -21,7 +21,10 @@ export const CardActions: FC<Props> = ({
   children,
   ...props
 }) => {
-  const classNameVal = classnames(styles.main);
+  const classNameVal = classnames(
+    styles.main,
+    disableSpacing && styles.disableSpacing,
+  );
 
   return (
     <Box {...props} className={classNameVal}>
