@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import AvatarImg from "./assets/avatar.jpeg";
-import { Avatar } from "./Avatar.tsx";
+import { Image } from "./Image.tsx";
+import MountainImg from "./assets/mountain.jpeg";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Data Display/Avatar",
-  component: Avatar,
+  title: "Data Display/Image",
+  component: Image,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -14,7 +14,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-} satisfies Meta<typeof Avatar>;
+} satisfies Meta<typeof Image>;
 
 export default meta;
 
@@ -22,19 +22,7 @@ type Story = StoryObj<typeof meta>;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main: Story = {
   args: {
-    src: AvatarImg,
+    src: MountainImg,
     alt: "John Doe",
-  },
-};
-
-export const NoImage: Story = {
-  args: {
-    children: "A",
-  },
-};
-
-export const WithError: Story = {
-  args: {
-    src: "/error-path",
   },
 };

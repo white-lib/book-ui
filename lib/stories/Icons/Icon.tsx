@@ -4,7 +4,7 @@ import classnames from "classnames";
 import styles from "./Link.module.scss";
 import { createClassName } from "../../helpers/createClassName.tsx";
 
-type Props = React.SVGProps<SVGSVGElement>;
+export type Props = React.SVGProps<SVGSVGElement>;
 
 export const Icon: FC<Props> = ({
   children,

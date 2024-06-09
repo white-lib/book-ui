@@ -1,0 +1,14 @@
+@import "./../../Feedback/Skeleton/Skeleton.module";
+
+.main {
+   &.hidden {
+     display: none;
+   }
+}
+
+.error {
+  background: var(--loading-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

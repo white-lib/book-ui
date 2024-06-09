@@ -6,7 +6,7 @@ import styles from "./Skeleton.module.scss";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box } from "../../Layout/Box";
 
-type Props = {
+export type Props = {
   width?: number | string;
   height?: number | string;
   variant?: "text" | "circular" | "rectangular" | "rounded";

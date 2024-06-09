@@ -5,6 +5,7 @@ import styles from "./Avatar.module.scss";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box } from "../../Layout/Box";
+import { Image } from "../Image";
 
 type Props = {
   children?: ReactNode;
@@ -75,8 +76,9 @@ export const Avatar: FC<Props> = ({
   }
 
   return (
-    <img
+    <Image
       {...props}
+      skeleton="circular"
       src={src}
       alt={alt}
       width={width}
