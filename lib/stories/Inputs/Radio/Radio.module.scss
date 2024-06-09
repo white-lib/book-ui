@@ -1,7 +1,7 @@
 .main {
   -webkit-appearance: none;
   appearance: none;
-  border-radius: $tiny-border-radius;
+  border-radius: 50%;
   margin-right: 0.5em;
   border: 2px solid var(--primary-main);
   outline: none;
@@ -9,21 +9,17 @@
 
   &.checked {
     position: relative;
-    background: var(--primary-main);
 
     &::before {
       content: "";
       position: absolute;
       display: block;
-      top: 8%;
-      left: 35%;
-      width: 35%;
-      height: 70%;
-      border: solid var(--primary-text);
-      border-width: 0 2px 2px 0;
-      animation-name: rotate;
-      animation-duration: 0.3s;
-      animation-fill-mode: forwards;
+      border-radius: 50%;
+      width: 80%;
+      height: 80%;
+      left: 10%;
+      top: 10%;
+      background: var(--primary-main);
     }
   }
 }
@@ -47,15 +43,4 @@
 .large {
   width: 24px;
   height: 24px;
-}
-
-@keyframes rotate {
-  from {
-    opacity: 0;
-    transform: rotate(0deg);
-  }
-  to {
-    opacity: 1;
-    transform: rotate(45deg);
-  }
 }

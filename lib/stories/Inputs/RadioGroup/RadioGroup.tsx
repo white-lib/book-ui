@@ -1,4 +1,14 @@
-import { FC, DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
+import {
+  ChangeEvent,
+  Children,
+  cloneElement,
+  DetailedHTMLProps,
+  FC,
+  FieldsetHTMLAttributes,
+  ReactElement,
+  useCallback,
+  useState,
+} from "react";
 import classnames from "classnames";
 
 import styles from "./RadioGroup.module.scss";
@@ -6,47 +16,51 @@ import styles from "./RadioGroup.module.scss";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 
 type Props = {
-  size?: "small" | "medium" | "large";
-  label?: string;
+  name: string;
+  value?: string | number;
+  defaultValue?: string | number;
+  onChange?: (value: string | number) => void;
 } & Omit<
-  DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-  "size"
+  DetailedHTMLProps<
+    FieldsetHTMLAttributes<HTMLFieldSetElement>,
+    HTMLFieldSetElement
+  >,
+  "onChange"
 >;
 
 export const RadioGroup: FC<Props> = ({
-  size = "medium",
-  label,
-  className,
-  disabled,
-  checked,
+  name,
+  defaultValue,
+  value,
   onChange,
+  children,
   ...props
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(checked || false);
+  const [selectedValue, setSelectedValue] = useState<string | number | null>(
+    defaultValue || null,
+  );
 
-  const classNameVal = classnames(
-    createClassName("cb"),
-    styles.main,
-    styles[size],
-    isChecked && styles.checked,
-    disabled && styles.disabled,
-    className,
+  const classNameVal = classnames(createClassName("rg"), styles.main);
+
+  const onChangeInner = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      if (!value) {
+        setSelectedValue(e?.target?.value);
+      }
+      onChange?.(e?.target?.value);
+    },
+    [value, setSelectedValue],
   );
 
   return (
-    <label className={classnames(styles.label, disabled && styles.disabled)}>
-      <input
-        {...props}
-        className={classNameVal}
-        type="checkbox"
-        checked={isChecked}
-        disabled={disabled}
-        onChange={(e) => {
-          setIsChecked((prev) => !prev);
-          onChange?.(e);
-        }}
-      />
-      <span>{label}</span>
-    </label>
+    <fieldset {...props} id={name} className={classNameVal}>
+      {Children.map(children, (child) =>
+        cloneElement(child as ReactElement, {
+          name,
+          selectedValue: value || selectedValue,
+          onChange: onChangeInner,
+        }),
+      )}
+    </fieldset>
   );
 };

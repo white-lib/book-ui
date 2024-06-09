@@ -17,5 +17,9 @@ export const FormControl: FC<Props> = ({ children, className, ...props }) => {
     className,
   );
 
-  return <form {...props} className={classNameVal}></form>;
+  return (
+    <form {...props} className={classNameVal}>
+      {children}
+    </form>
+  );
 };

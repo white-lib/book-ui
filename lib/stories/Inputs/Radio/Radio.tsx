@@ -1,4 +1,4 @@
-import { FC, DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
+import { FC, DetailedHTMLProps, InputHTMLAttributes } from "react";
 import classnames from "classnames";
 
 import styles from "./Radio.module.scss";
@@ -20,13 +20,11 @@ export const Radio: FC<Props> = ({
   onChange,
   ...props
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(checked || false);
-
   const classNameVal = classnames(
-    createClassName("cb"),
+    createClassName("rd"),
     styles.main,
     styles[size],
-    isChecked && styles.checked,
+    checked && styles.checked,
     disabled && styles.disabled,
     className,
   );
@@ -35,11 +33,10 @@ export const Radio: FC<Props> = ({
     <input
       {...props}
       className={classNameVal}
-      type="checkbox"
-      checked={isChecked}
+      type="radio"
+      checked={checked}
       disabled={disabled}
       onChange={(e) => {
-        setIsChecked((prev) => !prev);
         onChange?.(e);
       }}
     />

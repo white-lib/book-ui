@@ -1,4 +1,11 @@
-import { DetailedHTMLProps, FC, ReactNode } from "react";
+import {
+  cloneElement,
+  DetailedHTMLProps,
+  FC,
+  LabelHTMLAttributes,
+  ReactElement,
+  ReactNode,
+} from "react";
 import classnames from "classnames";
 
 import styles from "./FormControlLabel.module.scss";
@@ -9,15 +16,18 @@ type Props = {
   label?: string;
   control?: ReactNode;
   disabled?: boolean;
-} & DetailedHTMLProps<
-  React.LabelHTMLAttributes<HTMLLabelElement>,
-  HTMLLabelElement
->;
+  name?: string;
+  value?: string;
+  selectedValue?: string;
+} & DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement>;
 
 export const FormControlLabel: FC<Props> = ({
   control,
   label,
+  name,
+  value,
   className,
+  selectedValue,
   ...props
 }) => {
   const classNameVal = classnames(
@@ -28,7 +38,12 @@ export const FormControlLabel: FC<Props> = ({
 
   return (
     <label {...props} className={classNameVal}>
-      {control}
+      {cloneElement(control as ReactElement, {
+        id: value,
+        name,
+        value,
+        checked: selectedValue === value,
+      })}
       {label && <span>{label}</span>}
     </label>
   );

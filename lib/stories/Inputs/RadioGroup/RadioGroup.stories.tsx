@@ -1,7 +1,9 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
 import { RadioGroup } from "./RadioGroup.tsx";
 import { FormControl } from "../../Form/FormControl";
+import { FormControlLabel, FormLabel, Radio } from "../../../main.ts";
+import { useState } from "react";
 // import { FormControlLabel } from "../../Form/FormControlLabel";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -19,34 +21,48 @@ const meta = {
 } satisfies Meta<typeof RadioGroup>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
+// type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main = () => (
   <FormControl>
-    <RadioGroup>
-      {/*<FormControlLabel label="Label" control={<Checkbox />} />*/}
+    <RadioGroup name="gender">
+      <FormLabel>Gender</FormLabel>
+      <FormControlLabel label="Male" value="male" control={<Radio />} />
+      <FormControlLabel label="Female" value="female" control={<Radio />} />
+      <FormControlLabel label="Other" value="other" control={<Radio />} />
     </RadioGroup>
   </FormControl>
 );
 
-export const WithLabel: Story = {
-  args: {
-    label: "Label",
-  },
+export const WithDefaultValue = () => (
+  <FormControl>
+    <RadioGroup name="gender" defaultValue="male">
+      <FormLabel>Gender</FormLabel>
+      <FormControlLabel label="Male" value="male" control={<Radio />} />
+      <FormControlLabel label="Female" value="female" control={<Radio />} />
+      <FormControlLabel label="Other" value="other" control={<Radio />} />
+    </RadioGroup>
+  </FormControl>
+);
+
+export const Controlled = () => {
+  const [value, setValue] = useState<string | number>("male");
+
+  return (
+    <FormControl>
+      <RadioGroup
+        name="gender"
+        value={value}
+        onChange={(value) => {
+          setValue(value);
+        }}
+      >
+        <FormLabel>Gender</FormLabel>
+        <FormControlLabel label="Male" value="male" control={<Radio />} />
+        <FormControlLabel label="Female" value="female" control={<Radio />} />
+        <FormControlLabel label="Other" value="other" control={<Radio />} />
+      </RadioGroup>
+    </FormControl>
+  );
 };
-
-export const Sizes = () => (
-  <div style={{ display: "flex", gap: "12px" }}>
-    <RadioGroup size="small" />
-    <RadioGroup size="medium" />
-    <RadioGroup size="large" />
-  </div>
-);
-
-export const Disabled = () => (
-  <div style={{ display: "flex", gap: "12px" }}>
-    <RadioGroup disabled label="Disabled" />
-    <RadioGroup disabled checked label="Disabled" />
-  </div>
-);
