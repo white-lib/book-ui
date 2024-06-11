@@ -43,7 +43,7 @@ export const Button: FC<Props> = ({
     styles.main,
     styles[variant],
     styles[size],
-    disabled && styles.disabled,
+    disabled && "disabled",
     disableSpacing && styles.disableSpacing,
     className,
   );

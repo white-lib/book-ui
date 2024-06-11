@@ -1,32 +1,33 @@
 .main {
-  background: var(--loading-light);
-  animation: pulsate 2s infinite;
+  background: var(--skeleton-gradient-from-color);
+  animation: pulsate var(--motion-duration-skeleton) infinite;
 }
 
 .text {
   height: rem(16);
   width: 100%;
-  border-radius: $tiny-border-radius;
+  border-radius: var(--border-radius-sm);
 }
 
 .circular {
   border-radius: 50%;
 }
 
-.rectagular {}
+.rectangular {
+}
 
 .rounded {
-  border-radius: $tiny-border-radius;
+  border-radius: var(--border-radius-md);
 }
 
 @keyframes pulsate {
   0% {
-    background: var(--loading-light);
+    background: var(--skeleton-gradient-from-color);
   }
   50% {
-    background: var(--loading-main);
+    background: var(--skeleton-gradient-to-color);
   }
   100% {
-    background: var(--loading-light);
+    background: var(--skeleton-gradient-from-color);
   }
 }

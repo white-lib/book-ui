@@ -46,6 +46,25 @@ export const WithDefaultValue = () => (
   </FormControl>
 );
 
+export const Sizes = () => (
+  <FormControl>
+    <RadioGroup name="size">
+      <FormLabel>Size</FormLabel>
+      <FormControlLabel
+        label="Small"
+        value="small"
+        control={<Radio size="small" />}
+      />
+      <FormControlLabel label="Medium" value="medium" control={<Radio />} />
+      <FormControlLabel
+        label="Large"
+        value="large"
+        control={<Radio size="large" />}
+      />
+    </RadioGroup>
+  </FormControl>
+);
+
 export const Controlled = () => {
   const [value, setValue] = useState<string | number>("male");
 

@@ -16,7 +16,7 @@ export type Props = {
 export const Skeleton: FC<Props> = ({
   width,
   height,
-  variant = "rounded",
+  variant = "rectangular",
   children,
   className,
   ...props

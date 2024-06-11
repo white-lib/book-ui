@@ -1,2 +1,14 @@
 @forward "variables";
 @forward "functions";
+
+@mixin disabled {
+  pointer-events: var(--disabled-pointer-events);
+  cursor: var(--disabled-cursor);
+  filter: var(--disabled-filter);
+  opacity: var(--disabled-opacity);
+}
+
+.disabled,
+*:disabled {
+  @include disabled;
+}

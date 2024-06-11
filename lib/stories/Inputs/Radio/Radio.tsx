@@ -25,7 +25,7 @@ export const Radio: FC<Props> = ({
     styles.main,
     styles[size],
     checked && styles.checked,
-    disabled && styles.disabled,
+    disabled && "disabled",
     className,
   );
 

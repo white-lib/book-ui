@@ -23,6 +23,8 @@ type Story = StoryObj<typeof meta>;
 export const Main: Story = {
   args: {
     src: MountainImg,
+    width: "300px",
+    height: "168px",
     alt: "John Doe",
   },
 };

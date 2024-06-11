@@ -27,7 +27,7 @@ export const Checkbox: FC<Props> = ({
     styles.main,
     styles[size],
     isChecked && styles.checked,
-    disabled && styles.disabled,
+    disabled && "disabled",
     className,
   );
 

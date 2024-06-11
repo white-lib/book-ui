@@ -1,18 +1,18 @@
 .main {
-  background: var(--surface-main);
-  box-shadow: 0 0 2px var(--surface-shadow);
-  border-radius: $primary-border-radius;
+  background: var(--color-bg-container);
+  box-shadow: var(--box-shadow-card);
+  border-radius: var(--border-radius-lg);
   overflow: hidden;
-  gap: rem(16);
+  gap: var(--margin);
   display: flex;
   flex-direction: column;
   width: 100%;
 
   &.topSpace {
-    padding-top: rem(16);
+    padding-top: var(--margin);
   }
 
   &.bottomSpace {
-    padding-bottom: rem(16);
+    padding-bottom: var(--margin);
   }
 }

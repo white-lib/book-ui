@@ -1,13 +1,13 @@
 @import "./../../Feedback/Skeleton/Skeleton.module";
 
 .main {
-   &.hidden {
-     display: none;
-   }
+  &.hidden {
+    display: none;
+  }
 }
 
 .error {
-  background: var(--loading-light);
+  background: var(--color-no-image);
   display: flex;
   align-items: center;
   justify-content: center;

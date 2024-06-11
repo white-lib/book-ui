@@ -1,0 +1,104 @@
+.main {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  border: 2px solid transparent;
+  user-select: none;
+  text-decoration: none;
+  gap: rem(6);
+  font-size: $primary-font-size;
+  font-weight: 500;
+  transition: box-shadow 0.1s linear, border-color 0.1s linear, background 0.1s linear;
+
+  &.contained {
+    background: var(--primary-main);
+    color: var(--primary-text);
+    border-radius: $primary-border-radius;
+    box-shadow: 0 0 1px 1px var(--primary-dark);
+
+    @media (hover: hover) {
+      &:not(:disabled):not(.disabled):hover {
+        background: var(--primary-light);
+        box-shadow: 0 0 3px 1px var(--primary-dark);
+      }
+
+      &:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 3px var(--primary-dark);
+      }
+    }
+
+    @media (hover: none) {
+      &:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 3px var(--primary-dark);
+      }
+    }
+  }
+
+  &.outlined {
+    border: 2px solid var(--primary-main);
+    color: var(--primary-text);
+    border-radius: $primary-border-radius;
+
+    @media (hover: hover) {
+      &:not(:disabled):not(.disabled):hover {
+        box-shadow: 0 0 3px 1px var(--primary-main);
+      }
+
+      &:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 2px var(--primary-main);
+      }
+    }
+
+    @media (hover: none) {
+      &:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 2px var(--primary-main);
+      }
+    }
+  }
+
+  &.text {
+    color: var(--primary-text);
+    border-radius: $primary-border-radius;
+
+    @media (hover: hover) {
+      &:not(:disabled):not(.disabled):hover {
+        background: var(--primary-light);
+      }
+
+      &:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 3px var(--primary-dark);
+      }
+    }
+
+    @media (hover: none) {
+      &:not(:disabled):not(.disabled):active {
+        box-shadow: 0 0 0 3px var(--primary-dark);
+      }
+    }
+  }
+
+  &.small {
+    height: rem(24);
+    padding: rem(0) rem(8);
+    border-radius: $secondary-border-radius;
+  }
+  &.medium {
+    height: rem(32);
+    padding: rem(0) rem(8);
+  }
+  &.large {
+    height: rem(40);
+    padding: rem(0) rem(12);
+  }
+
+  &:disabled, &.disabled {
+    cursor: not-allowed;
+    filter: grayscale(1);
+    pointer-events: none;
+    opacity: 0.7;
+  }
+
+  &.disableSpacing {
+    padding: rem(8);
+  }
+}

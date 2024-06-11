@@ -4,6 +4,7 @@ import { Icon } from "./Icon.tsx";
 import FavoriteIcon from "./assets/Favorite.tsx";
 import SaveIcon from "./assets/Save.tsx";
 import LoadingIcon from "./assets/Loading.tsx";
+import BrokenImage from "./assets/BrokenImage.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -30,6 +31,7 @@ export const Icons = () => {
       <FavoriteIcon />
       <SaveIcon />
       <LoadingIcon />
+      <BrokenImage />
     </div>
   );
 };

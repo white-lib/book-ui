@@ -2,100 +2,140 @@
   display: inline-flex;
   align-items: center;
   cursor: pointer;
-  border: 2px solid transparent;
   user-select: none;
   text-decoration: none;
-  gap: rem(6);
-  font-size: $primary-font-size;
-  font-weight: 500;
-  transition: box-shadow 0.1s linear, border-color 0.1s linear, background 0.1s linear;
+  border-color: transparent;
+
+  border-width: var(--button-border-width);
+  border-style: var(--button-border-style);
+  gap: var(--margin-xs);
+  font-size: var(--font-size);
+  font-weight: var(--button-font-weight);
+  color: var(--button-primary-color);
+
+  transition:
+    box-shadow var(--motion-duration-fast) var(--motion-ease-in-out),
+    border-color var(--motion-duration-fast) var(--motion-ease-in-out),
+    background var(--motion-duration-fast) var(--motion-ease-in-out);
+
+  @mixin contained-active {
+    background: var(--button-contained-active-bg);
+    color: var(--button-contained-active-color);
+    border-color: var(--button-contained-active-border-color);
+    box-shadow: var(--button-contained-active-shadow);
+  }
 
   &.contained {
-    background: var(--primary-main);
-    color: var(--primary-text);
-    border-radius: $primary-border-radius;
-    box-shadow: 0 0 1px 1px var(--primary-dark);
+    background: var(--button-contained-bg);
+    color: var(--button-contained-color);
+    border-color: var(--button-contained-border-color);
+    box-shadow: var(--button-contained-shadow);
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        background: var(--primary-light);
-        box-shadow: 0 0 3px 1px var(--primary-dark);
+        background: var(--button-contained-hover-bg);
+        color: var(--button-contained-hover-color);
+        border-color: var(--button-contained-hover-border-color);
+        box-shadow: var(--button-contained-hover-shadow);
       }
 
       &:not(:disabled):not(.disabled):active {
-        box-shadow: 0 0 0 3px var(--primary-dark);
+        @include contained-active;
       }
     }
 
     @media (hover: none) {
       &:not(:disabled):not(.disabled):active {
-        box-shadow: 0 0 0 3px var(--primary-dark);
+        @include contained-active;
       }
     }
+  }
+
+  @mixin outlined-active {
+    background: var(--button-outlined-active-bg);
+    color: var(--button-outlined-active-color);
+    border-color: var(--button-outlined-active-border-color);
+    box-shadow: var(--button-outlined-active-shadow);
   }
 
   &.outlined {
-    border: 2px solid var(--primary-main);
-    color: var(--primary-text);
-    border-radius: $primary-border-radius;
+    background: var(--button-outlined-bg);
+    color: var(--button-outlined-color);
+    border-color: var(--button-outlined-border-color);
+    box-shadow: var(--button-outlined-shadow);
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        box-shadow: 0 0 3px 1px var(--primary-main);
+        background: var(--button-outlined-hover-bg);
+        color: var(--button-outlined-hover-color);
+        border-color: var(--button-outlined-hover-border-color);
+        box-shadow: var(--button-outlined-hover-shadow);
       }
 
       &:not(:disabled):not(.disabled):active {
-        box-shadow: 0 0 0 2px var(--primary-main);
+        @include outlined-active;
       }
     }
 
     @media (hover: none) {
       &:not(:disabled):not(.disabled):active {
-        box-shadow: 0 0 0 2px var(--primary-main);
+        @include outlined-active;
       }
     }
   }
 
+  @mixin text-active {
+    background: var(--button-text-active-bg);
+    color: var(--button-text-active-color);
+    border-color: var(--button-text-active-border-color);
+    box-shadow: var(--button-text-active-shadow);
+  }
+
   &.text {
-    color: var(--primary-text);
-    border-radius: $primary-border-radius;
+    background: var(--button-text-bg);
+    color: var(--button-text-color);
+    border-color: var(--button-text-border-color);
+    box-shadow: var(--button-text-shadow);
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        background: var(--primary-light);
+        background: var(--button-text-hover-bg);
+        color: var(--button-text-hover-color);
+        border-color: var(--button-text-hover-border-color);
+        box-shadow: var(--button-text-hover-shadow);
       }
 
       &:not(:disabled):not(.disabled):active {
-        box-shadow: 0 0 0 3px var(--primary-dark);
+        @include text-active;
       }
     }
 
     @media (hover: none) {
       &:not(:disabled):not(.disabled):active {
-        box-shadow: 0 0 0 3px var(--primary-dark);
+        @include text-active;
       }
     }
   }
 
   &.small {
-    height: rem(32);
-    padding: rem(0) rem(8);
-    border-radius: $secondary-border-radius;
-  }
-  &.medium {
-    height: rem(40);
-    padding: rem(0) rem(8);
-  }
-  &.large {
-    height: rem(46);
-    padding: rem(0) rem(12);
+    height: var(--button-height-sm);
+    padding: var(--button-padding-sm);
+    font-size: var(--button-content-font-size-sm);
+    border-radius: var(--border-radius-md);
   }
 
-  &:disabled, &.disabled {
-    cursor: not-allowed;
-    filter: grayscale(1);
-    pointer-events: none;
-    opacity: 0.7;
+  &.medium {
+    height: var(--button-height);
+    padding: var(--button-padding);
+    font-size: var(--button-content-font-size);
+    border-radius: var(--border-radius);
+  }
+
+  &.large {
+    height: var(--button-height-lg);
+    padding: var(--button-padding-lg);
+    font-size: var(--button-content-font-size-lg);
+    border-radius: var(--border-radius-lg);
   }
 
   &.disableSpacing {
