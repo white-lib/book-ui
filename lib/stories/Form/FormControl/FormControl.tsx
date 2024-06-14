@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
 import classnames from "classnames";
 
-import styles from "./FormControl.module.scss";
+import styles from "./FormControl.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

@@ -1,7 +1,7 @@
 import { FC, DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 import classnames from "classnames";
 
-import styles from "./Checkbox.module.scss";
+import styles from "./Checkbox.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

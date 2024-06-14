@@ -1,0 +1,32 @@
+@mixin disabled {
+  .disabled,
+  *:disabled {
+    pointer-events: var(--disabled-pointer-events);
+    cursor: var(--disabled-cursor);
+    filter: var(--disabled-filter);
+    opacity: var(--disabled-opacity);
+  }
+}
+
+@mixin input-small {
+  .input-small {
+    height: var(--input-height-sm);
+    font-size: var(--input-font-size-sm);
+    border-radius: var(--border-radius-md);
+  }
+}
+
+@mixin input-medium {
+  .input-medium {
+    height: var(--input-height);
+    border-radius: var(--border-radius);
+  }
+}
+
+@mixin input-large {
+  .input-large {
+    height: var(--input-height-lg);
+    font-size: var(--input-font-size-lg);
+    border-radius: var(--border-radius-lg);
+  }
+}

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $spacing: (
   "sm": calc(var(--margin-sm) / 2),
   "md": calc(var(--margin-md) / 2),
@@ -31,14 +33,14 @@ $alignItems: (flex-start, center, flex-end);
 
   @for $i from 1 to 13 {
     &.xs-#{$i} {
-      flex-basis: divide($i, 12) * 100%;
+      flex-basis: math.div($i, 12) * 100%;
     }
   }
 
   @include breakpoint("sm") {
     @for $i from 1 to 13 {
       &.sm-#{$i} {
-        flex-basis: divide($i, 12) * 100%;
+        flex-basis: math.div($i, 12) * 100%;
       }
     }
   }
@@ -46,7 +48,7 @@ $alignItems: (flex-start, center, flex-end);
   @include breakpoint("md") {
     @for $i from 1 to 13 {
       &.md-#{$i} {
-        flex-basis: divide($i, 12) * 100%;
+        flex-basis: math.div($i, 12) * 100%;
       }
     }
   }
@@ -54,7 +56,7 @@ $alignItems: (flex-start, center, flex-end);
   @include breakpoint("lg") {
     @for $i from 1 to 13 {
       &.lg-#{$i} {
-        flex-basis: divide($i, 12) * 100%;
+        flex-basis: math.div($i, 12) * 100%;
       }
     }
   }

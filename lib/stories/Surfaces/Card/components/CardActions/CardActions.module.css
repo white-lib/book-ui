@@ -1,0 +1,10 @@
+.main {
+  padding-left: var(--margin);
+  display: flex;
+  gap: var(--margin-xxs);
+}
+.main.disableSpacing {
+  padding-left: var(--margin-xs);
+}
+
+/*# sourceMappingURL=CardActions.module.css.map */

@@ -21,7 +21,7 @@ export default defineConfig({
         // https://rollupjs.org/configuration-options/#input
         glob
           .sync("lib/**/*.{ts,tsx}", {
-            ignore: ["lib/**/*.d.ts"],
+            ignore: ["lib/**/*.d.ts", "lib/**/*.stories.tsx"],
           })
           .map((file) => [
             // 1. The name of the entry point
@@ -43,11 +43,11 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./lib", import.meta.url)),
     },
   },
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "lib/assets/styles/global.scss";`,
-      },
-    },
-  },
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       additionalData: `@import "lib/assets/styles/global.scss";`,
+  //     },
+  //   },
+  // },
 });

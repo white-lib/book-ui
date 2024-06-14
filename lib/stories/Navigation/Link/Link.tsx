@@ -7,7 +7,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import styles from "./Link.module.scss";
+import styles from "./Link.module.css";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { useBaseContext } from "../../../system/base.provider.tsx";
 

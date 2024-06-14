@@ -9,7 +9,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import styles from "./TextField.module.scss";
+import styles from "./TextField.module.css";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
 
@@ -54,9 +54,9 @@ export const TextField: FC<Props> = ({
     styles.main,
     styles[variant],
     styles[size],
-    size && `input-${size}`,
+    size && styles[`input-${size}`],
     error && styles.error,
-    disabled && "disabled",
+    disabled && styles.disabled,
     className,
   );
 

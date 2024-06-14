@@ -1,0 +1,9 @@
+.main {
+  border-radius: 50%;
+  background: var(--color-error-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=Avatar.module.css.map */

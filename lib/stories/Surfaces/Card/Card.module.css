@@ -1,0 +1,18 @@
+.main {
+  background: var(--color-bg-container);
+  box-shadow: var(--box-shadow-card);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  gap: var(--margin);
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.main.topSpace {
+  padding-top: var(--margin);
+}
+.main.bottomSpace {
+  padding-bottom: var(--margin);
+}
+
+/*# sourceMappingURL=Card.module.css.map */

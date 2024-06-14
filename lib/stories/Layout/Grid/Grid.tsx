@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import classnames from "classnames";
 
-import styles from "./Grid.module.scss";
+import styles from "./Grid.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

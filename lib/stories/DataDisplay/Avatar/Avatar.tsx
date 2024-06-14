@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, ImgHTMLAttributes, ReactNode } from "react";
 import classnames from "classnames";
 
-import styles from "./Avatar.module.scss";
+import styles from "./Avatar.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box } from "../../Layout/Box";

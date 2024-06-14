@@ -1,9 +1,9 @@
 .main {
-  padding-left: rem(16);
+  padding-left: var(--margin);
   display: flex;
-  gap: rem(4);
+  gap: var(--margin-xxs);
 
   &.disableSpacing {
-    padding-left: rem(8);
+    padding-left: var(--margin-xs);
   }
 }

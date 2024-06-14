@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import classnames from "classnames";
 
-import styles from "./GridRuler.module.scss";
+import styles from "./GridRuler.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

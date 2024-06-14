@@ -12,7 +12,7 @@ import { createClassName } from "../../../helpers/createClassName.tsx";
 
 import { Props as ButtonProps } from "../Button/Button.tsx";
 
-import styles from "./ButtonGroup.module.scss";
+import styles from "./ButtonGroup.module.css";
 import { Box } from "../../Layout/Box";
 
 type Props = { orientation?: "horizontal" | "vertical" } & Pick<

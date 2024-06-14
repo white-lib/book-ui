@@ -1,7 +1,7 @@
 import { FC, DetailedHTMLProps, InputHTMLAttributes } from "react";
 import classnames from "classnames";
 
-import styles from "./Radio.module.scss";
+import styles from "./Radio.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

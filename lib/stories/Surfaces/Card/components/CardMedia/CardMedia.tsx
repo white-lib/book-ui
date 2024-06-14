@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, ImgHTMLAttributes, ReactNode } from "react";
 import classnames from "classnames";
 
-import styles from "./CardMedia.module.scss";
+import styles from "./CardMedia.module.css";
 
 import { createClassName } from "../../../../../helpers/createClassName.tsx";
 

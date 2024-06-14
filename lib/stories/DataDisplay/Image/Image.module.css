@@ -1,0 +1,42 @@
+.main {
+  background: var(--skeleton-gradient-from-color);
+  animation: pulsate var(--motion-duration-skeleton) infinite;
+}
+
+.text {
+  height: 16px;
+  width: 100%;
+  border-radius: var(--border-radius-sm);
+}
+
+.circular {
+  border-radius: 50%;
+}
+
+.rounded {
+  border-radius: var(--border-radius-md);
+}
+
+@keyframes pulsate {
+  0% {
+    background: var(--skeleton-gradient-from-color);
+  }
+  50% {
+    background: var(--skeleton-gradient-to-color);
+  }
+  100% {
+    background: var(--skeleton-gradient-from-color);
+  }
+}
+.main.hidden {
+  display: none;
+}
+
+.error {
+  background: var(--color-no-image);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*# sourceMappingURL=Image.module.css.map */

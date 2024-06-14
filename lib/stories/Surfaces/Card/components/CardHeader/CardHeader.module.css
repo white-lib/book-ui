@@ -1,0 +1,15 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--margin);
+}
+.main .leftSide {
+  gap: var(--margin);
+  display: flex;
+}
+.main .leftSide .titleSubheader {
+  display: flex;
+  flex-direction: column;
+}
+
+/*# sourceMappingURL=CardHeader.module.css.map */

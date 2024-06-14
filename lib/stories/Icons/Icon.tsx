@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classnames from "classnames";
 
-import styles from "./Link.module.scss";
+import styles from "./Link.module.css";
 import { createClassName } from "../../helpers/createClassName.tsx";
 
 export type Props = React.SVGProps<SVGSVGElement>;

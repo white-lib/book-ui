@@ -11,9 +11,10 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
+    "build:watch": "tsc --p ./tsconfig-build.json && vite build --watch",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "watch:scss": "sass --watch lib/:lib\n",
+    "watch:scss": "sass --watch lib:lib",
     "prepublishOnly": "npm run build",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"

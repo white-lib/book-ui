@@ -1,7 +1,7 @@
 import { createElement, DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import classnames from "classnames";
 
-import styles from "./Box.module.scss";
+import styles from "./Box.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

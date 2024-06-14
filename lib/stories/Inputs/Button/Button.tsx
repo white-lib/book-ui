@@ -7,7 +7,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import styles from "./Button.module.scss";
+import styles from "./Button.module.css";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Link } from "../../../main.ts";
 import LoadingIcon from "../../Icons/assets/Loading.tsx";
@@ -43,8 +43,8 @@ export const Button: FC<Props> = ({
     styles.main,
     styles[variant],
     styles[size],
-    size && `input-${size}`,
-    disabled && "disabled",
+    size && styles[`input-${size}`],
+    disabled && styles.disabled,
     disableSpacing && styles.disableSpacing,
     className,
   );

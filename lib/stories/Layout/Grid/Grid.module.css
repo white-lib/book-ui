@@ -1,0 +1,198 @@
+.main.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+.main.item {
+  display: block;
+}
+.main.xs-1 {
+  flex-basis: 8.3333333333%;
+}
+.main.xs-2 {
+  flex-basis: 16.6666666667%;
+}
+.main.xs-3 {
+  flex-basis: 25%;
+}
+.main.xs-4 {
+  flex-basis: 33.3333333333%;
+}
+.main.xs-5 {
+  flex-basis: 41.6666666667%;
+}
+.main.xs-6 {
+  flex-basis: 50%;
+}
+.main.xs-7 {
+  flex-basis: 58.3333333333%;
+}
+.main.xs-8 {
+  flex-basis: 66.6666666667%;
+}
+.main.xs-9 {
+  flex-basis: 75%;
+}
+.main.xs-10 {
+  flex-basis: 83.3333333333%;
+}
+.main.xs-11 {
+  flex-basis: 91.6666666667%;
+}
+.main.xs-12 {
+  flex-basis: 100%;
+}
+@media screen and (min-width: 600px) {
+  .main.sm-1 {
+    flex-basis: 8.3333333333%;
+  }
+  .main.sm-2 {
+    flex-basis: 16.6666666667%;
+  }
+  .main.sm-3 {
+    flex-basis: 25%;
+  }
+  .main.sm-4 {
+    flex-basis: 33.3333333333%;
+  }
+  .main.sm-5 {
+    flex-basis: 41.6666666667%;
+  }
+  .main.sm-6 {
+    flex-basis: 50%;
+  }
+  .main.sm-7 {
+    flex-basis: 58.3333333333%;
+  }
+  .main.sm-8 {
+    flex-basis: 66.6666666667%;
+  }
+  .main.sm-9 {
+    flex-basis: 75%;
+  }
+  .main.sm-10 {
+    flex-basis: 83.3333333333%;
+  }
+  .main.sm-11 {
+    flex-basis: 91.6666666667%;
+  }
+  .main.sm-12 {
+    flex-basis: 100%;
+  }
+}
+@media screen and (min-width: 600px) {
+  .main.md-1 {
+    flex-basis: 8.3333333333%;
+  }
+  .main.md-2 {
+    flex-basis: 16.6666666667%;
+  }
+  .main.md-3 {
+    flex-basis: 25%;
+  }
+  .main.md-4 {
+    flex-basis: 33.3333333333%;
+  }
+  .main.md-5 {
+    flex-basis: 41.6666666667%;
+  }
+  .main.md-6 {
+    flex-basis: 50%;
+  }
+  .main.md-7 {
+    flex-basis: 58.3333333333%;
+  }
+  .main.md-8 {
+    flex-basis: 66.6666666667%;
+  }
+  .main.md-9 {
+    flex-basis: 75%;
+  }
+  .main.md-10 {
+    flex-basis: 83.3333333333%;
+  }
+  .main.md-11 {
+    flex-basis: 91.6666666667%;
+  }
+  .main.md-12 {
+    flex-basis: 100%;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .main.lg-1 {
+    flex-basis: 8.3333333333%;
+  }
+  .main.lg-2 {
+    flex-basis: 16.6666666667%;
+  }
+  .main.lg-3 {
+    flex-basis: 25%;
+  }
+  .main.lg-4 {
+    flex-basis: 33.3333333333%;
+  }
+  .main.lg-5 {
+    flex-basis: 41.6666666667%;
+  }
+  .main.lg-6 {
+    flex-basis: 50%;
+  }
+  .main.lg-7 {
+    flex-basis: 58.3333333333%;
+  }
+  .main.lg-8 {
+    flex-basis: 66.6666666667%;
+  }
+  .main.lg-9 {
+    flex-basis: 75%;
+  }
+  .main.lg-10 {
+    flex-basis: 83.3333333333%;
+  }
+  .main.lg-11 {
+    flex-basis: 91.6666666667%;
+  }
+  .main.lg-12 {
+    flex-basis: 100%;
+  }
+}
+.main.spacing-sm {
+  margin: calc(var(--margin-sm) / 2 * -1);
+}
+.main.spacing-sm > .main.item {
+  padding: calc(var(--margin-sm) / 2);
+}
+.main.spacing-md {
+  margin: calc(var(--margin-md) / 2 * -1);
+}
+.main.spacing-md > .main.item {
+  padding: calc(var(--margin-md) / 2);
+}
+.main.spacing-lg {
+  margin: calc(var(--margin-lg) / 2 * -1);
+}
+.main.spacing-lg > .main.item {
+  padding: calc(var(--margin-lg) / 2);
+}
+.main.justifyContent-flex-start {
+  justify-content: flex-start;
+}
+.main.justifyContent-center {
+  justify-content: center;
+}
+.main.justifyContent-flex-end {
+  justify-content: flex-end;
+}
+.main.justifyContent-space-between {
+  justify-content: space-between;
+}
+.main.alignItems-flex-start {
+  align-items: flex-start;
+}
+.main.alignItems-center {
+  align-items: center;
+}
+.main.alignItems-flex-end {
+  align-items: flex-end;
+}
+
+/*# sourceMappingURL=Grid.module.css.map */

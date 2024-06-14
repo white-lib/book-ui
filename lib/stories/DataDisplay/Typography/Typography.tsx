@@ -1,7 +1,7 @@
 import { createElement, FC, ReactNode } from "react";
 import classnames from "classnames";
 
-import styles from "./Typography.module.scss";
+import styles from "./Typography.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

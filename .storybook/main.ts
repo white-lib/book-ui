@@ -28,13 +28,13 @@ const config: StorybookConfig = {
       {
         css: {
           postcss: null,
-          preprocessorOptions: {
-            scss: {
-              additionalData: `
-                  @import "../lib/assets/styles/global.scss";
-              `,
-            },
-          },
+          // preprocessorOptions: {
+          //   scss: {
+          //     additionalData: `
+          //         @import "../lib/assets/styles/global.scss";
+          //     `,
+          //   },
+          // },
         },
       },
     );

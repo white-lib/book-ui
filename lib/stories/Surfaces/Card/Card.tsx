@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import classnames from "classnames";
 
-import styles from "./Card.module.scss";
+import styles from "./Card.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box } from "../../Layout/Box";

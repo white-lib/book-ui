@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from "react";
 import classnames from "classnames";
 
-import styles from "./CardHeader.module.scss";
+import styles from "./CardHeader.module.css";
 
 import { Typography } from "../../../../DataDisplay/Typography";
 import { Box } from "../../../../Layout/Box";

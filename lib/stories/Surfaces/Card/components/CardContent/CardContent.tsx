@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import classnames from "classnames";
 
-import styles from "./CardContent.module.scss";
+import styles from "./CardContent.module.css";
 import { Box } from "../../../../Layout/Box";
 
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;

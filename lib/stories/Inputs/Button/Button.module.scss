@@ -1,6 +1,14 @@
+@import "./../../../assets/styles/mixins.scss";
+
+@include disabled;
+@include input-small;
+@include input-medium;
+@include input-large;
+
 .main {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
   user-select: none;
   text-decoration: none;
@@ -114,6 +122,6 @@
   }
 
   &.disableSpacing {
-    padding: rem(8);
+    padding: var(--margin-xs);
   }
 }

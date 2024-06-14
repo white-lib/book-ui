@@ -1,0 +1,58 @@
+.main {
+  display: flex;
+  gap: 0;
+}
+.main > button:not(:first-child):not(:last-child), .main > a:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+.main.horizontal {
+  align-items: center;
+  justify-content: center;
+}
+.main.horizontal > button:first-child, .main.horizontal > a:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.main.horizontal > button:last-child, .main.horizontal > a:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.main.vertical {
+  flex-direction: column;
+}
+.main.vertical > button:first-child, .main.vertical > a:first-child {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.main.vertical > button:last-child, .main.vertical > a:last-child {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.main.outlined.horizontal > button:not(:first-child):not(:last-child), .main.outlined.horizontal > a:not(:first-child):not(:last-child) {
+  border-left: var(--button-group-border-width-between) solid var(--button-outlined-border-color);
+  border-right: var(--button-group-border-width-between) solid var(--button-outlined-border-color);
+}
+.main.outlined.horizontal > button:first-child, .main.outlined.horizontal > a:first-child {
+  border-right-width: var(--button-group-border-width-between);
+}
+.main.outlined.horizontal > button:last-child, .main.outlined.horizontal > a:last-child {
+  border-left-width: var(--button-group-border-width-between);
+}
+.main.outlined.horizontal > button:not(:disabled):not(.disabled):active, .main.outlined.horizontal > a:not(:disabled):not(.disabled):active {
+  z-index: 2;
+}
+.main.outlined.vertical > button:not(:first-child):not(:last-child), .main.outlined.vertical > a:not(:first-child):not(:last-child) {
+  border-top-width: var(--button-group-border-width-between);
+  border-bottom-width: var(--button-group-border-width-between);
+}
+.main.outlined.vertical > button:first-child, .main.outlined.vertical > a:first-child {
+  border-bottom-width: var(--button-group-border-width-between);
+}
+.main.outlined.vertical > button:last-child, .main.outlined.vertical > a:last-child {
+  border-top-width: var(--button-group-border-width-between);
+}
+.main.text > button:not(:disabled):not(.disabled):active, .main.text > a:not(:disabled):not(.disabled):active {
+  z-index: 2;
+}
+
+/*# sourceMappingURL=ButtonGroup.module.css.map */

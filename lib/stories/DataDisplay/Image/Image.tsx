@@ -8,7 +8,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import styles from "./Image.module.scss";
+import styles from "./Image.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

@@ -1,7 +1,7 @@
 import { DetailedHTMLProps, FC } from "react";
 import classnames from "classnames";
 
-import styles from "./FormLabel.module.scss";
+import styles from "./FormLabel.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 

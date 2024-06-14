@@ -8,7 +8,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import styles from "./CardActions.module.scss";
+import styles from "./CardActions.module.css";
 import { Box } from "../../../../Layout/Box";
 
 type Props = { disableSpacing?: boolean } & DetailedHTMLProps<
