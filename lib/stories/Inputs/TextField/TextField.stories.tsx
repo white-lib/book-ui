@@ -50,11 +50,31 @@ export const Filled: Story = {
   },
 };
 
+export const Borderless: Story = {
+  args: {
+    placeholder: "Borderless",
+    variant: "borderless",
+  },
+};
+
+export const Properties = () => (
+  <div style={{ display: "flex", gap: "12px" }}>
+    <TextField placeholder="Properties" helperText="Some helper text" />
+    <TextField placeholder="Required" helperText="Some helper text" required />
+    <TextField
+      placeholder="With Error"
+      helperText="Some helper text"
+      error="This field is required"
+      required
+    />
+  </div>
+);
+
 export const Sizes = () => (
-  <div style={{ display: "flex", gap: "6px" }}>
-    <TextField size="small" />
-    <TextField size="medium" />
-    <TextField size="large" />
+  <div style={{ display: "flex", gap: "12px" }}>
+    <TextField size="small" variant="outlined" />
+    <TextField size="medium" variant="outlined" />
+    <TextField size="large" variant="outlined" />
   </div>
 );
 
@@ -62,17 +82,9 @@ export const WithIcons = () => (
   <div style={{ display: "flex", gap: "12px" }}>
     <TextField startIcon={<FavoriteIcon />} />
     <TextField endIcon={<SaveIcon />} />
-    <TextField disableSpacing />
+    <TextField startIcon={<FavoriteIcon />} endIcon={<SaveIcon />} />
   </div>
 );
-
-// export const Loading: Story = {
-//   args: {
-//     children: "Loading",
-//     variant: "contained",
-//     loading: true,
-//   },
-// };
 
 export const Disabled: Story = {
   args: {

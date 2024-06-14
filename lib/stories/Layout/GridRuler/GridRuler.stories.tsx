@@ -1,12 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
-import { Link } from "./Link.tsx";
-import BaseProvider from "../../../system/base.provider.tsx";
+import { GridRuler } from "./GridRuler.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Navigation/Link",
-  component: Link,
+  title: "Layout/Grid Ruler",
+  component: GridRuler,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -15,22 +14,13 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-  decorators: [
-    (Story) => (
-      <BaseProvider Link={<a />}>
-        <Story />
-      </BaseProvider>
-    ),
-  ],
-} satisfies Meta<typeof Link>;
+} satisfies Meta<typeof GridRuler>;
 
 export default meta;
-type Story = StoryObj<typeof meta>;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Primary: Story = {
-  args: {
-    children: "Primary",
-    href: "https://www.google.com/",
-  },
-};
+export const Main = () => (
+  <div style={{ width: "1000px" }}>
+    <GridRuler />
+  </div>
+);

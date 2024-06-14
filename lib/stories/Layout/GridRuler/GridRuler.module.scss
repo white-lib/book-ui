@@ -1,0 +1,24 @@
+$spacing: (
+  "sm": calc(var(--margin-sm) / 2),
+  "md": calc(var(--margin-md) / 2),
+  "lg": calc(var(--margin-lg) / 2),
+);
+
+.main {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+
+  .item {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  @each $name, $value in $spacing {
+    &.spacing-#{$name} {
+      gap: calc($value * 2);
+    }
+  }
+}

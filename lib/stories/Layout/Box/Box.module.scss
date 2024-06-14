@@ -1,5 +1,11 @@
-.main {}
+.main {
+  background: var(--color-primary);
+  border-radius: var(--border-radius);
+  padding: var(--padding-md);
+}
 
-.div {}
+.div {
+}
 
-.section {}
+.section {
+}

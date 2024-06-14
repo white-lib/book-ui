@@ -1,5 +1,5 @@
 .main {
-  font-family: $primary-font-family;
+  font-family: var(--font-family), sans-serif;
 }
 
 .h1 {
@@ -68,4 +68,10 @@
   font-size: var(--font-size);
   line-height: var(--line-height);
   color: var(--color-text);
+}
+
+.hint {
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height);
+  color: var(--color-text-description);
 }

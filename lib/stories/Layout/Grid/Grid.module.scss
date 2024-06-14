@@ -1,0 +1,82 @@
+$spacing: (
+  "sm": calc(var(--margin-sm) / 2),
+  "md": calc(var(--margin-md) / 2),
+  "lg": calc(var(--margin-lg) / 2),
+);
+
+$breakpoints: (
+  "sm": 600px,
+  "md": 600px,
+  "lg": 1280px,
+);
+
+$justifyContent: (flex-start, center, flex-end, space-between);
+$alignItems: (flex-start, center, flex-end);
+
+@mixin breakpoint($name) {
+  @media screen and (min-width: map-get($breakpoints, $name)) {
+    @content;
+  }
+}
+
+.main {
+  &.container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &.item {
+    display: block;
+  }
+
+  @for $i from 1 to 13 {
+    &.xs-#{$i} {
+      flex-basis: divide($i, 12) * 100%;
+    }
+  }
+
+  @include breakpoint("sm") {
+    @for $i from 1 to 13 {
+      &.sm-#{$i} {
+        flex-basis: divide($i, 12) * 100%;
+      }
+    }
+  }
+
+  @include breakpoint("md") {
+    @for $i from 1 to 13 {
+      &.md-#{$i} {
+        flex-basis: divide($i, 12) * 100%;
+      }
+    }
+  }
+
+  @include breakpoint("lg") {
+    @for $i from 1 to 13 {
+      &.lg-#{$i} {
+        flex-basis: divide($i, 12) * 100%;
+      }
+    }
+  }
+
+  @each $name, $value in $spacing {
+    &.spacing-#{$name} {
+      margin: calc($value * -1);
+    }
+    &.spacing-#{$name} > &.item {
+      padding: $value;
+    }
+  }
+
+  @each $value in $justifyContent {
+    &.justifyContent-#{$value} {
+      justify-content: $value;
+    }
+  }
+
+  @each $value in $alignItems {
+    &.alignItems-#{$value} {
+      align-items: $value;
+    }
+  }
+}

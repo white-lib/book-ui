@@ -1,5 +1,25 @@
+@mixin link-active {
+  text-decoration: var(--link-active-decoration);
+}
+
 .main {
-  font-size: $primary-font-size;
-  text-decoration: none;
-  color: var(--primary);
+  font-size: var(--font-size);
+  text-decoration: var(--link-decoration);
+  color: var(--color-primary);
+
+  @media (hover: hover) {
+    &:not(:disabled):not(.disabled):hover {
+      text-decoration: var(--link-hover-decoration);
+    }
+
+    &:not(:disabled):not(.disabled):active {
+      @include link-active;
+    }
+  }
+
+  @media (hover: none) {
+    &:not(:disabled):not(.disabled):active {
+      @include link-active;
+    }
+  }
 }

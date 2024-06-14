@@ -1,5 +1,5 @@
-@forward "variables";
 @forward "functions";
+@forward "theme";
 
 @mixin disabled {
   pointer-events: var(--disabled-pointer-events);

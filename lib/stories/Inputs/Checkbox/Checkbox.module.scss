@@ -3,13 +3,13 @@
   appearance: none;
   border-radius: var(--border-radius);
   margin-right: var(--margin-xs);
-  border: var(--control-outline-width) var(--border-type) var(--control-outline);
+  border: var(--control-outline-width) var(--border-type) var(--color-primary);
   outline: none;
   cursor: pointer;
 
   &.checked {
     position: relative;
-    background: var(--control-item-bg);
+    background: var(--color-primary);
 
     &::before {
       content: "";

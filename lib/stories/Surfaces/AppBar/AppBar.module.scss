@@ -1,7 +1,7 @@
 .main {
   -webkit-appearance: none;
   appearance: none;
-  border-radius: $tiny-border-radius;
+  border-radius: var(--border-radius);
   margin-right: 0.5em;
   border: 2px solid var(--primary-main);
   outline: none;

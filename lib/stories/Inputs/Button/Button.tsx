@@ -43,6 +43,7 @@ export const Button: FC<Props> = ({
     styles.main,
     styles[variant],
     styles[size],
+    size && `input-${size}`,
     disabled && "disabled",
     disableSpacing && styles.disableSpacing,
     className,

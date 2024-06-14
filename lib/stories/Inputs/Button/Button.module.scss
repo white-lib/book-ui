@@ -11,32 +11,27 @@
   gap: var(--margin-xs);
   font-size: var(--font-size);
   font-weight: var(--button-font-weight);
-  color: var(--button-primary-color);
+  color: var(--color-primary-text);
 
   transition:
     box-shadow var(--motion-duration-fast) var(--motion-ease-in-out),
     border-color var(--motion-duration-fast) var(--motion-ease-in-out),
-    background var(--motion-duration-fast) var(--motion-ease-in-out);
+    background-color var(--motion-duration-fast) var(--motion-ease-in-out),
+    color var(--motion-duration-fast) var(--motion-ease-in-out);
 
   @mixin contained-active {
-    background: var(--button-contained-active-bg);
-    color: var(--button-contained-active-color);
-    border-color: var(--button-contained-active-border-color);
-    box-shadow: var(--button-contained-active-shadow);
+    background-color: var(--color-primary-dark);
+    color: var(--color-primary-text);
   }
 
   &.contained {
-    background: var(--button-contained-bg);
-    color: var(--button-contained-color);
-    border-color: var(--button-contained-border-color);
-    box-shadow: var(--button-contained-shadow);
+    background-color: var(--color-primary);
+    color: var(--color-primary-text);
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        background: var(--button-contained-hover-bg);
-        color: var(--button-contained-hover-color);
-        border-color: var(--button-contained-hover-border-color);
-        box-shadow: var(--button-contained-hover-shadow);
+        background-color: var(--color-primary-light);
+        color: var(--color-primary-text);
       }
 
       &:not(:disabled):not(.disabled):active {
@@ -52,24 +47,19 @@
   }
 
   @mixin outlined-active {
-    background: var(--button-outlined-active-bg);
-    color: var(--button-outlined-active-color);
-    border-color: var(--button-outlined-active-border-color);
-    box-shadow: var(--button-outlined-active-shadow);
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
   }
 
   &.outlined {
-    background: var(--button-outlined-bg);
-    color: var(--button-outlined-color);
-    border-color: var(--button-outlined-border-color);
-    box-shadow: var(--button-outlined-shadow);
+    background-color: transparent;
+    color: var(--color-primary);
+    border-color: var(--color-primary);
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        background: var(--button-outlined-hover-bg);
-        color: var(--button-outlined-hover-color);
-        border-color: var(--button-outlined-hover-border-color);
-        box-shadow: var(--button-outlined-hover-shadow);
+        color: var(--color-primary-light);
+        border-color: var(--color-primary-light);
       }
 
       &:not(:disabled):not(.disabled):active {
@@ -85,24 +75,18 @@
   }
 
   @mixin text-active {
-    background: var(--button-text-active-bg);
-    color: var(--button-text-active-color);
-    border-color: var(--button-text-active-border-color);
-    box-shadow: var(--button-text-active-shadow);
+    background: var(--color-primary-light);
+    color: var(--color-primary-text);
   }
 
   &.text {
-    background: var(--button-text-bg);
-    color: var(--button-text-color);
-    border-color: var(--button-text-border-color);
-    box-shadow: var(--button-text-shadow);
+    background: transparent;
+    color: var(--color-primary);
 
     @media (hover: hover) {
       &:not(:disabled):not(.disabled):hover {
-        background: var(--button-text-hover-bg);
-        color: var(--button-text-hover-color);
-        border-color: var(--button-text-hover-border-color);
-        box-shadow: var(--button-text-hover-shadow);
+        background: var(--color-primary);
+        color: var(--color-primary-text);
       }
 
       &:not(:disabled):not(.disabled):active {
@@ -118,24 +102,15 @@
   }
 
   &.small {
-    height: var(--button-height-sm);
     padding: var(--button-padding-sm);
-    font-size: var(--button-content-font-size-sm);
-    border-radius: var(--border-radius-md);
   }
 
   &.medium {
-    height: var(--button-height);
     padding: var(--button-padding);
-    font-size: var(--button-content-font-size);
-    border-radius: var(--border-radius);
   }
 
   &.large {
-    height: var(--button-height-lg);
     padding: var(--button-padding-lg);
-    font-size: var(--button-content-font-size-lg);
-    border-radius: var(--border-radius-lg);
   }
 
   &.disableSpacing {
