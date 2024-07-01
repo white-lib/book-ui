@@ -44,6 +44,28 @@
     }
   }
 
+  &.contained {
+    &.horizontal {
+      & > button,
+      & > a {
+        &:not(:last-child) {
+          border-right: var(--button-group-border-width-between) solid
+            var(--color-primary-dark);
+        }
+      }
+    }
+
+    &.vertical {
+      & > button,
+      & > a {
+        &:not(:last-child) {
+          border-bottom: var(--button-group-border-width-between) solid
+            var(--color-primary-dark);
+        }
+      }
+    }
+  }
+
   &.outlined {
     &.horizontal {
       & > button,

@@ -28,6 +28,12 @@
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+.main.contained.horizontal > button:not(:last-child), .main.contained.horizontal > a:not(:last-child) {
+  border-right: var(--button-group-border-width-between) solid var(--color-primary-dark);
+}
+.main.contained.vertical > button:not(:last-child), .main.contained.vertical > a:not(:last-child) {
+  border-bottom: var(--button-group-border-width-between) solid var(--color-primary-dark);
+}
 .main.outlined.horizontal > button:not(:first-child):not(:last-child), .main.outlined.horizontal > a:not(:first-child):not(:last-child) {
   border-left: var(--button-group-border-width-between) solid var(--button-outlined-border-color);
   border-right: var(--button-group-border-width-between) solid var(--button-outlined-border-color);

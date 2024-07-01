@@ -1,14 +1,12 @@
-import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
 import classnames from "classnames";
 
 import styles from "./FormControl.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 
-type Props = DetailedHTMLProps<
-  FormHTMLAttributes<HTMLFormElement>,
-  HTMLFormElement
->;
+type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
+  DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
 export const FormControl: FC<Props> = ({ children, className, ...props }) => {
   const classNameVal = classnames(
@@ -18,8 +16,8 @@ export const FormControl: FC<Props> = ({ children, className, ...props }) => {
   );
 
   return (
-    <form {...props} className={classNameVal}>
+    <div {...props} className={classNameVal}>
       {children}
-    </form>
+    </div>
   );
 };

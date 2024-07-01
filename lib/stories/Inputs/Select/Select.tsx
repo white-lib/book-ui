@@ -9,7 +9,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import styles from "./TextField.module.css";
+import styles from "./Select.module.css";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
 
@@ -28,7 +28,7 @@ export type Props = {
   "size" | "children"
 >;
 
-export const TextField: FC<Props> = ({
+export const Select: FC<Props> = ({
   variant = "standard",
   size = "medium",
   type = "text",
