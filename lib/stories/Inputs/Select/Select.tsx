@@ -2,47 +2,48 @@ import {
   FC,
   DetailedHTMLProps,
   ReactNode,
-  InputHTMLAttributes,
+  SelectHTMLAttributes,
   useState,
-  useMemo,
   ChangeEvent,
+  useMemo,
 } from "react";
 import classnames from "classnames";
 
+import inputStyles from "./../Inputs.module.css";
 import styles from "./Select.module.css";
+
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
 
 export type Props = {
   variant?: "standard" | "outlined" | "filled" | "borderless";
   size?: "small" | "medium" | "large";
+  label?: string;
   startIcon?: ReactNode;
-  endIcon?: ReactNode;
   helperText?: string;
   error?: string;
   loading?: boolean;
   required?: boolean;
   fullWidth?: boolean;
 } & Omit<
-  DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
-  "size" | "children"
+  DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>,
+  "size"
 >;
 
 export const Select: FC<Props> = ({
   variant = "standard",
   size = "medium",
-  type = "text",
   className,
-  placeholder,
+  label,
   disabled,
   startIcon,
-  endIcon,
   helperText,
   error,
   loading,
   required,
   fullWidth,
   value,
+  children,
   onChange,
   onFocus,
   onBlur,
@@ -52,17 +53,17 @@ export const Select: FC<Props> = ({
   const [innerValue, setInnerValue] = useState(value);
 
   const classNameVal = classnames(
-    createClassName("txtf"),
-    styles.main,
-    styles[variant],
-    styles[size],
-    size && styles[`input-${size}`],
-    error && styles.error,
-    disabled && styles.disabled,
+    createClassName("select"),
+    inputStyles.main,
+    inputStyles[variant],
+    inputStyles[size],
+    size && inputStyles[`input-${size}`],
+    error && inputStyles.error,
+    disabled && inputStyles.disabled,
     className,
   );
 
-  const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleOnChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setInnerValue(e.target.value);
     onChange?.(e);
   };
@@ -75,36 +76,42 @@ export const Select: FC<Props> = ({
     setIsFocused(false);
   };
 
-  const requiredPlaceholder = useMemo(
-    () => (placeholder ? `${placeholder}${required ? " *" : ""}` : ""),
-    [placeholder, required],
+  const requiredLabel = useMemo(
+    () => (label ? `${label}${required ? " *" : ""}` : ""),
+    [label, required],
   );
 
   return (
     <Box className={classnames(styles.wrapper, fullWidth && styles.fullWidth)}>
       <Box className={classNameVal}>
         {startIcon}
-        <input
-          type={type}
-          disabled={disabled}
-          placeholder={variant === "standard" ? "" : requiredPlaceholder}
+        <select
+          name={label}
+          id={label}
           value={innerValue}
           onChange={handleOnChange}
           onFocus={handleOnFocus}
           onBlur={handleBlur}
+          className={classnames(styles.main)}
           {...props}
-        />
-        {endIcon}
+        >
+          <option selected disabled hidden={variant === "standard"}>
+            {variant !== "standard" ? requiredLabel : ""}
+          </option>
+          {innerValue && <option value={""}>None</option>}
+          {children}
+        </select>
       </Box>
-      {placeholder && variant === "standard" && (
+      {label && variant === "standard" && (
         <Typography
           variant="hint"
           className={classnames(
             styles.focusedTitle,
             (isFocused || innerValue) && styles.focused,
+            startIcon && styles.withStartIcon,
           )}
         >
-          {requiredPlaceholder}
+          {requiredLabel}
         </Typography>
       )}
       {helperText && !error && (

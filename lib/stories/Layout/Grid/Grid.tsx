@@ -5,7 +5,7 @@ import styles from "./Grid.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 
-type Cols = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+type Cols = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 type Spacing = "sm" | "md" | "lg";
 
@@ -43,10 +43,10 @@ export const Grid: FC<Props> = ({
     styles.main,
     container && styles.container,
     item && styles.item,
-    xs && styles[`xs-${xs}`],
-    sm && styles[`sm-${sm}`],
-    md && styles[`md-${md}`],
-    lg && styles[`lg-${lg}`],
+    xs !== undefined && styles[`xs-${xs}`],
+    sm !== undefined && styles[`sm-${sm}`],
+    md !== undefined && styles[`md-${md}`],
+    lg !== undefined && styles[`lg-${lg}`],
     spacing && styles[`spacing-${spacing}`],
     justifyContent && styles[`justifyContent-${justifyContent}`],
     alignItems && styles[`alignItems-${alignItems}`],

@@ -6,4 +6,9 @@
   &.disableSpacing {
     padding-left: var(--margin-xs);
   }
+
+  &.end {
+    justify-content: flex-end;
+    padding-right: var(--margin);
+  }
 }

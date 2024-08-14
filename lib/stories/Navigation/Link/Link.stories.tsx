@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Link } from "./Link.tsx";
-import BaseProvider from "../../../system/base.provider.tsx";
+import { BaseProvider } from "../../../system/base.provider.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -17,7 +17,7 @@ const meta = {
   argTypes: {},
   decorators: [
     (Story) => (
-      <BaseProvider Link={<a />}>
+      <BaseProvider>
         <Story />
       </BaseProvider>
     ),

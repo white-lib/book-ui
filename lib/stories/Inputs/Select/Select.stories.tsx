@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select } from "./Select.tsx";
-import BaseProvider from "../../../system/base.provider.tsx";
+import { BaseProvider } from "../../../system/base.provider.tsx";
 import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
-import SaveIcon from "../../Icons/assets/Save.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -19,7 +18,7 @@ const meta = {
   argTypes: {},
   decorators: [
     (Story) => (
-      <BaseProvider Link={<a />}>
+      <BaseProvider>
         <Story />
       </BaseProvider>
     ),
@@ -29,67 +28,96 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const Children = (
+  <>
+    <option value="apple">Apple</option>
+    <option value="banana">Banana</option>
+    <option value="orange">Orange</option>
+  </>
+);
+
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Standard: Story = {
   args: {
-    placeholder: "Standard",
+    label: "Fruit",
+    children: Children,
   },
 };
 
 export const Outlined: Story = {
   args: {
-    placeholder: "Outlined",
     variant: "outlined",
+    label: "Fruit",
+    children: Children,
   },
 };
 
 export const Filled: Story = {
   args: {
-    placeholder: "Text",
     variant: "filled",
+    label: "Fruit",
+    children: Children,
   },
 };
 
 export const Borderless: Story = {
   args: {
-    placeholder: "Borderless",
     variant: "borderless",
+    label: "Fruit",
+    children: Children,
   },
 };
 
-export const Properties = () => (
-  <div style={{ display: "flex", gap: "12px" }}>
-    <Select placeholder="Properties" helperText="Some helper text" />
-    <Select placeholder="Required" helperText="Some helper text" required />
-    <Select
-      placeholder="With Error"
-      helperText="Some helper text"
-      error="This field is required"
-      required
-    />
-  </div>
-);
+export const Properties = () => {
+  return (
+    <div style={{ display: "flex", gap: "12px" }}>
+      <Select label="Properties" helperText="Some helper text">
+        {Children}
+      </Select>
+      <Select label="Required" helperText="Some helper text" required>
+        {Children}
+      </Select>
+      <Select
+        label="With Error"
+        helperText="Some helper text"
+        error="This field is required"
+        required
+      >
+        {Children}
+      </Select>
+    </div>
+  );
+};
 
-export const Sizes = () => (
-  <div style={{ display: "flex", gap: "12px" }}>
-    <Select size="small" variant="outlined" />
-    <Select size="medium" variant="outlined" />
-    <Select size="large" variant="outlined" />
-  </div>
-);
+export const Sizes = () => {
+  return (
+    <div style={{ display: "flex", gap: "12px" }}>
+      <Select label="small" size="small" variant="outlined">
+        {Children}
+      </Select>
+      <Select label="medium" size="medium" variant="outlined">
+        {Children}
+      </Select>
+      <Select label="large" size="large" variant="outlined">
+        {Children}
+      </Select>
+    </div>
+  );
+};
 
 export const WithIcons = () => (
   <div style={{ display: "flex", gap: "12px" }}>
-    <Select startIcon={<FavoriteIcon />} />
-    <Select endIcon={<SaveIcon />} />
-    <Select startIcon={<FavoriteIcon />} endIcon={<SaveIcon />} />
+    <Select startIcon={<FavoriteIcon />} label="With icon">
+      {Children}
+    </Select>
   </div>
 );
 
 export const Disabled: Story = {
   args: {
-    placeholder: "Disabled",
+    label: "Disabled",
     variant: "standard",
     disabled: true,
+    children: Children,
   },
 };

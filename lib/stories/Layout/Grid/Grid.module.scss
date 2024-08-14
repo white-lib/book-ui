@@ -31,6 +31,12 @@ $alignItems: (flex-start, center, flex-end);
     display: block;
   }
 
+  &.xs-0,
+  &.sm-0,
+  &.lg-0 {
+    display: none;
+  }
+
   @for $i from 1 to 13 {
     &.xs-#{$i} {
       flex-basis: math.div($i, 12) * 100%;

@@ -6,5 +6,9 @@
 .main.disableSpacing {
   padding-left: var(--margin-xs);
 }
+.main.end {
+  justify-content: flex-end;
+  padding-right: var(--margin);
+}
 
 /*# sourceMappingURL=CardActions.module.css.map */

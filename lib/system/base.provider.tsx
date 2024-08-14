@@ -2,7 +2,7 @@ import { createContext, PropsWithChildren, ReactElement } from "react";
 import useContextWrapper from "../hooks/useContextWrapper.tsx";
 
 type BaseContextType = {
-  Link: ReactElement<HTMLAnchorElement>;
+  Link?: any;
 };
 
 const BaseContext = createContext<BaseContextType | null>(null);
@@ -13,9 +13,9 @@ export const useBaseContext = () =>
     providerName: BaseProvider.name,
   });
 
-export default function BaseProvider({
+export function BaseProvider({
   children,
-  Link,
+  Link = "a",
 }: PropsWithChildren<BaseContextType>) {
   return (
     <BaseContext.Provider

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { TextField } from "./TextField.tsx";
-import BaseProvider from "../../../system/base.provider.tsx";
+import { BaseProvider } from "../../../system/base.provider.tsx";
 import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
 import SaveIcon from "../../Icons/assets/Save.tsx";
 
@@ -19,7 +19,7 @@ const meta = {
   argTypes: {},
   decorators: [
     (Story) => (
-      <BaseProvider Link={<a />}>
+      <BaseProvider>
         <Story />
       </BaseProvider>
     ),

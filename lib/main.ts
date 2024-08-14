@@ -12,7 +12,7 @@ export { FormControlLabel } from "./stories/Form/FormControlLabel";
 export { FormLabel } from "./stories/Form/FormLabel";
 
 // ICONS
-export * from "./stories/Icons";
+export { Icon, Icons } from "./stories/Icons";
 
 // INPUTS
 export { Button } from "./stories/Inputs/Button";
@@ -21,6 +21,7 @@ export { Checkbox } from "./stories/Inputs/Checkbox";
 export { Radio } from "./stories/Inputs/Radio";
 export { RadioGroup } from "./stories/Inputs/RadioGroup";
 export { TextField } from "./stories/Inputs/TextField";
+export { Select } from "./stories/Inputs/Select";
 
 // LAYOUT
 export { Box } from "./stories/Layout/Box";
@@ -32,4 +33,13 @@ export { Link } from "./stories/Navigation/Link";
 
 // SURFACES
 export { AppBar } from "./stories/Surfaces/AppBar";
-export { Card } from "./stories/Surfaces/Card";
+export {
+  Card,
+  CardHeader,
+  CardMedia,
+  CardActions,
+  CardContent,
+} from "./stories/Surfaces/Card";
+
+// PROVIDERS
+export * from "./system/base.provider";

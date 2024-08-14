@@ -1,23 +1,31 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, FormHTMLAttributes } from "react";
 import classnames from "classnames";
 
 import styles from "./FormControl.module.css";
 
 import { createClassName } from "../../../helpers/createClassName.tsx";
 
-type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> &
-  DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
+type Props = { fullWidth?: boolean } & DetailedHTMLProps<
+  FormHTMLAttributes<HTMLFormElement>,
+  HTMLFormElement
+>;
 
-export const FormControl: FC<Props> = ({ children, className, ...props }) => {
+export const FormControl: FC<Props> = ({
+  children,
+  fullWidth,
+  className,
+  ...props
+}) => {
   const classNameVal = classnames(
     createClassName("form"),
     styles.main,
+    fullWidth && styles.fullWidth,
     className,
   );
 
   return (
-    <div {...props} className={classNameVal}>
+    <form {...props} className={classNameVal}>
       {children}
-    </div>
+    </form>
   );
 };

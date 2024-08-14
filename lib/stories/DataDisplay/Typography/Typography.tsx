@@ -10,6 +10,7 @@ type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 type Props = {
   variant?: Tag | "hint";
   component?: Tag;
+  error?: boolean;
   className?: string;
   children: ReactNode;
 };
@@ -19,6 +20,7 @@ const validTags: Array<Tag> = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span"];
 export const Typography: FC<Props> = ({
   variant = "p",
   component,
+  error,
   className,
   children,
   ...props
@@ -27,6 +29,7 @@ export const Typography: FC<Props> = ({
     createClassName("tp"),
     styles.main,
     styles[variant],
+    error && styles.error,
     className,
   );
 

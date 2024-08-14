@@ -11,7 +11,7 @@ import classnames from "classnames";
 import styles from "./CardActions.module.css";
 import { Box } from "../../../../Layout/Box";
 
-type Props = { disableSpacing?: boolean } & DetailedHTMLProps<
+type Props = { disableSpacing?: boolean; end?: boolean } & DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 >;
@@ -19,11 +19,13 @@ type Props = { disableSpacing?: boolean } & DetailedHTMLProps<
 export const CardActions: FC<Props> = ({
   disableSpacing,
   children,
+  end,
   ...props
 }) => {
   const classNameVal = classnames(
     styles.main,
     disableSpacing && styles.disableSpacing,
+    end && styles.end,
   );
 
   return (

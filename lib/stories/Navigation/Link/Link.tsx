@@ -40,10 +40,11 @@ export const Link: FC<Props> = ({
     return dynamicObj;
   }, [disabled]);
 
-  return cloneElement(Link, {
+  return cloneElement(<Link />, {
     // @ts-ignore
     children: children,
     className: classNameVal,
+    to: props.href,
     ...props,
     ...dynamicProps,
   });

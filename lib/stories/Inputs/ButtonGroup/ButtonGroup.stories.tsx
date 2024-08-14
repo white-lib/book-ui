@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
 
 import { ButtonGroup } from "./ButtonGroup.tsx";
-import BaseProvider from "../../../system/base.provider.tsx";
+import { BaseProvider } from "../../../system/base.provider.tsx";
 import { Button } from "../Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -18,7 +18,7 @@ const meta = {
   argTypes: {},
   decorators: [
     (Story) => (
-      <BaseProvider Link={<a />}>
+      <BaseProvider>
         <Story />
       </BaseProvider>
     ),

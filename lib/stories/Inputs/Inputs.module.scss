@@ -1,0 +1,49 @@
+@import "./../../assets/styles/mixins.scss";
+
+@include disabled;
+@include input-small;
+@include input-medium;
+@include input-large;
+
+.main {
+  margin: 0;
+  color: var(--color-primary-text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  transition: all var(--motion-duration-mid);
+  padding: 0 var(--padding-xs);
+  gap: var(--margin-xs);
+  z-index: 2;
+
+  &.standard {
+    border-bottom: var(--border-width) var(--border-type) var(--color-primary);
+    border-radius: 0;
+    padding-left: 0;
+  }
+
+  &.outlined {
+    border: var(--border-width) var(--border-type) var(--color-primary);
+  }
+
+  &.filled {
+    background-color: var(--color-primary-shade);
+  }
+
+  &.borderless {
+    background-color: transparent;
+    border: none;
+    padding-left: 0;
+  }
+
+  &.error {
+    border-color: var(--color-error);
+  }
+
+  input {
+    color: var(--color-primary-text);
+    width: 100%;
+    height: 100%;
+  }
+}

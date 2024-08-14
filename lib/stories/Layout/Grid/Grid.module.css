@@ -5,6 +5,9 @@
 .main.item {
   display: block;
 }
+.main.xs-0, .main.sm-0, .main.lg-0 {
+  display: none;
+}
 .main.xs-1 {
   flex-basis: 8.3333333333%;
 }

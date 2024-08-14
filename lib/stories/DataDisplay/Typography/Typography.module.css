@@ -76,4 +76,8 @@
   color: var(--color-text-description);
 }
 
+.error {
+  color: var(--color-error);
+}
+
 /*# sourceMappingURL=Typography.module.css.map */

@@ -30,3 +30,9 @@
     border-radius: var(--border-radius-lg);
   }
 }
+
+@mixin error-text {
+  .error-text {
+    color: var(--color-error);
+  }
+}
