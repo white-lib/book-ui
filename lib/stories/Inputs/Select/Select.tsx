@@ -25,6 +25,7 @@ export type Props = {
   loading?: boolean;
   required?: boolean;
   fullWidth?: boolean;
+  hideNoneValue?: boolean;
 } & Omit<
   DetailedHTMLProps<SelectHTMLAttributes<HTMLSelectElement>, HTMLSelectElement>,
   "size"
@@ -43,6 +44,7 @@ export const Select: FC<Props> = ({
   required,
   fullWidth,
   value,
+  hideNoneValue,
   children,
   onChange,
   onFocus,
@@ -98,7 +100,7 @@ export const Select: FC<Props> = ({
           <option selected disabled hidden={variant === "standard"}>
             {variant !== "standard" ? requiredLabel : ""}
           </option>
-          {innerValue && <option value={""}>None</option>}
+          {innerValue && !hideNoneValue && <option value={""}>None</option>}
           {children}
         </select>
       </Box>
