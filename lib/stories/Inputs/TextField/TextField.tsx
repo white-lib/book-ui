@@ -15,6 +15,9 @@ import styles from "./TextField.module.css";
 import { createClassName } from "../../../helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
 
+import Visibility from "../../Icons/assets/Visibility.tsx";
+import VisibilityOff from "../../Icons/assets/VisibilityOff.tsx";
+
 export type Props = {
   variant?: "standard" | "outlined" | "filled" | "borderless";
   size?: "small" | "medium" | "large";
@@ -50,6 +53,7 @@ export const TextField: FC<Props> = ({
   onBlur,
   ...props
 }) => {
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
   const [innerValue, setInnerValue] = useState(value);
 
@@ -63,6 +67,14 @@ export const TextField: FC<Props> = ({
     disabled && inputStyles.disabled,
     className,
   );
+
+  const localType = useMemo(() => {
+    if (passwordVisible) {
+      return "text";
+    }
+
+    return type;
+  }, [type, passwordVisible]);
 
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInnerValue(e.target.value);
@@ -82,12 +94,20 @@ export const TextField: FC<Props> = ({
     [placeholder, required],
   );
 
+  if (type === "password") {
+    if (!passwordVisible) {
+      endIcon = <Visibility onClick={() => setPasswordVisible(true)} />;
+    } else {
+      endIcon = <VisibilityOff onClick={() => setPasswordVisible(false)} />;
+    }
+  }
+
   return (
     <Box className={classnames(styles.wrapper, fullWidth && styles.fullWidth)}>
       <Box className={classNameVal}>
         {startIcon}
         <input
-          type={type}
+          type={localType}
           disabled={disabled}
           placeholder={variant === "standard" ? "" : requiredPlaceholder}
           value={innerValue}

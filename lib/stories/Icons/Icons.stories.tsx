@@ -5,6 +5,8 @@ import FavoriteIcon from "./assets/Favorite.tsx";
 import SaveIcon from "./assets/Save.tsx";
 import LoadingIcon from "./assets/Loading.tsx";
 import BrokenImage from "./assets/BrokenImage.tsx";
+import Visibility from "./assets/Visibility.tsx";
+import VisibilityOff from "./assets/VisibilityOff.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -32,6 +34,8 @@ export const Icons = () => {
       <SaveIcon />
       <LoadingIcon />
       <BrokenImage />
+      <Visibility />
+      <VisibilityOff />
     </div>
   );
 };
