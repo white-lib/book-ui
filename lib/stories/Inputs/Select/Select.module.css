@@ -5,6 +5,10 @@
   color: var(--color-primary-text);
 }
 
+.label {
+  display: none;
+}
+
 .errorText {
   color: var(--color-error);
 }

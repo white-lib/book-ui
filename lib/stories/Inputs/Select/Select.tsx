@@ -85,6 +85,9 @@ export const Select: FC<Props> = ({
 
   return (
     <Box className={classnames(styles.wrapper, fullWidth && styles.fullWidth)}>
+      <label htmlFor={label} className={styles.label}>
+        {label}
+      </label>
       <Box className={classNameVal}>
         {startIcon}
         <select
