@@ -10,11 +10,16 @@ import classnames from "classnames";
 
 import styles from "./FormControlLabel.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import {
+  createClassName,
+  createSizeClassName,
+} from "../../../helpers/createClassName.tsx";
+import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
 
 type Props = {
   label?: string;
   control?: ReactNode;
+  size?: Size;
   disabled?: boolean;
   name?: string;
   value?: string;
@@ -23,6 +28,7 @@ type Props = {
 
 export const FormControlLabel: FC<Props> = ({
   control,
+  size = DEFAULT_SIZE,
   label,
   name,
   value,
@@ -32,6 +38,7 @@ export const FormControlLabel: FC<Props> = ({
 }) => {
   const classNameVal = classnames(
     createClassName("clabel"),
+    createSizeClassName(size),
     styles.main,
     className,
   );

@@ -1,29 +1,16 @@
 .disabled,
 *:disabled {
-  pointer-events: var(--disabled-pointer-events);
-  cursor: var(--disabled-cursor);
-  filter: var(--disabled-filter);
-  opacity: var(--disabled-opacity);
-}
-
-.input-small {
-  height: var(--input-height-sm);
-  font-size: var(--input-font-size-sm);
-  border-radius: var(--border-radius-md);
-}
-
-.input-medium {
-  height: var(--input-height);
-  border-radius: var(--border-radius);
-}
-
-.input-large {
-  height: var(--input-height-lg);
-  font-size: var(--input-font-size-lg);
-  border-radius: var(--border-radius-lg);
+  pointer-events: var(--bu-disabled-pointer-events);
+  cursor: var(--bu-disabled-cursor);
+  filter: var(--bu-disabled-filter);
+  opacity: var(--bu-disabled-opacity);
 }
 
 .main {
+  outline: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -31,86 +18,81 @@
   user-select: none;
   text-decoration: none;
   border-color: transparent;
-  border-width: var(--button-border-width);
-  border-style: var(--button-border-style);
-  gap: var(--margin-xs);
-  font-size: var(--font-size);
-  font-weight: var(--button-font-weight);
-  color: var(--color-primary-text);
-  transition: box-shadow var(--motion-duration-fast) var(--motion-ease-in-out), border-color var(--motion-duration-fast) var(--motion-ease-in-out), background-color var(--motion-duration-fast) var(--motion-ease-in-out), color var(--motion-duration-fast) var(--motion-ease-in-out);
+  gap: calc(var(--bu-space) / 2);
+  height: var(--bu-height);
+  border-radius: var(--bu-radius);
+  font-size: var(--bu-font-size);
+  font-family: var(--bu-font-family), sans-serif;
+  transition: background-color var(--bu-duration-xs) ease-in-out;
 }
 .main.contained {
-  background-color: var(--color-primary);
-  color: var(--color-primary-text);
+  background: var(--bu-btn-primary-bg);
+  color: var(--bu-btn-text-color);
 }
 @media (hover: hover) {
   .main.contained:not(:disabled):not(.disabled):hover {
-    background-color: var(--color-primary-light);
-    color: var(--color-primary-text);
-  }
-  .main.contained:not(:disabled):not(.disabled):active {
-    background-color: var(--color-primary-dark);
-    color: var(--color-primary-text);
+    background: var(--bu-btn-primary-hover);
   }
 }
-@media (hover: none) {
+@media (hover: hover) {
   .main.contained:not(:disabled):not(.disabled):active {
-    background-color: var(--color-primary-dark);
-    color: var(--color-primary-text);
+    background: var(--bu-btn-primary-active);
+  }
+}
+@media (hover: hover) and (hover: none) {
+  .main.contained:not(:disabled):not(.disabled):active {
+    background: var(--bu-btn-primary-active);
   }
 }
 .main.outlined {
-  background-color: transparent;
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  background: transparent;
+  border-color: var(--bu-btn-primary-bg);
+  border-width: 1px;
+  border-style: solid;
+  color: var(--bu-btn-primary-bg);
 }
 @media (hover: hover) {
   .main.outlined:not(:disabled):not(.disabled):hover {
-    color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
-  }
-  .main.outlined:not(:disabled):not(.disabled):active {
-    color: var(--color-primary-dark);
-    border-color: var(--color-primary-dark);
+    border-color: var(--bu-btn-primary-hover);
+    color: var(--bu-btn-primary-hover);
   }
 }
-@media (hover: none) {
+@media (hover: hover) {
   .main.outlined:not(:disabled):not(.disabled):active {
-    color: var(--color-primary-dark);
-    border-color: var(--color-primary-dark);
+    border-color: var(--bu-btn-primary-hover);
+    background-color: var(--bu-btn-primary-hover);
+    color: var(--bu-btn-text-color);
+  }
+}
+@media (hover: hover) and (hover: none) {
+  .main.outlined:not(:disabled):not(.disabled):active {
+    border-color: var(--bu-btn-primary-hover);
+    background-color: var(--bu-btn-primary-hover);
+    color: var(--bu-btn-text-color);
   }
 }
 .main.text {
-  background: transparent;
-  color: var(--color-primary);
+  background-color: transparent;
+  color: var(--bu-color-primary);
 }
 @media (hover: hover) {
   .main.text:not(:disabled):not(.disabled):hover {
-    background: var(--color-primary);
-    color: var(--color-primary-text);
+    background-color: var(--bu-btn-text-bg-hover);
   }
+}
+@media (hover: hover) {
   .main.text:not(:disabled):not(.disabled):active {
-    background: var(--color-primary-light);
-    color: var(--color-primary-text);
+    color: var(--bu-btn-text-color-active);
   }
 }
-@media (hover: none) {
+@media (hover: hover) and (hover: none) {
   .main.text:not(:disabled):not(.disabled):active {
-    background: var(--color-primary-light);
-    color: var(--color-primary-text);
+    color: var(--bu-btn-text-color-active);
   }
-}
-.main.small {
-  padding: var(--button-padding-sm);
-}
-.main.medium {
-  padding: var(--button-padding);
-}
-.main.large {
-  padding: var(--button-padding-lg);
 }
 .main.disableSpacing {
-  padding: var(--margin-xs);
+  min-width: var(--bu-height);
+  padding: 0;
 }
 
 /*# sourceMappingURL=Button.module.css.map */

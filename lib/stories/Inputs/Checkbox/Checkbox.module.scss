@@ -1,46 +1,37 @@
 .main {
   -webkit-appearance: none;
   appearance: none;
-  border-radius: var(--border-radius);
-  margin-right: var(--margin-xs);
-  border: var(--control-outline-width) var(--border-type) var(--color-primary);
   outline: none;
   cursor: pointer;
+  width: var(--bu-height-small);
+  height: var(--bu-height-small);
+  border-radius: var(--bu-radius-small);
+  margin: 0;
+  box-sizing: border-box;
+
+  border: var(--bu-control-border-width) solid var(--bu-control-color);
 
   &.checked {
     position: relative;
-    background: var(--color-primary);
+    border-color: var(--bu-control-checked-bg);
+    background: var(--bu-control-checked-bg);
 
     &::before {
       content: "";
       position: absolute;
       display: block;
-      top: 8%;
-      left: 33%;
+      top: 6%;
+      left: 29%;
       width: 35%;
       height: 70%;
-      border: solid var(--control-item-color);
+      border-style: solid;
+      border-color: var(--bu-control-mark-color);
       border-width: 0 2px 2px 0;
       animation-name: rotate;
-      animation-duration: 0.3s;
+      animation-duration: var(--bu-duration-md);
       animation-fill-mode: forwards;
     }
   }
-}
-
-.small {
-  width: var(--control-size-sm);
-  height: var(--control-size-sm);
-}
-
-.medium {
-  width: var(--control-size);
-  height: var(--control-size);
-}
-
-.large {
-  width: var(--control-size-lg);
-  height: var(--control-size-lg);
 }
 
 @keyframes rotate {

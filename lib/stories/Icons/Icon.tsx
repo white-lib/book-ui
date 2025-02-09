@@ -3,6 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Link.module.css";
 import { createClassName } from "../../helpers/createClassName.tsx";
+import { unitToPx } from "../../helpers/skinning.tsx";
 
 export type Props = React.SVGProps<SVGSVGElement>;
 
@@ -25,8 +26,8 @@ export const Icon: FC<Props> = ({
       className={classNameVal}
       xmlns="http://www.w3.org/2000/svg"
       {...props}
-      width={width}
-      height={height}
+      width={unitToPx(width)}
+      height={unitToPx(height)}
       fill="currentColor"
     >
       {children}

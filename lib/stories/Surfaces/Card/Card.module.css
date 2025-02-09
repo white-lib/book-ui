@@ -1,18 +1,19 @@
 .main {
-  background: var(--color-bg-container);
-  box-shadow: var(--box-shadow-card);
-  border-radius: var(--border-radius-lg);
+  background: var(--bu-container-bg);
+  box-shadow: var(--bu-container-shadow);
+  border-radius: var(--bu-container-radius);
+  border: var(--bu-container-border) solid var(--bu-container-border-color);
   overflow: hidden;
-  gap: var(--margin);
+  gap: var(--bu-gap);
   display: flex;
   flex-direction: column;
   width: 100%;
 }
 .main.topSpace {
-  padding-top: var(--margin);
+  padding-top: var(--bu-container-space);
 }
 .main.bottomSpace {
-  padding-bottom: var(--margin);
+  padding-bottom: var(--bu-container-space);
 }
 
 /*# sourceMappingURL=Card.module.css.map */

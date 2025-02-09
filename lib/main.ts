@@ -1,3 +1,6 @@
+import "./assets/styles/root.scss";
+import "./assets/styles/dimensions.scss";
+
 // DataDisplay
 export { Avatar } from "./stories/DataDisplay/Avatar";
 export { Image } from "./stories/DataDisplay/Image";

@@ -1,6 +1,7 @@
 import type { Meta } from "@storybook/react";
 
 import { AppBar } from "./AppBar.tsx";
+import { decorators } from "../../../storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -14,6 +15,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof AppBar>;
 
 export default meta;

@@ -3,13 +3,19 @@ import classnames from "classnames";
 
 import styles from "./Avatar.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import {
+  createClassName,
+  createSizeClassName,
+} from "../../../helpers/createClassName.tsx";
 import { Box } from "../../Layout/Box";
 import { Image } from "../Image";
+import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+import { useSizeToObj } from "../../../hooks/useSizeToObj.tsx";
 
 type Props = {
   children?: ReactNode;
   src?: string | ReactNode;
+  size?: Size;
   alt?: string;
   width?: number | string;
   height?: number | string;
@@ -48,25 +54,32 @@ export const Avatar: FC<Props> = ({
   children,
   src,
   alt,
-  width = "40px",
-  height = "40px",
+  size = DEFAULT_SIZE,
+  width,
+  height,
   ...props
 }) => {
-  const classNameVal = classnames(createClassName("tp"), styles.main);
+  const classNameVal = classnames(
+    createClassName("avatar"),
+    styles.main,
+    createSizeClassName(size),
+  );
+
+  const sizeObj = useSizeToObj(size, { square: true });
 
   if (!src) {
-    let backgroundColor = "var(--primary-main)";
+    let backgroundColor = "var(--bu-primary-main)";
 
     if (typeof children === "string") {
-      backgroundColor = softHexColors[(children as string).toLowerCase()];
+      backgroundColor = softHexColors[(children as string)?.[0]?.toLowerCase()];
     }
 
     return (
       <Box
         className={classNameVal}
         style={{
-          width,
-          height,
+          width: width || sizeObj?.width,
+          height: height || sizeObj?.height,
           backgroundColor,
         }}
       >
@@ -81,8 +94,8 @@ export const Avatar: FC<Props> = ({
       skeleton="circular"
       src={src}
       alt={alt}
-      width={width}
-      height={height}
+      width={width || sizeObj?.width}
+      height={height || sizeObj?.height}
       className={classNameVal}
     />
   );

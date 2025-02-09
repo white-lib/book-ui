@@ -1,4 +1,4 @@
-@import "./../../Feedback/Skeleton/Skeleton.module";
+@use "./../../Feedback/Skeleton/Skeleton.module";
 
 .main {
   &.hidden {
@@ -7,7 +7,7 @@
 }
 
 .error {
-  background: var(--color-no-image);
+  background: var(--bu-empty-color);
   display: flex;
   align-items: center;
   justify-content: center;

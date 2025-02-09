@@ -3,17 +3,22 @@ import classnames from "classnames";
 
 import styles from "./Checkbox.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import {
+  createClassName,
+  createSizeClassName,
+} from "../../../helpers/createClassName.tsx";
+
+import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
 
 type Props = {
-  size?: "small" | "medium" | "large";
+  size?: Size;
 } & Omit<
   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
   "size"
 >;
 
 export const Checkbox: FC<Props> = ({
-  size = "medium",
+  size = DEFAULT_SIZE,
   className,
   disabled,
   checked,
@@ -25,7 +30,7 @@ export const Checkbox: FC<Props> = ({
   const classNameVal = classnames(
     createClassName("cb"),
     styles.main,
-    styles[size],
+    createSizeClassName(size),
     isChecked && styles.checked,
     disabled && "disabled",
     className,

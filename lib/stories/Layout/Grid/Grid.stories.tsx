@@ -3,6 +3,7 @@ import type { Meta } from "@storybook/react";
 import { Grid } from "./Grid.tsx";
 import { Box } from "../Box";
 import { GridRuler } from "../GridRuler";
+import { decorators } from "../../../storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -16,6 +17,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof Grid>;
 
 export default meta;

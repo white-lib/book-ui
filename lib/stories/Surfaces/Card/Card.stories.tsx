@@ -12,6 +12,7 @@ import { CardActions } from "./components/CardActions";
 import { Button } from "../../../main.ts";
 import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
 import SaveIcon from "../../Icons/assets/Save.tsx";
+import { decorators } from "../../../storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -25,6 +26,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof Card>;
 
 export default meta;
@@ -37,7 +39,7 @@ export const Main: Story = {
     children: (
       <>
         <CardHeader
-          avatar={<Avatar>A</Avatar>}
+          avatar={<Avatar>C</Avatar>}
           title="Lorem impsum dolor sit"
           subheader="Jun 3, 2024"
         />
@@ -79,7 +81,7 @@ export const ImageOnTop: Story = {
           aria-label="Mountains"
         />
         <CardHeader
-          avatar={<Avatar>A</Avatar>}
+          avatar={<Avatar>D</Avatar>}
           title="Lorem impsum dolor sit"
           subheader="Jun 3, 2024"
         />
@@ -118,7 +120,7 @@ export const Basic: Story = {
           </Typography>
         </CardContent>
         <CardActions>
-          <Button size="small">Learn More</Button>
+          <Button size="sm">Learn More</Button>
         </CardActions>
       </>
     ),

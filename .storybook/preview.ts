@@ -1,11 +1,12 @@
-import "../lib/assets/styles/reset.scss";
+import "../lib/assets/styles/dimensions.scss";
 import "../lib/assets/styles/root.scss";
+import "../lib/assets/styles/dev.scss";
 
 import type { Preview } from "@storybook/react";
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: "^on[A-Z].*" },
+    // actions: { argTypesRegex: "^on[A-Z].*" },
     controls: {
       matchers: {
         color: /(background|color)$/i,

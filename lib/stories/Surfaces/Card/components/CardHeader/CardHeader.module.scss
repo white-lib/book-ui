@@ -1,10 +1,10 @@
 .main {
   display: flex;
   justify-content: space-between;
-  padding: 0 var(--margin);
+  padding: 0 var(--bu-container-space);
 
   .leftSide {
-    gap: var(--margin);
+    gap: var(--bu-gap);
     display: flex;
 
     .titleSubheader {

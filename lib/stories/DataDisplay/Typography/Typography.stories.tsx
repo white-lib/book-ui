@@ -2,6 +2,8 @@ import type { Meta } from "@storybook/react";
 
 import { Typography } from "./Typography.tsx";
 
+import { decorators } from "../../../storybook/decorators.tsx";
+
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Data Display/Typography",
@@ -14,6 +16,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof Typography>;
 
 export default meta;
@@ -29,5 +32,6 @@ export const Main = () => (
     <Typography variant="h6">Heading 6</Typography>
     <Typography variant="p">Paragraph</Typography>
     <Typography variant="span">Span</Typography>
+    <Typography variant="hint">Hint</Typography>
   </div>
 );

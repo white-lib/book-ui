@@ -1,8 +1,8 @@
 .main {
-  padding: 0 var(--margin);
+  padding: 0 var(--bu-container-space);
   display: flex;
   flex-direction: column;
-  gap: var(--margin-xs);
+  gap: var(--bu-gap);
 }
 
 /*# sourceMappingURL=CardContent.module.css.map */

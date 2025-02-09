@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { TextField } from "./TextField.tsx";
-import { BaseProvider } from "../../../system/base.provider.tsx";
 import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
 import SaveIcon from "../../Icons/assets/Save.tsx";
+import { decorators } from "../../../storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -17,13 +17,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-  decorators: [
-    (Story) => (
-      <BaseProvider>
-        <Story />
-      </BaseProvider>
-    ),
-  ],
+  decorators,
 } satisfies Meta<typeof TextField>;
 
 export default meta;
@@ -71,18 +65,78 @@ export const Properties = () => (
 );
 
 export const Sizes = () => (
-  <div style={{ display: "flex", gap: "12px" }}>
-    <TextField size="small" variant="outlined" />
-    <TextField size="medium" variant="outlined" />
-    <TextField size="large" variant="outlined" />
+  <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+    <div style={{ display: "flex", gap: "12px", height: "100px" }}>
+      <TextField
+        size="xs"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="sm"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="md"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="lg"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="xl"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+    </div>
+    <div style={{ display: "flex", gap: "12px" }}>
+      <TextField
+        size="xs"
+        variant="outlined"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="sm"
+        variant="outlined"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="md"
+        variant="outlined"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="lg"
+        variant="outlined"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+      <TextField
+        size="xl"
+        variant="outlined"
+        helperText="Some helper text"
+        placeholder="Placeholder"
+      />
+    </div>
   </div>
 );
 
 export const WithIcons = () => (
   <div style={{ display: "flex", gap: "12px" }}>
     <TextField startIcon={<FavoriteIcon />} />
-    <TextField endIcon={<SaveIcon />} />
-    <TextField startIcon={<FavoriteIcon />} endIcon={<SaveIcon />} />
+    <TextField endIcon={<SaveIcon />} variant="outlined" />
+    <TextField
+      startIcon={<FavoriteIcon />}
+      endIcon={<SaveIcon />}
+      variant="filled"
+    />
   </div>
 );
 

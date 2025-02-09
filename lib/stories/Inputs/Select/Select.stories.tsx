@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select } from "./Select.tsx";
-import { BaseProvider } from "../../../system/base.provider.tsx";
 import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
+import { decorators } from "../../../storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -16,13 +16,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
-  decorators: [
-    (Story) => (
-      <BaseProvider>
-        <Story />
-      </BaseProvider>
-    ),
-  ],
+  decorators,
 } satisfies Meta<typeof Select>;
 
 export default meta;
@@ -92,13 +86,13 @@ export const Properties = () => {
 export const Sizes = () => {
   return (
     <div style={{ display: "flex", gap: "12px" }}>
-      <Select label="small" size="small" variant="outlined">
+      <Select label="small" size="sm" variant="outlined">
         {Children}
       </Select>
-      <Select label="medium" size="medium" variant="outlined">
+      <Select label="medium" size="md" variant="outlined">
         {Children}
       </Select>
-      <Select label="large" size="large" variant="outlined">
+      <Select label="large" size="lg" variant="outlined">
         {Children}
       </Select>
     </div>

@@ -5,16 +5,22 @@ import {
   AnchorHTMLAttributes,
   ReactNode,
 } from "react";
+
 import classnames from "classnames";
 
 import styles from "./Button.module.css";
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import {
+  createClassName,
+  createSizeClassName,
+} from "../../../helpers/createClassName.tsx";
 import { Link } from "../../../main.ts";
 import LoadingIcon from "../../Icons/assets/Loading.tsx";
 
+import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+
 export type Props = {
   variant?: "contained" | "outlined" | "text";
-  size?: "small" | "medium" | "large";
+  size?: Size;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   loading?: boolean;
@@ -28,7 +34,7 @@ export type Props = {
 export const Button: FC<Props> = ({
   children,
   variant = "contained",
-  size = "medium",
+  size = DEFAULT_SIZE,
   className,
   disabled,
   href,
@@ -42,8 +48,9 @@ export const Button: FC<Props> = ({
     createClassName("btn"),
     styles.main,
     styles[variant],
-    styles[size],
-    size && styles[`input-${size}`],
+    createSizeClassName(size, {
+      paddingX: true,
+    }),
     disabled && styles.disabled,
     disableSpacing && styles.disableSpacing,
     className,

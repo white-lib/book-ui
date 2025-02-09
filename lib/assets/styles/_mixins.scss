@@ -1,0 +1,185 @@
+@use "sass:math";
+
+@mixin fluid-text($max: 48, $min: 16) {
+  $maxViewportWidth: 1400;
+  $minViewportWidth: 360;
+
+  $maxSize: math.div($max, 16);
+  $minSize: math.div($min, 16);
+  $maxWidth: math.div($maxViewportWidth, 16);
+  $minWidth: math.div($minViewportWidth, 16);
+
+  $slope: math.div(($maxSize - $minSize), ($maxWidth - $minWidth));
+  $yAxisIntersection: -$minWidth * $slope + $minSize;
+
+  font-size: clamp(
+    #{$minSize * 1rem},
+    #{$yAxisIntersection * 1rem} + #{$slope * 100vw},
+    #{$maxSize * 1rem}
+  );
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    &:not(:disabled):not(.disabled):hover {
+      @content;
+    }
+  }
+}
+
+@mixin active {
+  @media (hover: hover) {
+    &:not(:disabled):not(.disabled):active {
+      @content;
+    }
+
+    @media (hover: none) {
+      &:not(:disabled):not(.disabled):active {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin reset {
+  outline: none;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+@mixin disabled {
+  .disabled,
+  *:disabled {
+    pointer-events: var(--bu-disabled-pointer-events);
+    cursor: var(--bu-disabled-cursor);
+    filter: var(--bu-disabled-filter);
+    opacity: var(--bu-disabled-opacity);
+  }
+}
+
+@mixin size-xs($withPadding: false) {
+  .size-xs {
+    height: var(--bu-height-xs);
+    border-radius: var(--bu-radius-xs);
+    font-size: var(--bu-font-size-xs);
+
+    @if ($withPadding) {
+      @include padding-x-xs;
+    }
+  }
+}
+
+@mixin size-sm($withPadding: false) {
+  .size-sm {
+    height: var(--bu-height-sm);
+    border-radius: var(--bu-radius-sm);
+    font-size: var(--bu-font-size-sm);
+
+    @if ($withPadding) {
+      @include padding-x-sm;
+    }
+  }
+}
+
+@mixin size-md($withPadding: false) {
+  .size-md {
+    height: var(--bu-height-md);
+    border-radius: var(--bu-radius-md);
+    font-size: var(--bu-font-size-md);
+
+    @if ($withPadding) {
+      @include padding-x-md;
+    }
+  }
+}
+
+@mixin size-lg($withPadding: false) {
+  .size-lg {
+    height: var(--bu-height-lg);
+    border-radius: var(--bu-radius-lg);
+    font-size: var(--bu-font-size-lg);
+
+    @if ($withPadding) {
+      @include padding-x-lg;
+    }
+  }
+}
+
+@mixin size-xl($withPadding: false) {
+  .size-xl {
+    height: var(--bu-height-xl);
+    border-radius: var(--bu-radius-xl);
+    font-size: var(--bu-font-size-xl);
+
+    @if ($withPadding) {
+      @include padding-x-xl;
+    }
+  }
+}
+
+@mixin size-xs-square {
+  .size-xs-square {
+    height: var(--bu-height-xs);
+    width: var(--bu-height-xs);
+  }
+}
+
+@mixin size-sm-square {
+  .size-sm-square {
+    height: var(--bu-height-sm);
+    width: var(--bu-height-sm);
+  }
+}
+
+@mixin size-md-square {
+  .size-md-square {
+    height: var(--bu-height-md);
+    width: var(--bu-height-md);
+  }
+}
+
+@mixin size-lg-square {
+  .size-lg-square {
+    height: var(--bu-height-lg);
+    width: var(--bu-height-lg);
+  }
+}
+
+@mixin size-xl-square {
+  .size-xl-square {
+    height: var(--bu-height-xl);
+    width: var(--bu-height-xl);
+  }
+}
+
+@mixin padding-x-xs {
+  padding-left: var(--bu-space-xs);
+  padding-right: var(--bu-space-xs);
+}
+
+@mixin padding-x-sm {
+  padding-left: var(--bu-space-sm);
+  padding-right: var(--bu-space-sm);
+}
+
+@mixin padding-x-md {
+  padding-left: var(--bu-space-md);
+  padding-right: var(--bu-space-md);
+}
+
+@mixin padding-x-lg {
+  padding-left: var(--bu-space-lg);
+  padding-right: var(--bu-space-lg);
+}
+
+@mixin padding-x-xl {
+  padding-left: var(--bu-space-xl);
+  padding-right: var(--bu-space-xl);
+}
+
+@mixin error-text {
+  .error-text {
+    color: var(--bu-color-error);
+  }
+}

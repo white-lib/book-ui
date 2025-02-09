@@ -4,19 +4,22 @@ import { mergeConfig } from "vite";
 
 const config: StorybookConfig = {
   stories: ["../lib/**/*.mdx", "../lib/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+
   addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-onboarding",
     "@storybook/addon-interactions",
+    "@chromatic-com/storybook",
+    "storybook-dark-mode",
   ],
+
   framework: {
     name: "@storybook/react-vite",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
+
+  docs: {},
+
   viteFinal: async (config) => {
     return mergeConfig(
       {
@@ -28,16 +31,13 @@ const config: StorybookConfig = {
       {
         css: {
           postcss: null,
-          // preprocessorOptions: {
-          //   scss: {
-          //     additionalData: `
-          //         @import "../lib/assets/styles/global.scss";
-          //     `,
-          //   },
-          // },
         },
       },
     );
+  },
+
+  typescript: {
+    reactDocgen: "react-docgen-typescript",
   },
 };
 export default config;

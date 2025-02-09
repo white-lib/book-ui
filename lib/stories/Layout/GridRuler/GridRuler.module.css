@@ -9,13 +9,13 @@
   background-color: rgba(0, 0, 0, 0.05);
 }
 .main.spacing-sm {
-  gap: calc(var(--margin-sm) / 2 * 2);
+  gap: calc(var(--bu-space-sm) / 2 * 2);
 }
 .main.spacing-md {
-  gap: calc(var(--margin-md) / 2 * 2);
+  gap: calc(var(--bu-space-md) / 2 * 2);
 }
 .main.spacing-lg {
-  gap: calc(var(--margin-lg) / 2 * 2);
+  gap: calc(var(--bu-space-lg) / 2 * 2);
 }
 
 /*# sourceMappingURL=GridRuler.module.css.map */

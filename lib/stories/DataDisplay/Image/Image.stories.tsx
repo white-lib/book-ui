@@ -2,6 +2,8 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Image } from "./Image.tsx";
 import MountainImg from "./assets/mountain.jpeg";
 
+import { decorators } from "../../../storybook/decorators.tsx";
+
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Data Display/Image",
@@ -14,6 +16,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof Image>;
 
 export default meta;

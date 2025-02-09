@@ -1,34 +1,42 @@
-@import "./../../assets/styles/mixins.scss";
+@use "../../assets/styles/mixins";
 
-@include disabled;
-@include input-small;
-@include input-medium;
-@include input-large;
+@include mixins.disabled;
 
 .main {
   margin: 0;
-  color: var(--color-primary-text);
+  color: var(--bu-text-color);
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  transition: all var(--motion-duration-mid);
-  padding: 0 var(--padding-xs);
-  gap: var(--margin-xs);
-  z-index: 2;
+  transition: all var(--bu-duration-xs);
+
+  height: var(--bu-height);
+  gap: var(--bu-gap);
+  padding-left: var(--bu-space-small);
+  padding-right: var(--bu-space-small);
+  box-sizing: border-box;
 
   &.standard {
-    border-bottom: var(--border-width) var(--border-type) var(--color-primary);
+    background-color: transparent;
+    border-bottom: var(bu-input-border-width);
+    border-bottom-color: var(--bu-input-border);
+    border-bottom-style: var(--bu-input-border-style);
     border-radius: 0;
     padding-left: 0;
+
+    &:has(> input:focus) {
+      border-bottom-color: var(--bu-input-border-focus);
+    }
   }
 
   &.outlined {
-    border: var(--border-width) var(--border-type) var(--color-primary);
+    border: var(--bu-input-border-width) var(--bu-input-border-style)
+      var(--bu-input-border-focus);
   }
 
   &.filled {
-    background-color: var(--color-primary-shade);
+    background-color: var(--bu-input-bg);
   }
 
   &.borderless {
@@ -38,12 +46,18 @@
   }
 
   &.error {
-    border-color: var(--color-error);
+    border-color: var(--bu-color-error);
   }
 
   input {
-    color: var(--color-primary-text);
+    color: var(--bu-color-primary-text);
     width: 100%;
     height: 100%;
+    border: none;
+    background: transparent;
+    font-size: var(--bu-font-size);
+    font-family: var(--bu-font-family);
+
+    @include mixins.reset;
   }
 }

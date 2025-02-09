@@ -12,12 +12,17 @@ import classnames from "classnames";
 import inputStyles from "./../Inputs.module.css";
 import styles from "./Select.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import {
+  createClassName,
+  createSizeClassName,
+} from "../../../helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
+
+import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
 
 export type Props = {
   variant?: "standard" | "outlined" | "filled" | "borderless";
-  size?: "small" | "medium" | "large";
+  size?: Size;
   label?: string;
   startIcon?: ReactNode;
   helperText?: string;
@@ -33,7 +38,7 @@ export type Props = {
 
 export const Select: FC<Props> = ({
   variant = "standard",
-  size = "medium",
+  size = DEFAULT_SIZE,
   className,
   label,
   disabled,
@@ -58,7 +63,7 @@ export const Select: FC<Props> = ({
     createClassName("select"),
     inputStyles.main,
     inputStyles[variant],
-    inputStyles[size],
+    createSizeClassName(size),
     size && inputStyles[`input-${size}`],
     error && inputStyles.error,
     disabled && inputStyles.disabled,

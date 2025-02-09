@@ -1,23 +1,24 @@
-@import "./../../../assets/styles/mixins.scss";
+@use "../../../assets/styles/mixins";
+
 .errorText {
-  color: var(--color-error);
+  color: var(--bu-color-error);
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--margin-xxs);
+  gap: calc(var(--bu-gap) / 2);
   position: relative;
 
   .focusedTitle {
-    color: var(--color-primary-text);
+    color: var(--bu-color-primary-text);
     position: absolute;
     left: 0;
-    top: calc(var(--margin-xxs) * 3);
-    transition: top var(--motion-duration-mid) var(--motion-ease-in-out);
+    top: calc(var(--bu-space-xxs) * 3);
+    transition: top var(--bu-motion-duration-mid) var(--bu-motion-ease-in-out);
 
     &.focused {
-      top: calc(var(--margin-xxs) * -2);
+      top: calc(var(--bu-space-xxs) * -2);
     }
   }
 }

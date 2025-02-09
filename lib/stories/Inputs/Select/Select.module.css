@@ -1,8 +1,8 @@
 .main {
-  padding-right: var(--margin-sm);
+  padding-right: var(--bu-space-sm);
   height: 100%;
   width: 100%;
-  color: var(--color-primary-text);
+  color: var(--bu-color-action);
 }
 
 .label {
@@ -10,32 +10,32 @@
 }
 
 .errorText {
-  color: var(--color-error);
+  color: var(--bu-color-error);
 }
 
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--margin-xxs);
+  gap: var(--bu-space-xxs);
   position: relative;
   width: 100%;
 }
 .wrapper .focusedTitle {
-  color: var(--color-primary-text);
+  color: var(--bu-color-primary-text);
   position: absolute;
   left: 0;
-  top: calc(var(--margin-xxs) * 3);
-  transition: top var(--motion-duration-mid) var(--motion-ease-in-out), left var(--motion-duration-mid) var(--motion-ease-in-out);
+  top: calc(var(--bu-space-xxs) * 3);
+  transition: top var(--bu-motion-duration-mid) var(--bu-motion-ease-in-out), left var(--bu-motion-duration-mid) var(--bu-motion-ease-in-out);
 }
 .wrapper .focusedTitle.focused {
-  top: calc(var(--margin-xxs) * -2);
+  top: calc(var(--bu-space-xxs) * -2);
 }
 
 .withStartIcon {
-  margin-left: calc(24px + var(--margin-xs));
+  margin-left: calc(24px + var(--bu-space-xs));
 }
 .withStartIcon.focused {
-  left: calc((24px + var(--margin-xs)) * -1);
+  left: calc((24px + var(--bu-space-xs)) * -1);
 }
 
 /*# sourceMappingURL=Select.module.css.map */

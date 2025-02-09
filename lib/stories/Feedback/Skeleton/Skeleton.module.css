@@ -1,12 +1,12 @@
 .main {
-  background: var(--skeleton-gradient-from-color);
-  animation: pulsate var(--motion-duration-skeleton) infinite;
+  background: var(--bu-skeleton-color-1);
+  animation: pulsate var(--bu-duration-lg) infinite;
 }
 
 .text {
   height: 16px;
   width: 100%;
-  border-radius: var(--border-radius-sm);
+  border-radius: var(--bu-radius-sm);
 }
 
 .circular {
@@ -14,18 +14,18 @@
 }
 
 .rounded {
-  border-radius: var(--border-radius-md);
+  border-radius: var(--bu-radius);
 }
 
 @keyframes pulsate {
   0% {
-    background: var(--skeleton-gradient-from-color);
+    background: var(--bu-skeleton-color-1);
   }
   50% {
-    background: var(--skeleton-gradient-to-color);
+    background: var(--bu-skeleton-color-2);
   }
   100% {
-    background: var(--skeleton-gradient-from-color);
+    background: var(--bu-skeleton-color-1);
   }
 }
 

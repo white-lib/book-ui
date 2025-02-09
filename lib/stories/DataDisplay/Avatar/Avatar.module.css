@@ -1,9 +1,13 @@
 .main {
   border-radius: 50%;
-  background: var(--color-error-bg);
+  background: var(--bu-empty-color);
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: var(--bu-font-family), sans-serif;
+  color: var(--bu-text-invert-color);
+  width: var(--bu-height);
+  height: var(--bu-height);
 }
 
 /*# sourceMappingURL=Avatar.module.css.map */

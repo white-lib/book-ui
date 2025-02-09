@@ -1,56 +1,33 @@
+$space: 15%;
+
 .main {
   -webkit-appearance: none;
   appearance: none;
   border-radius: 50%;
-  margin-right: var(--margin-xs);
-  border: var(--border-width) var(--border-type) var(--color-primary);
   outline: none;
   cursor: pointer;
+  margin: 0;
+  box-sizing: border-box;
+
+  width: var(--bu-height-small);
+  height: var(--bu-height-small);
+  border: 2px solid var(--bu-control-color);
 
   &.checked {
     position: relative;
+    border-color: var(--bu-control-checked-bg);
 
     &::before {
       content: "";
       position: absolute;
       display: block;
       border-radius: 50%;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: 0;
+      width: 100% - $space * 2;
+      height: 100% - $space * 2;
+      left: $space;
+      top: $space;
       margin: auto;
-      background: var(--color-primary);
+      background: var(--bu-control-checked-bg);
     }
-  }
-}
-
-.small {
-  width: var(--control-size-sm);
-  height: var(--control-size-sm);
-
-  &.checked::before {
-    width: var(--control-size-inner-sm);
-    height: var(--control-size-inner-sm);
-  }
-}
-
-.medium {
-  width: var(--control-size);
-  height: var(--control-size);
-
-  &.checked::before {
-    width: var(--control-size-inner);
-    height: var(--control-size-inner);
-  }
-}
-
-.large {
-  width: var(--control-size-lg);
-  height: var(--control-size-lg);
-
-  &.checked::before {
-    width: var(--control-size-inner-lg);
-    height: var(--control-size-inner-lg);
   }
 }

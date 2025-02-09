@@ -29,33 +29,33 @@
   border-top-right-radius: 0;
 }
 .main.contained.horizontal > button:not(:last-child), .main.contained.horizontal > a:not(:last-child) {
-  border-right: var(--button-group-border-width-between) solid var(--color-primary-dark);
+  border-right: var(--bu-button-group-border-width-between) solid var(--bu-color-border);
 }
 .main.contained.vertical > button:not(:last-child), .main.contained.vertical > a:not(:last-child) {
-  border-bottom: var(--button-group-border-width-between) solid var(--color-primary-dark);
+  border-bottom: var(--bu-button-group-border-width-between) solid var(--bu-color-border);
 }
 .main.outlined.horizontal > button:not(:first-child):not(:last-child), .main.outlined.horizontal > a:not(:first-child):not(:last-child) {
-  border-left: var(--button-group-border-width-between) solid var(--button-outlined-border-color);
-  border-right: var(--button-group-border-width-between) solid var(--button-outlined-border-color);
+  border-left: var(--bu-button-group-border-width-between) solid var(--bu-color-action-secondary);
+  border-right: var(--bu-button-group-border-width-between) solid var(--bu-color-action-secondary);
 }
 .main.outlined.horizontal > button:first-child, .main.outlined.horizontal > a:first-child {
-  border-right-width: var(--button-group-border-width-between);
+  border-right-width: var(--bu-button-group-border-width-between);
 }
 .main.outlined.horizontal > button:last-child, .main.outlined.horizontal > a:last-child {
-  border-left-width: var(--button-group-border-width-between);
+  border-left-width: var(--bu-button-group-border-width-between);
 }
 .main.outlined.horizontal > button:not(:disabled):not(.disabled):active, .main.outlined.horizontal > a:not(:disabled):not(.disabled):active {
   z-index: 2;
 }
 .main.outlined.vertical > button:not(:first-child):not(:last-child), .main.outlined.vertical > a:not(:first-child):not(:last-child) {
-  border-top-width: var(--button-group-border-width-between);
-  border-bottom-width: var(--button-group-border-width-between);
+  border-top-width: var(--bu-button-group-border-width-between);
+  border-bottom-width: var(--bu-button-group-border-width-between);
 }
 .main.outlined.vertical > button:first-child, .main.outlined.vertical > a:first-child {
-  border-bottom-width: var(--button-group-border-width-between);
+  border-bottom-width: var(--bu-button-group-border-width-between);
 }
 .main.outlined.vertical > button:last-child, .main.outlined.vertical > a:last-child {
-  border-top-width: var(--button-group-border-width-between);
+  border-top-width: var(--bu-button-group-border-width-between);
 }
 .main.text > button:not(:disabled):not(.disabled):active, .main.text > a:not(:disabled):not(.disabled):active {
   z-index: 2;

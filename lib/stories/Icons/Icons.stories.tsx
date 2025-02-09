@@ -8,6 +8,8 @@ import BrokenImage from "./assets/BrokenImage.tsx";
 import Visibility from "./assets/Visibility.tsx";
 import VisibilityOff from "./assets/VisibilityOff.tsx";
 
+import { decorators } from "../../storybook/decorators.tsx";
+
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Assets/Icons",
@@ -20,6 +22,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof Icon>;
 
 export default meta;

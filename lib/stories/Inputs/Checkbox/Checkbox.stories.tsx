@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Checkbox } from "./Checkbox.tsx";
 import { FormControlLabel } from "../../Form/FormControlLabel";
+import { decorators } from "../../../storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -15,6 +16,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof Checkbox>;
 
 export default meta;
@@ -31,9 +33,11 @@ export const WithLabel = () => (
 
 export const Sizes = () => (
   <div style={{ display: "flex", gap: "12px" }}>
-    <Checkbox size="small" />
-    <Checkbox size="medium" />
-    <Checkbox size="large" />
+    <Checkbox size="xs" />
+    <Checkbox size="sm" />
+    <Checkbox size="md" />
+    <Checkbox size="lg" />
+    <Checkbox size="xl" />
   </div>
 );
 

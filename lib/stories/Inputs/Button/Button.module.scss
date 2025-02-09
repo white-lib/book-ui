@@ -1,11 +1,11 @@
-@import "./../../../assets/styles/mixins.scss";
+@use "sass:color";
+@use "../../../assets/styles/mixins";
 
-@include disabled;
-@include input-small;
-@include input-medium;
-@include input-large;
+@include mixins.disabled;
 
 .main {
+  @include mixins.reset;
+
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -14,114 +14,62 @@
   text-decoration: none;
   border-color: transparent;
 
-  border-width: var(--button-border-width);
-  border-style: var(--button-border-style);
-  gap: var(--margin-xs);
-  font-size: var(--font-size);
-  font-weight: var(--button-font-weight);
-  color: var(--color-primary-text);
+  gap: calc(var(--bu-space) / 2);
 
-  transition:
-    box-shadow var(--motion-duration-fast) var(--motion-ease-in-out),
-    border-color var(--motion-duration-fast) var(--motion-ease-in-out),
-    background-color var(--motion-duration-fast) var(--motion-ease-in-out),
-    color var(--motion-duration-fast) var(--motion-ease-in-out);
+  height: var(--bu-height);
+  border-radius: var(--bu-radius);
+  font-size: var(--bu-font-size);
+  font-family: var(--bu-font-family), sans-serif;
 
-  @mixin contained-active {
-    background-color: var(--color-primary-dark);
-    color: var(--color-primary-text);
-  }
+  transition: background-color var(--bu-duration-xs) ease-in-out;
 
   &.contained {
-    background-color: var(--color-primary);
-    color: var(--color-primary-text);
+    background: var(--bu-btn-primary-bg);
+    color: var(--bu-btn-text-color);
 
-    @media (hover: hover) {
-      &:not(:disabled):not(.disabled):hover {
-        background-color: var(--color-primary-light);
-        color: var(--color-primary-text);
-      }
-
-      &:not(:disabled):not(.disabled):active {
-        @include contained-active;
-      }
+    @include mixins.hover() {
+      background: var(--bu-btn-primary-hover);
     }
 
-    @media (hover: none) {
-      &:not(:disabled):not(.disabled):active {
-        @include contained-active;
-      }
+    @include mixins.active() {
+      background: var(--bu-btn-primary-active);
     }
-  }
-
-  @mixin outlined-active {
-    color: var(--color-primary-dark);
-    border-color: var(--color-primary-dark);
   }
 
   &.outlined {
-    background-color: transparent;
-    color: var(--color-primary);
-    border-color: var(--color-primary);
+    background: transparent;
+    border-color: var(--bu-btn-primary-bg);
+    border-width: 1px;
+    border-style: solid;
+    color: var(--bu-btn-primary-bg);
 
-    @media (hover: hover) {
-      &:not(:disabled):not(.disabled):hover {
-        color: var(--color-primary-light);
-        border-color: var(--color-primary-light);
-      }
-
-      &:not(:disabled):not(.disabled):active {
-        @include outlined-active;
-      }
+    @include mixins.hover() {
+      border-color: var(--bu-btn-primary-hover);
+      color: var(--bu-btn-primary-hover);
     }
 
-    @media (hover: none) {
-      &:not(:disabled):not(.disabled):active {
-        @include outlined-active;
-      }
+    @include mixins.active() {
+      border-color: var(--bu-btn-primary-hover);
+      background-color: var(--bu-btn-primary-hover);
+      color: var(--bu-btn-text-color);
     }
-  }
-
-  @mixin text-active {
-    background: var(--color-primary-light);
-    color: var(--color-primary-text);
   }
 
   &.text {
-    background: transparent;
-    color: var(--color-primary);
+    background-color: transparent;
+    color: var(--bu-color-primary);
 
-    @media (hover: hover) {
-      &:not(:disabled):not(.disabled):hover {
-        background: var(--color-primary);
-        color: var(--color-primary-text);
-      }
-
-      &:not(:disabled):not(.disabled):active {
-        @include text-active;
-      }
+    @include mixins.hover() {
+      background-color: var(--bu-btn-text-bg-hover);
     }
 
-    @media (hover: none) {
-      &:not(:disabled):not(.disabled):active {
-        @include text-active;
-      }
+    @include mixins.active() {
+      color: var(--bu-btn-text-color-active);
     }
-  }
-
-  &.small {
-    padding: var(--button-padding-sm);
-  }
-
-  &.medium {
-    padding: var(--button-padding);
-  }
-
-  &.large {
-    padding: var(--button-padding-lg);
   }
 
   &.disableSpacing {
-    padding: var(--margin-xs);
+    min-width: var(--bu-height);
+    padding: 0;
   }
 }

@@ -1,9 +1,9 @@
 @use "sass:math";
 
 $spacing: (
-  "sm": calc(var(--margin-sm) / 2),
-  "md": calc(var(--margin-md) / 2),
-  "lg": calc(var(--margin-lg) / 2),
+  "sm": calc(var(--bu-space-sm) / 2),
+  "md": calc(var(--bu-space-md) / 2),
+  "lg": calc(var(--bu-space-lg) / 2),
 );
 
 $breakpoints: (

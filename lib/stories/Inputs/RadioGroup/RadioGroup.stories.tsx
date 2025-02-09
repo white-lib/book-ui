@@ -1,9 +1,11 @@
+import { useState } from "react";
 import type { Meta } from "@storybook/react";
 
 import { RadioGroup } from "./RadioGroup.tsx";
 import { FormControl } from "../../Form/FormControl";
 import { FormControlLabel, FormLabel, Radio } from "../../../main.ts";
-import { useState } from "react";
+import { decorators } from "../../../storybook/decorators.tsx";
+
 // import { FormControlLabel } from "../../Form/FormControlLabel";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -18,6 +20,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof RadioGroup>;
 
 export default meta;
@@ -51,15 +54,25 @@ export const Sizes = () => (
     <RadioGroup name="size">
       <FormLabel>Size</FormLabel>
       <FormControlLabel
-        label="Small"
-        value="small"
-        control={<Radio size="small" />}
+        label="Extra Small"
+        value="xs"
+        control={<Radio size="xs" />}
       />
-      <FormControlLabel label="Medium" value="medium" control={<Radio />} />
+      <FormControlLabel
+        label="Small"
+        value="sm"
+        control={<Radio size="sm" />}
+      />
+      <FormControlLabel label="md" value="md" control={<Radio />} />
       <FormControlLabel
         label="Large"
-        value="large"
-        control={<Radio size="large" />}
+        value="lg"
+        control={<Radio size="lg" />}
+      />
+      <FormControlLabel
+        label="Extra Large"
+        value="xl"
+        control={<Radio size="xl" />}
       />
     </RadioGroup>
   </FormControl>

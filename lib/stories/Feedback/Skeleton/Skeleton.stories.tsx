@@ -3,6 +3,8 @@ import type { Meta } from "@storybook/react";
 import { Skeleton } from "./Skeleton.tsx";
 import { Box } from "../../Layout/Box";
 
+import { decorators } from "../../../storybook/decorators.tsx";
+
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Feedback/Skeleton",
@@ -15,6 +17,7 @@ const meta = {
   tags: ["autodocs"],
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
+  decorators,
 } satisfies Meta<typeof Skeleton>;
 
 export default meta;

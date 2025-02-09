@@ -12,15 +12,20 @@ import classnames from "classnames";
 import inputStyles from "./../Inputs.module.css";
 import styles from "./TextField.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import {
+  createClassName,
+  createSizeClassName,
+} from "../../../helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
 
 import Visibility from "../../Icons/assets/Visibility.tsx";
 import VisibilityOff from "../../Icons/assets/VisibilityOff.tsx";
 
+import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+
 export type Props = {
   variant?: "standard" | "outlined" | "filled" | "borderless";
-  size?: "small" | "medium" | "large";
+  size?: Size;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   helperText?: string;
@@ -35,7 +40,7 @@ export type Props = {
 
 export const TextField: FC<Props> = ({
   variant = "standard",
-  size = "medium",
+  size = DEFAULT_SIZE,
   type = "text",
   className,
   placeholder,
@@ -54,15 +59,13 @@ export const TextField: FC<Props> = ({
   ...props
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
-  const [isFocused, setIsFocused] = useState(false);
   const [innerValue, setInnerValue] = useState(value);
 
   const classNameVal = classnames(
     createClassName("txtf"),
     inputStyles.main,
     inputStyles[variant],
-    inputStyles[size],
-    size && inputStyles[`input-${size}`],
+    createSizeClassName(size),
     error && inputStyles.error,
     disabled && inputStyles.disabled,
     className,
@@ -79,14 +82,6 @@ export const TextField: FC<Props> = ({
   const handleOnChange = (e: ChangeEvent<HTMLInputElement>) => {
     setInnerValue(e.target.value);
     onChange?.(e);
-  };
-
-  const handleOnFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
   };
 
   const requiredPlaceholder = useMemo(
@@ -109,26 +104,13 @@ export const TextField: FC<Props> = ({
         <input
           type={localType}
           disabled={disabled}
-          placeholder={variant === "standard" ? "" : requiredPlaceholder}
+          placeholder={requiredPlaceholder}
           value={innerValue}
           onChange={handleOnChange}
-          onFocus={handleOnFocus}
-          onBlur={handleBlur}
           {...props}
         />
         {endIcon}
       </Box>
-      {placeholder && variant === "standard" && (
-        <Typography
-          variant="hint"
-          className={classnames(
-            styles.focusedTitle,
-            (isFocused || innerValue) && styles.focused,
-          )}
-        >
-          {requiredPlaceholder}
-        </Typography>
-      )}
       {helperText && !error && (
         <Typography variant="hint">{helperText}</Typography>
       )}

@@ -43,11 +43,4 @@ export default defineConfig({
       "@": fileURLToPath(new URL("./lib", import.meta.url)),
     },
   },
-  // css: {
-  //   preprocessorOptions: {
-  //     scss: {
-  //       additionalData: `@import "lib/assets/styles/global.scss";`,
-  //     },
-  //   },
-  // },
 });
