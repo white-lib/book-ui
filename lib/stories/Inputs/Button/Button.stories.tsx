@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "./Button";
-import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
-import SaveIcon from "../../Icons/assets/Save.tsx";
+import FavoriteIcon from "lib/stories/Icons/assets/Favorite.tsx";
+import SaveIcon from "lib/stories/Icons/assets/Save.tsx";
 
-import { decorators } from "../../../storybook/decorators.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -28,6 +28,7 @@ type Story = StoryObj<typeof meta>;
 export const Contained: Story = {
   args: {
     children: "Contained",
+    color: "primary",
   },
 };
 

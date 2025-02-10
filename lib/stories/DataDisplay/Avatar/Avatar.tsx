@@ -68,7 +68,7 @@ export const Avatar: FC<Props> = ({
   const sizeObj = useSizeToObj(size, { square: true });
 
   if (!src) {
-    let backgroundColor = "var(--bu-primary-main)";
+    let backgroundColor = "var(--bu-primary-50)";
 
     if (typeof children === "string") {
       backgroundColor = softHexColors[(children as string)?.[0]?.toLowerCase()];

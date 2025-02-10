@@ -2,9 +2,9 @@ import { useState } from "react";
 import type { Meta } from "@storybook/react";
 
 import { RadioGroup } from "./RadioGroup.tsx";
-import { FormControl } from "../../Form/FormControl";
-import { FormControlLabel, FormLabel, Radio } from "../../../main.ts";
-import { decorators } from "../../../storybook/decorators.tsx";
+import { FormControl } from "lib/stories/Form/FormControl";
+import { FormControlLabel, FormLabel, Radio } from "lib/main.ts";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // import { FormControlLabel } from "../../Form/FormControlLabel";
 
@@ -94,6 +94,26 @@ export const Controlled = () => {
         <FormControlLabel label="Male" value="male" control={<Radio />} />
         <FormControlLabel label="Female" value="female" control={<Radio />} />
         <FormControlLabel label="Other" value="other" control={<Radio />} />
+      </RadioGroup>
+    </FormControl>
+  );
+};
+
+export const Colors = () => {
+  return (
+    <FormControl>
+      <RadioGroup name="colors">
+        <FormLabel>Colors</FormLabel>
+        <FormControlLabel
+          label="Primary"
+          value="primary"
+          control={<Radio color="primary" />}
+        />
+        <FormControlLabel
+          label="Secondary"
+          value="secondary"
+          control={<Radio color="secondary" />}
+        />
       </RadioGroup>
     </FormControl>
   );

@@ -13,7 +13,7 @@ import classnames from "classnames";
 
 import styles from "./RadioGroup.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { createClassName } from "lib/helpers/createClassName.tsx";
 
 type Props = {
   name: string;

@@ -15,17 +15,19 @@ import styles from "./TextField.module.css";
 import {
   createClassName,
   createSizeClassName,
-} from "../../../helpers/createClassName.tsx";
+} from "lib/helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
 
 import Visibility from "../../Icons/assets/Visibility.tsx";
 import VisibilityOff from "../../Icons/assets/VisibilityOff.tsx";
 
-import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
+import { ColorType, DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 export type Props = {
   variant?: "standard" | "outlined" | "filled" | "borderless";
   size?: Size;
+  color?: ColorType;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   helperText?: string;
@@ -41,6 +43,7 @@ export type Props = {
 export const TextField: FC<Props> = ({
   variant = "standard",
   size = DEFAULT_SIZE,
+  color = DEFAULT_COLOR,
   type = "text",
   className,
   placeholder,
@@ -64,6 +67,7 @@ export const TextField: FC<Props> = ({
   const classNameVal = classnames(
     createClassName("txtf"),
     inputStyles.main,
+    inputStyles[color],
     inputStyles[variant],
     createSizeClassName(size),
     error && inputStyles.error,

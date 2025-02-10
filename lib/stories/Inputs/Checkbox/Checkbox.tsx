@@ -6,9 +6,10 @@ import styles from "./Checkbox.module.css";
 import {
   createClassName,
   createSizeClassName,
-} from "../../../helpers/createClassName.tsx";
+} from "lib/helpers/createClassName.tsx";
 
-import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
+import { DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 type Props = {
   size?: Size;
@@ -19,6 +20,7 @@ type Props = {
 
 export const Checkbox: FC<Props> = ({
   size = DEFAULT_SIZE,
+  color = DEFAULT_COLOR,
   className,
   disabled,
   checked,
@@ -30,6 +32,7 @@ export const Checkbox: FC<Props> = ({
   const classNameVal = classnames(
     createClassName("cb"),
     styles.main,
+    styles[color],
     createSizeClassName(size),
     isChecked && styles.checked,
     disabled && "disabled",

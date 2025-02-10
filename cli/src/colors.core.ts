@@ -72,9 +72,24 @@ export class ColorsCore {
       .join("")}`;
   }
 
-  generateShades(color: string) {
+  generateGrayShades(color: string): Colors {
     const hsl = ColorsCore.hexToHSL(color);
-    let colorShades: Record<number, string> = {};
+    let colorShades: Colors = {};
+
+    for (let shade in this.shades) {
+      colorShades[shade] = ColorsCore.hslToHex(
+        hsl.h,
+        (this.shades[shade] / 100) * 10,
+        shade === "50" ? 99 : this.shades[shade],
+      );
+    }
+
+    return colorShades;
+  }
+
+  generateShades(color: string): Colors {
+    const hsl = ColorsCore.hexToHSL(color);
+    let colorShades: Colors = {};
 
     for (let shade in this.shades) {
       colorShades[shade] = ColorsCore.hslToHex(

@@ -2,6 +2,7 @@ import type { Meta } from "@storybook/react";
 
 import { Box } from "./Box.tsx";
 import { decorators } from "../../../storybook/decorators.tsx";
+import { Typography } from "lib/main.ts";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -23,7 +24,11 @@ export default meta;
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-    <Box component="div">Div</Box>
-    <Box component="section">Section</Box>
+    <Box component="div">
+      <Typography variant="span">Div</Typography>
+    </Box>
+    <Box component="section">
+      <Typography variant="span">Section</Typography>
+    </Box>
   </div>
 );

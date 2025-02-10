@@ -12,15 +12,19 @@ import styles from "./Button.module.css";
 import {
   createClassName,
   createSizeClassName,
-} from "../../../helpers/createClassName.tsx";
-import { Link } from "../../../main.ts";
-import LoadingIcon from "../../Icons/assets/Loading.tsx";
+} from "lib/helpers/createClassName.tsx";
 
-import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+import { Link } from "lib/main.ts";
+import LoadingIcon from "lib/stories/Icons/assets/Loading.tsx";
+
+import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
+
+import { ColorType, DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 export type Props = {
   variant?: "contained" | "outlined" | "text";
   size?: Size;
+  color?: ColorType;
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   loading?: boolean;
@@ -35,6 +39,7 @@ export const Button: FC<Props> = ({
   children,
   variant = "contained",
   size = DEFAULT_SIZE,
+  color = DEFAULT_COLOR,
   className,
   disabled,
   href,
@@ -48,6 +53,7 @@ export const Button: FC<Props> = ({
     createClassName("btn"),
     styles.main,
     styles[variant],
+    styles[color],
     createSizeClassName(size, {
       paddingX: true,
     }),

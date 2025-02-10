@@ -3,7 +3,8 @@ import type { Meta } from "@storybook/react";
 import { Grid } from "./Grid.tsx";
 import { Box } from "../Box";
 import { GridRuler } from "../GridRuler";
-import { decorators } from "../../../storybook/decorators.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
+import { Typography } from "lib/main.ts";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -26,8 +27,8 @@ export default meta;
 export const Main = () => (
   <div
     style={{
-      // width: "1000px",
-      maxWidth: "1000px",
+      width: "1000px",
+      // maxWidth: "1000px",
       height: "800px",
       position: "relative",
     }}
@@ -36,21 +37,29 @@ export const Main = () => (
     <Grid
       container
       spacing="sm"
-      justifyContent="space-between"
-      alignItems="center"
+      // justifyContent="space-between"
+      // alignItems="center"
       style={{ height: "100%" }}
     >
       <Grid item xs={1} sm={6} md={4} lg={3}>
-        <Box>Div 1</Box>
+        <Box>
+          <Typography variant="p">Div 1</Typography>
+        </Box>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
-        <Box>Div 2</Box>
+        <Box>
+          <Typography variant="p">Div 2</Typography>
+        </Box>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
-        <Box>Div 3</Box>
+        <Box>
+          <Typography variant="p">Div 3</Typography>
+        </Box>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
-        <Box>Div 4</Box>
+        <Box>
+          <Typography variant="p">Div 4</Typography>
+        </Box>
       </Grid>
     </Grid>
   </div>

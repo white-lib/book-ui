@@ -6,11 +6,15 @@ import styles from "./Radio.module.css";
 import {
   createClassName,
   createSizeClassName,
-} from "../../../helpers/createClassName.tsx";
-import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+} from "lib/helpers/createClassName.tsx";
+
+import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
+
+import { ColorType, DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 type Props = {
   size?: Size;
+  color?: ColorType;
 } & Omit<
   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
   "size"
@@ -18,6 +22,7 @@ type Props = {
 
 export const Radio: FC<Props> = ({
   size = DEFAULT_SIZE,
+  color = DEFAULT_COLOR,
   className,
   disabled,
   checked,
@@ -27,6 +32,7 @@ export const Radio: FC<Props> = ({
   const classNameVal = classnames(
     createClassName("rd"),
     styles.main,
+    styles[color],
     createSizeClassName(size),
     checked && styles.checked,
     disabled && "disabled",

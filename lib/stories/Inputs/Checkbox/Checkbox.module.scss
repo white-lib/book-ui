@@ -1,3 +1,5 @@
+@use "../../../assets/styles/mixins";
+
 .main {
   -webkit-appearance: none;
   appearance: none;
@@ -9,27 +11,30 @@
   margin: 0;
   box-sizing: border-box;
 
-  border: var(--bu-control-border-width) solid var(--bu-control-color);
+  @include mixins.with-color-type using ($type) {
+    border: var(--bu-control-#{$type}-border-width) solid
+      var(--bu-control-#{$type}-color);
 
-  &.checked {
-    position: relative;
-    border-color: var(--bu-control-checked-bg);
-    background: var(--bu-control-checked-bg);
+    &.checked {
+      position: relative;
+      border-color: var(--bu-control-#{$type}-checked-bg);
+      background: var(--bu-control-#{$type}-checked-bg);
 
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      top: 6%;
-      left: 29%;
-      width: 35%;
-      height: 70%;
-      border-style: solid;
-      border-color: var(--bu-control-mark-color);
-      border-width: 0 2px 2px 0;
-      animation-name: rotate;
-      animation-duration: var(--bu-duration-md);
-      animation-fill-mode: forwards;
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 6%;
+        left: 29%;
+        width: 35%;
+        height: 70%;
+        border-style: solid;
+        border-color: var(--bu-control-#{$type}-mark-color);
+        border-width: 0 2px 2px 0;
+        animation-name: rotate;
+        animation-duration: var(--bu-duration-md);
+        animation-fill-mode: forwards;
+      }
     }
   }
 }

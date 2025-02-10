@@ -8,16 +8,17 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { createClassName } from "lib/helpers/createClassName.tsx";
 
 import { Props as ButtonProps } from "../Button/Button.tsx";
 
 import styles from "./ButtonGroup.module.css";
 import { Box } from "../../Layout/Box";
+import { DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 type Props = { orientation?: "horizontal" | "vertical" } & Pick<
   ButtonProps,
-  "variant"
+  "variant" | "color"
 > &
   DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
@@ -26,6 +27,7 @@ export const ButtonGroup: FC<Props> = ({
   className,
   variant = "contained",
   orientation = "horizontal",
+  color = DEFAULT_COLOR,
   ...props
 }) => {
   const classNameVal = classnames(
@@ -41,6 +43,7 @@ export const ButtonGroup: FC<Props> = ({
       {Children.map(children, (child) =>
         cloneElement(child as ReactElement, {
           variant,
+          color,
         }),
       )}
     </Box>

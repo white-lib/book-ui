@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { TextField } from "./TextField.tsx";
 import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
 import SaveIcon from "../../Icons/assets/Save.tsx";
-import { decorators } from "../../../storybook/decorators.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -137,6 +137,13 @@ export const WithIcons = () => (
       endIcon={<SaveIcon />}
       variant="filled"
     />
+  </div>
+);
+
+export const Colors = () => (
+  <div style={{ display: "flex", gap: "12px" }}>
+    <TextField color="primary" />
+    <TextField color="secondary" />
   </div>
 );
 

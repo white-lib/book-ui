@@ -9,16 +9,4 @@
   flex-direction: column;
   gap: calc(var(--bu-gap) / 2);
   position: relative;
-
-  .focusedTitle {
-    color: var(--bu-color-primary-text);
-    position: absolute;
-    left: 0;
-    top: calc(var(--bu-space-xxs) * 3);
-    transition: top var(--bu-motion-duration-mid) var(--bu-motion-ease-in-out);
-
-    &.focused {
-      top: calc(var(--bu-space-xxs) * -2);
-    }
-  }
 }

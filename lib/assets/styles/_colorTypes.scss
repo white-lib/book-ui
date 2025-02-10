@@ -1,0 +1,9 @@
+$colorTypes: "primary", "secondary";
+
+@mixin with-color-type {
+  @each $type in $colorTypes {
+    &.#{$type} {
+      @content ($type);
+    }
+  }
+}

@@ -1,4 +1,5 @@
 @use "sass:math";
+@forward "colorTypes";
 
 @mixin fluid-text($max: 48, $min: 16) {
   $maxViewportWidth: 1400;

@@ -1,3 +1,13 @@
-
+.div {
+  background: var(--bu-primary-500);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div p {
+  filter: invert(1);
+}
 
 /*# sourceMappingURL=Box.module.css.map */

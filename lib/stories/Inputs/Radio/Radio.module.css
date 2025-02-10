@@ -6,15 +6,17 @@
   cursor: pointer;
   margin: 0;
   box-sizing: border-box;
+}
+.main.primary {
   width: var(--bu-height-small);
   height: var(--bu-height-small);
-  border: 2px solid var(--bu-control-color);
+  border: 2px solid var(--bu-control-primary-color);
 }
-.main.checked {
+.main.primary.checked {
   position: relative;
-  border-color: var(--bu-control-checked-bg);
+  border-color: var(--bu-control-primary-checked-bg);
 }
-.main.checked::before {
+.main.primary.checked::before {
   content: "";
   position: absolute;
   display: block;
@@ -24,7 +26,28 @@
   left: 15%;
   top: 15%;
   margin: auto;
-  background: var(--bu-control-checked-bg);
+  background: var(--bu-control-primary-checked-bg);
+}
+.main.secondary {
+  width: var(--bu-height-small);
+  height: var(--bu-height-small);
+  border: 2px solid var(--bu-control-secondary-color);
+}
+.main.secondary.checked {
+  position: relative;
+  border-color: var(--bu-control-secondary-checked-bg);
+}
+.main.secondary.checked::before {
+  content: "";
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  width: 70%;
+  height: 70%;
+  left: 15%;
+  top: 15%;
+  margin: auto;
+  background: var(--bu-control-secondary-checked-bg);
 }
 
 /*# sourceMappingURL=Radio.module.css.map */

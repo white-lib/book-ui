@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Box.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { createClassName } from "lib/helpers/createClassName.tsx";
 
 type Tags = "div" | "section";
 
@@ -25,6 +25,7 @@ export const Box: FC<Props> = ({
     styles[component],
     className,
   );
+
   return createElement(
     component,
     { ...props, className: classNameVal },

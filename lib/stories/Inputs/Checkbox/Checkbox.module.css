@@ -8,14 +8,16 @@
   border-radius: var(--bu-radius-small);
   margin: 0;
   box-sizing: border-box;
-  border: var(--bu-control-border-width) solid var(--bu-control-color);
 }
-.main.checked {
+.main.primary {
+  border: var(--bu-control-primary-border-width) solid var(--bu-control-primary-color);
+}
+.main.primary.checked {
   position: relative;
-  border-color: var(--bu-control-checked-bg);
-  background: var(--bu-control-checked-bg);
+  border-color: var(--bu-control-primary-checked-bg);
+  background: var(--bu-control-primary-checked-bg);
 }
-.main.checked::before {
+.main.primary.checked::before {
   content: "";
   position: absolute;
   display: block;
@@ -24,7 +26,30 @@
   width: 35%;
   height: 70%;
   border-style: solid;
-  border-color: var(--bu-control-mark-color);
+  border-color: var(--bu-control-primary-mark-color);
+  border-width: 0 2px 2px 0;
+  animation-name: rotate;
+  animation-duration: var(--bu-duration-md);
+  animation-fill-mode: forwards;
+}
+.main.secondary {
+  border: var(--bu-control-secondary-border-width) solid var(--bu-control-secondary-color);
+}
+.main.secondary.checked {
+  position: relative;
+  border-color: var(--bu-control-secondary-checked-bg);
+  background: var(--bu-control-secondary-checked-bg);
+}
+.main.secondary.checked::before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 6%;
+  left: 29%;
+  width: 35%;
+  height: 70%;
+  border-style: solid;
+  border-color: var(--bu-control-secondary-mark-color);
   border-width: 0 2px 2px 0;
   animation-name: rotate;
   animation-duration: var(--bu-duration-md);

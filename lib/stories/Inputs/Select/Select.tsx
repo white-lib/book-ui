@@ -15,14 +15,16 @@ import styles from "./Select.module.css";
 import {
   createClassName,
   createSizeClassName,
-} from "../../../helpers/createClassName.tsx";
+} from "lib/helpers/createClassName.tsx";
 import { Box, Typography } from "../../../main.ts";
 
-import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
+import { ColorType, DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 export type Props = {
   variant?: "standard" | "outlined" | "filled" | "borderless";
   size?: Size;
+  color?: ColorType;
   label?: string;
   startIcon?: ReactNode;
   helperText?: string;
@@ -39,6 +41,7 @@ export type Props = {
 export const Select: FC<Props> = ({
   variant = "standard",
   size = DEFAULT_SIZE,
+  color = DEFAULT_COLOR,
   className,
   label,
   disabled,
@@ -56,15 +59,14 @@ export const Select: FC<Props> = ({
   onBlur,
   ...props
 }) => {
-  const [isFocused, setIsFocused] = useState(false);
   const [innerValue, setInnerValue] = useState(value);
 
   const classNameVal = classnames(
     createClassName("select"),
     inputStyles.main,
+    inputStyles[color],
     inputStyles[variant],
     createSizeClassName(size),
-    size && inputStyles[`input-${size}`],
     error && inputStyles.error,
     disabled && inputStyles.disabled,
     className,
@@ -75,14 +77,6 @@ export const Select: FC<Props> = ({
     onChange?.(e);
   };
 
-  const handleOnFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleBlur = () => {
-    setIsFocused(false);
-  };
-
   const requiredLabel = useMemo(
     () => (label ? `${label}${required ? " *" : ""}` : ""),
     [label, required],
@@ -90,9 +84,6 @@ export const Select: FC<Props> = ({
 
   return (
     <Box className={classnames(styles.wrapper, fullWidth && styles.fullWidth)}>
-      <label htmlFor={label} className={styles.label}>
-        {label}
-      </label>
       <Box className={classNameVal}>
         {startIcon}
         <select
@@ -100,30 +91,15 @@ export const Select: FC<Props> = ({
           id={label}
           value={innerValue}
           onChange={handleOnChange}
-          onFocus={handleOnFocus}
-          onBlur={handleBlur}
-          className={classnames(styles.main)}
           {...props}
         >
-          <option selected disabled hidden={variant === "standard"}>
-            {variant !== "standard" ? requiredLabel : ""}
+          <option selected disabled>
+            {requiredLabel}
           </option>
           {innerValue && !hideNoneValue && <option value={""}>None</option>}
           {children}
         </select>
       </Box>
-      {label && variant === "standard" && (
-        <Typography
-          variant="hint"
-          className={classnames(
-            styles.focusedTitle,
-            (isFocused || innerValue) && styles.focused,
-            startIcon && styles.withStartIcon,
-          )}
-        >
-          {requiredLabel}
-        </Typography>
-      )}
       {helperText && !error && (
         <Typography variant="hint">{helperText}</Typography>
       )}

@@ -1,3 +1,5 @@
+@use "../../../assets/styles/mixins";
+
 $space: 15%;
 
 .main {
@@ -9,25 +11,27 @@ $space: 15%;
   margin: 0;
   box-sizing: border-box;
 
-  width: var(--bu-height-small);
-  height: var(--bu-height-small);
-  border: 2px solid var(--bu-control-color);
+  @include mixins.with-color-type using ($type) {
+    width: var(--bu-height-small);
+    height: var(--bu-height-small);
+    border: 2px solid var(--bu-control-#{$type}-color);
 
-  &.checked {
-    position: relative;
-    border-color: var(--bu-control-checked-bg);
+    &.checked {
+      position: relative;
+      border-color: var(--bu-control-#{$type}-checked-bg);
 
-    &::before {
-      content: "";
-      position: absolute;
-      display: block;
-      border-radius: 50%;
-      width: 100% - $space * 2;
-      height: 100% - $space * 2;
-      left: $space;
-      top: $space;
-      margin: auto;
-      background: var(--bu-control-checked-bg);
+      &::before {
+        content: "";
+        position: absolute;
+        display: block;
+        border-radius: 50%;
+        width: 100% - $space * 2;
+        height: 100% - $space * 2;
+        left: $space;
+        top: $space;
+        margin: auto;
+        background: var(--bu-control-#{$type}-checked-bg);
+      }
     }
   }
 }

@@ -1,16 +1,5 @@
 @use "../../../assets/styles/mixins";
 
-.main {
-  padding-right: var(--bu-space-sm);
-  height: 100%;
-  width: 100%;
-  color: var(--bu-color-action);
-}
-
-.label {
-  display: none;
-}
-
 .errorText {
   color: var(--bu-color-error);
 }
@@ -18,23 +7,9 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: var(--bu-space-xxs);
+  gap: calc(var(--bu-gap) / 2);
   position: relative;
   width: 100%;
-
-  .focusedTitle {
-    color: var(--bu-color-primary-text);
-    position: absolute;
-    left: 0;
-    top: calc(var(--bu-space-xxs) * 3);
-    transition:
-      top var(--bu-motion-duration-mid) var(--bu-motion-ease-in-out),
-      left var(--bu-motion-duration-mid) var(--bu-motion-ease-in-out);
-
-    &.focused {
-      top: calc(var(--bu-space-xxs) * -2);
-    }
-  }
 }
 
 .withStartIcon {

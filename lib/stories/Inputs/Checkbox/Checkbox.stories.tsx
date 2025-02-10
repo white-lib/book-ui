@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 
 import { Checkbox } from "./Checkbox.tsx";
 import { FormControlLabel } from "../../Form/FormControlLabel";
-import { decorators } from "../../../storybook/decorators.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -52,6 +52,16 @@ export const Disabled = () => (
       disabled
       label="Disabled"
       control={<Checkbox disabled checked />}
+    />
+  </div>
+);
+
+export const Color = () => (
+  <div style={{ display: "flex", gap: "12px" }}>
+    <FormControlLabel label="Primary" control={<Checkbox color="primary" />} />
+    <FormControlLabel
+      label="Secondary"
+      control={<Checkbox color="secondary" />}
     />
   </div>
 );

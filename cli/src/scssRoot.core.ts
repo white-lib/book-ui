@@ -3,8 +3,15 @@ import * as fs from "node:fs";
 import { DimensionsCore } from "./dimensions.core";
 import { Config } from "./config.core";
 
+export type ColorTypes = keyof Pick<Config, "primary" | "secondary">;
+
 export class ScssRootCore {
-  private readonly primaryColors: Colors;
+  private readonly grayColors: Colors;
+
+  private readonly colorTypes: Record<ColorTypes, Colors | null> = {
+    primary: null,
+    secondary: null,
+  };
 
   private readonly colorsCore: ColorsCore;
   private readonly dimensionsCore: DimensionsCore;
@@ -13,7 +20,33 @@ export class ScssRootCore {
     this.colorsCore = new ColorsCore();
     this.dimensionsCore = new DimensionsCore(config.baseSize);
 
-    this.primaryColors = this.colorsCore.generateShades(config.primary);
+    this.grayColors = this.colorsCore.generateGrayShades(config.primary);
+
+    for (const colorType in this.colorTypes) {
+      const color: string = String(config[colorType as keyof Config]);
+
+      if (color === "undefined") {
+        continue;
+      }
+
+      this.colorTypes[colorType as ColorTypes] =
+        this.colorsCore.generateShades(color);
+    }
+  }
+
+  private withColors(callback: (type: string) => string) {
+    let content = "";
+    for (const colorType in this.colorTypes) {
+      const type = colorType as ColorTypes;
+
+      if (this.colorTypes[type] === null) {
+        continue;
+      }
+
+      content += callback(type);
+    }
+
+    return content;
   }
 
   private static getRootTag() {
@@ -27,20 +60,6 @@ export class ScssRootCore {
   private static getDarkModeTag() {
     return `[data-bu-theme="dark"] {`;
   }
-  private static getNeutralColors() {
-    return `
-\t--bu-gray-50: #f9fafb;
-\t--bu-gray-100: #f3f4f6;
-\t--bu-gray-200: #e5e7eb;
-\t--bu-gray-300: #d1d5db;
-\t--bu-gray-400: #9ca3af;
-\t--bu-gray-500: #6b7280;
-\t--bu-gray-600: #4b5563;
-\t--bu-gray-700: #374151;
-\t--bu-gray-800: #1f2937;
-\t--bu-gray-900: #111827;
-  `;
-  }
 
   private static getCommonColors() {
     return `
@@ -49,38 +68,6 @@ export class ScssRootCore {
 \t--bu-empty-color: var(--bu-gray-100);
 \t--bu-font-color: #000000;
   `;
-  }
-
-  private static getButtonColors() {
-    return `
-\t--bu-btn-primary-bg: var(--bu-primary-600);
-\t--bu-btn-text-color: var(--bu-white);
-\t--bu-btn-text-bg-hover: var(--bu-gray-200);
-\t--bu-btn-primary-hover: var(--bu-primary-500);
-\t--bu-btn-primary-active: var(--bu-primary-700);
-\t--bu-btn-text-color-active: var(--bu-primary-500);
-
-`;
-  }
-
-  private static getControlVars() {
-    return `
-\t--bu-control-color: var(--bu-gray-300);
-\t--bu-control-hover: var(--bu-primary-600);
-\t--bu-control-checked-bg: var(--bu-primary-500);
-\t--bu-control-mark-color: var(--bu-white);
-\t--bu-control-border-width: 1px;
-`;
-  }
-
-  private static getInputVars() {
-    return `
-\t--bu-input-bg: var(--bu-gray-100);
-\t--bu-input-border: var(--bu-gray-400);
-\t--bu-input-border-focus: var(--bu-primary-500);
-\t--bu-input-border-style: solid;
-\t--bu-input-border-width: 1px;
-`;
   }
 
   private static getSkeletonColors() {
@@ -156,13 +143,82 @@ export class ScssRootCore {
 \t--bu-skeleton-color-2: var(--bu-gray-900);
 \t--bu-input-bg: var(--bu-gray-800);
 
-\t--bu-btn-text-bg-hover: var(--bu-gray-800);
-\t--bu-btn-text-color-active: var(--bu-gray-400);
+\t--bu-btn-primary-text-bg-hover: var(--bu-gray-800);
+\t--bu-btn-primary-text-color-active: var(--bu-gray-400);
 
 \t--bu-container-bg: var(--bu-gray-900);
 \t--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
 \t--bu-container-border-color: var(--bu-gray-800);
 `;
+  }
+
+  private getButtonColors() {
+    return this.withColors(
+      (type: string) => `
+\t--bu-btn-${type}-bg: var(--bu-${type}-600);
+\t--bu-btn-${type}-text-color: var(--bu-white);
+\t--bu-btn-${type}-text-bg-hover: var(--bu-gray-200);
+\t--bu-btn-${type}-hover: var(--bu-${type}-500);
+\t--bu-btn-${type}-active: var(--bu-${type}-700);
+\t--bu-btn-${type}-text-color-active: var(--bu-${type}-500);
+
+\t--bu-btn-${type}-outlined-border: var(--bu-${type}-500);
+\t--bu-btn-${type}-outlined-border-hover: var(--bu-${type}-400);
+`,
+    );
+  }
+
+  private getControlVars() {
+    return this.withColors(
+      (type: string) => `
+\t--bu-control-${type}-color: var(--bu-gray-300);
+\t--bu-control-${type}-hover: var(--bu-${type}-600);
+\t--bu-control-${type}-checked-bg: var(--bu-${type}-500);
+\t--bu-control-${type}-mark-color: var(--bu-white);
+\t--bu-control-${type}-border-width: 1px;
+`,
+    );
+  }
+
+  private getInputVars() {
+    return this.withColors(
+      (type: string) => `
+\t--bu-input-${type}-bg: var(--bu-gray-100);
+\t--bu-input-${type}-border: var(--bu-gray-400);
+\t--bu-input-${type}-border-focus: var(--bu-${type}-500);
+\t--bu-input-${type}-border-style: solid;
+\t--bu-input-${type}-border-width: 1px;
+`,
+    );
+  }
+
+  private getColorsByType() {
+    let content = "\n";
+
+    for (const colorType in this.colorTypes) {
+      const type = colorType as ColorTypes;
+
+      if (this.colorTypes[type] === null) {
+        continue;
+      }
+
+      for (const shade in this.colorTypes[type]) {
+        content += `\t--bu-${colorType}-${shade}: ${this.colorTypes[type][shade]};\n`;
+      }
+
+      content += "\n";
+    }
+
+    return content;
+  }
+
+  private getNeutralColors() {
+    let content = "";
+    for (const shade in this.grayColors) {
+      content += `\t--bu-gray-${shade}: ${this.grayColors[shade]};\n`;
+    }
+
+    return content;
   }
 
   private fluidText(max: number = 48, min: number = 16) {
@@ -212,21 +268,22 @@ export class ScssRootCore {
   generateScssRootColors(): string {
     let content = ScssRootCore.getRootTag();
 
-    for (const shade in this.primaryColors) {
-      content += `\t--bu-primary-${shade}: ${this.primaryColors[shade]};\n`;
-    }
+    content += this.getColorsByType();
 
     // colors
-    content += ScssRootCore.getNeutralColors();
+    content += this.getNeutralColors();
+
     content += ScssRootCore.getCommonColors();
-    content += ScssRootCore.getButtonColors();
+
+    content += this.getButtonColors();
+
     content += ScssRootCore.getSkeletonColors();
 
     // inputs
-    content += ScssRootCore.getInputVars();
+    content += this.getInputVars();
 
     // controls
-    content += ScssRootCore.getControlVars();
+    content += this.getControlVars();
 
     // font
     content += ScssRootCore.getFontFamily();

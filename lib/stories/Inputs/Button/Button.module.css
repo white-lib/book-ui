@@ -25,50 +25,69 @@
   font-family: var(--bu-font-family), sans-serif;
   transition: background-color var(--bu-duration-xs) ease-in-out;
 }
-.main.contained {
+.main.contained.primary {
   background: var(--bu-btn-primary-bg);
-  color: var(--bu-btn-text-color);
+  color: var(--bu-btn-primary-text-color);
 }
 @media (hover: hover) {
-  .main.contained:not(:disabled):not(.disabled):hover {
+  .main.contained.primary:not(:disabled):not(.disabled):hover {
     background: var(--bu-btn-primary-hover);
   }
 }
 @media (hover: hover) {
-  .main.contained:not(:disabled):not(.disabled):active {
+  .main.contained.primary:not(:disabled):not(.disabled):active {
     background: var(--bu-btn-primary-active);
   }
 }
 @media (hover: hover) and (hover: none) {
-  .main.contained:not(:disabled):not(.disabled):active {
+  .main.contained.primary:not(:disabled):not(.disabled):active {
     background: var(--bu-btn-primary-active);
+  }
+}
+.main.contained.secondary {
+  background: var(--bu-btn-secondary-bg);
+  color: var(--bu-btn-secondary-text-color);
+}
+@media (hover: hover) {
+  .main.contained.secondary:not(:disabled):not(.disabled):hover {
+    background: var(--bu-btn-secondary-hover);
+  }
+}
+@media (hover: hover) {
+  .main.contained.secondary:not(:disabled):not(.disabled):active {
+    background: var(--bu-btn-secondary-active);
+  }
+}
+@media (hover: hover) and (hover: none) {
+  .main.contained.secondary:not(:disabled):not(.disabled):active {
+    background: var(--bu-btn-secondary-active);
   }
 }
 .main.outlined {
   background: transparent;
-  border-color: var(--bu-btn-primary-bg);
+  border-color: var(--bu-btn-primary-outlined-border);
   border-width: 1px;
   border-style: solid;
-  color: var(--bu-btn-primary-bg);
+  color: var(--bu-btn-primary-outlined-border);
 }
 @media (hover: hover) {
   .main.outlined:not(:disabled):not(.disabled):hover {
-    border-color: var(--bu-btn-primary-hover);
-    color: var(--bu-btn-primary-hover);
+    border-color: var(--bu-btn-primary-outlined-border-hover);
+    color: var(--bu-btn-primary-outlined-border-hover);
   }
 }
 @media (hover: hover) {
   .main.outlined:not(:disabled):not(.disabled):active {
-    border-color: var(--bu-btn-primary-hover);
-    background-color: var(--bu-btn-primary-hover);
-    color: var(--bu-btn-text-color);
+    border-color: var(--bu-btn-primary-outlined-border-hover);
+    background-color: var(--bu-btn-primary-outlined-border-hover);
+    color: var(--bu-btn-primary-text-color);
   }
 }
 @media (hover: hover) and (hover: none) {
   .main.outlined:not(:disabled):not(.disabled):active {
-    border-color: var(--bu-btn-primary-hover);
-    background-color: var(--bu-btn-primary-hover);
-    color: var(--bu-btn-text-color);
+    border-color: var(--bu-btn-primary-outlined-border-hover);
+    background-color: var(--bu-btn-primary-outlined-border-hover);
+    color: var(--bu-btn-primary-text-color);
   }
 }
 .main.text {
@@ -77,17 +96,17 @@
 }
 @media (hover: hover) {
   .main.text:not(:disabled):not(.disabled):hover {
-    background-color: var(--bu-btn-text-bg-hover);
+    background-color: var(--bu-btn-primary-text-bg-hover);
   }
 }
 @media (hover: hover) {
   .main.text:not(:disabled):not(.disabled):active {
-    color: var(--bu-btn-text-color-active);
+    color: var(--bu-btn-primary-text-color-active);
   }
 }
 @media (hover: hover) and (hover: none) {
   .main.text:not(:disabled):not(.disabled):active {
-    color: var(--bu-btn-text-color-active);
+    color: var(--bu-btn-primary-text-color-active);
   }
 }
 .main.disableSpacing {
