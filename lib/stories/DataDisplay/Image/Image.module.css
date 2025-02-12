@@ -31,6 +31,21 @@
 .main.hidden {
   display: none;
 }
+.main.object-fit-cover {
+  object-fit: cover;
+}
+.main.object-fit-contain {
+  object-fit: contain;
+}
+.main.object-fit-fill {
+  object-fit: fill;
+}
+.main.object-fit-none {
+  object-fit: none;
+}
+.main.object-fit-scale-down {
+  object-fit: scale-down;
+}
 
 .error {
   background: var(--bu-empty-color);

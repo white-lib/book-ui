@@ -1,9 +1,21 @@
 @use "./../../Feedback/Skeleton/Skeleton.module";
 
+$objectFit: cover, contain, fill, none, scale-down;
+
+@mixin object-fit() {
+  @each $value in $objectFit {
+    &.object-fit-#{$value} {
+      object-fit: $value;
+    }
+  }
+}
+
 .main {
   &.hidden {
     display: none;
   }
+
+  @include object-fit;
 }
 
 .error {

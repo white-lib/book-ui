@@ -1,6 +1,40 @@
 .main {
   display: flex;
   box-sizing: border-box;
+  gap: var(--bu-gap);
+}
+.main.align-items-flex-start {
+  align-items: flex-start;
+}
+.main.align-items-center {
+  align-items: center;
+}
+.main.align-items-flex-end {
+  align-items: flex-end;
+}
+.main.justify-content-flex-start {
+  justify-content: flex-start;
+}
+.main.justify-content-center {
+  justify-content: center;
+}
+.main.justify-content-flex-end {
+  justify-content: flex-end;
+}
+.main.justify-content-space-between {
+  justify-content: space-between;
+}
+.main.flex-direction-row {
+  flex-direction: row;
+}
+.main.flex-direction-row-reverse {
+  flex-direction: row-reverse;
+}
+.main.flex-direction-column {
+  flex-direction: column;
+}
+.main.flex-direction-column-reverse {
+  flex-direction: column-reverse;
 }
 
 /*# sourceMappingURL=Flex.module.css.map */

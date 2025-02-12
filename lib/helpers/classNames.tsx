@@ -1,6 +1,8 @@
 import { Size, SizeExt } from "../system/measurement.types.ts";
 import { singletonStorage } from "../system/singletonStorage.tsx";
 
+export type FlexDirection = "row" | "column" | "row-reverse" | "column-reverse";
+
 export type JustifyContent =
   | "flex-start"
   | "center"

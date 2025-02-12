@@ -1,4 +1,37 @@
+$direction: (row, row-reverse, column, column-reverse);
+$justifyContent: (flex-start, center, flex-end, space-between);
+$alignItems: (flex-start, center, flex-end);
+
+@mixin justifyContent() {
+  @each $value in $justifyContent {
+    &.justify-content-#{$value} {
+      justify-content: $value;
+    }
+  }
+}
+
+@mixin alignItems() {
+  @each $value in $alignItems {
+    &.align-items-#{$value} {
+      align-items: $value;
+    }
+  }
+}
+
+@mixin flexDirection() {
+  @each $value in $direction {
+    &.flex-direction-#{$value} {
+      flex-direction: $value;
+    }
+  }
+}
+
 .main {
   display: flex;
   box-sizing: border-box;
+  gap: var(--bu-gap);
+
+  @include alignItems;
+  @include justifyContent;
+  @include flexDirection;
 }

@@ -278,7 +278,6 @@ export class ScssRootCore {
     let content = `\n`;
 
     for (const size in sizes) {
-      const value = sizes[size];
       content += `
 .bu-size-${size} {
 \t--bu-size: var(--bu-size-${size});
@@ -381,7 +380,7 @@ export class ScssRootCore {
     content += "\n";
 
     content += this.getSizeClasses();
-    content += this.getArrangementClasses();
+    // content += this.getArrangementClasses();
 
     content += "\n";
     content += ScssRootCore.getDarkModeTag();

@@ -17,13 +17,13 @@ import BrokenImage from "lib/stories/Icons/assets/BrokenImage.tsx";
 import { Box } from "lib/stories/Layout/Box";
 import { halfTheValue } from "lib/helpers/skinning.tsx";
 
-type Props = {
-  children?: ReactNode;
+export type Props = {
   src?: string | ReactNode;
   alt?: string;
   width?: number | string;
   height?: number | string;
   skeleton?: SkeletonProps["variant"];
+  objectFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
 } & DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
 
 export const Image: FC<Props> = ({
@@ -33,6 +33,7 @@ export const Image: FC<Props> = ({
   alt,
   width,
   height,
+  objectFit,
   skeleton,
   className,
   ...props
@@ -43,6 +44,7 @@ export const Image: FC<Props> = ({
   const classNameVal = classnames(
     withClassPrefix("img"),
     styles.main,
+    objectFit && styles[`object-fit-${objectFit}`],
     className,
     isLoading && styles.hidden,
   );
