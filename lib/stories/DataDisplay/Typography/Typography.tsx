@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Typography.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
 type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 
@@ -26,7 +26,7 @@ export const Typography: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("tp"),
+    withClassPrefix("tp"),
     styles.main,
     styles[variant],
     error && styles.error,

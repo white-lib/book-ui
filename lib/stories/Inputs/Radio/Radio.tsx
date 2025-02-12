@@ -3,10 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Radio.module.css";
 
-import {
-  createClassName,
-  createSizeClassName,
-} from "lib/helpers/createClassName.tsx";
+import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 
 import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
 
@@ -30,10 +27,10 @@ export const Radio: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("rd"),
+    withClassPrefix("rd"),
     styles.main,
     styles[color],
-    createSizeClassName(size),
+    createClassName({ size }),
     checked && styles.checked,
     disabled && "disabled",
     className,

@@ -4,6 +4,8 @@ export class DimensionsCore {
   private static readonly htmlFontSize = 16;
 
   private readonly sizes: Sizes;
+
+  private readonly baseHeight: number;
   private readonly gap: string;
   private readonly space: string;
 
@@ -16,6 +18,7 @@ export class DimensionsCore {
       xl: this.rem(baseHeight * 1.3),
     };
 
+    this.baseHeight = baseHeight;
     this.gap = this.rem(baseHeight * 0.3);
     this.space = this.rem(baseHeight * 0.2);
   }
@@ -26,6 +29,10 @@ export class DimensionsCore {
 
   getGap() {
     return this.gap;
+  }
+
+  getHeight() {
+    return this.rem(this.baseHeight);
   }
 
   getSpace() {

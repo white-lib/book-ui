@@ -1,4 +1,5 @@
 @use "sass:math";
+@use "sass:map";
 
 $spacing: (
   "sm": calc(var(--bu-space) / 2),
@@ -16,7 +17,7 @@ $justifyContent: (flex-start, center, flex-end, space-between);
 $alignItems: (flex-start, center, flex-end);
 
 @mixin breakpoint($name) {
-  @media screen and (min-width: map-get($breakpoints, $name)) {
+  @media screen and (min-width: map.get($breakpoints, $name)) {
     @content;
   }
 }
@@ -29,6 +30,9 @@ $alignItems: (flex-start, center, flex-end);
 
   &.item {
     display: block;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
   &.xs-0,

@@ -1,13 +1,13 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta } from "@storybook/react";
 
-import { FormControlLabel } from "./FormControlLabel.tsx";
-import { Checkbox } from "lib/stories/Inputs/Checkbox";
+import { Flex } from "./Flex.tsx";
 import { decorators } from "lib/storybook/decorators.tsx";
+import { Typography } from "lib/main.ts";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Form/Form Control Label",
-  component: FormControlLabel,
+  title: "Layout/Flex",
+  component: Flex,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -17,16 +17,18 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
   decorators,
-} satisfies Meta<typeof FormControlLabel>;
+} satisfies Meta<typeof Flex>;
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
-
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
-export const Main: Story = {
-  args: {
-    label: "Label",
-    control: <Checkbox />,
-  },
-};
+export const Main = () => (
+  <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+    <Flex component="div">
+      <Typography variant="span">Div</Typography>
+    </Flex>
+    <Flex component="section">
+      <Typography variant="span">Section</Typography>
+    </Flex>
+  </div>
+);

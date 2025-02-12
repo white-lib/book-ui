@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./FormControl.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "../../../helpers/classNames.tsx";
 
 type Props = { fullWidth?: boolean } & DetailedHTMLProps<
   FormHTMLAttributes<HTMLFormElement>,
@@ -17,7 +17,7 @@ export const FormControl: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("form"),
+    withClassPrefix("form"),
     styles.main,
     fullWidth && styles.fullWidth,
     className,

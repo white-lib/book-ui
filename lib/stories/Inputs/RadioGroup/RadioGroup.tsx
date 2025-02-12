@@ -13,7 +13,7 @@ import classnames from "classnames";
 
 import styles from "./RadioGroup.module.css";
 
-import { createClassName } from "lib/helpers/createClassName.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
 type Props = {
   name: string;
@@ -40,7 +40,7 @@ export const RadioGroup: FC<Props> = ({
     defaultValue || null,
   );
 
-  const classNameVal = classnames(createClassName("rg"), styles.main);
+  const classNameVal = classnames(withClassPrefix("rg"), styles.main);
 
   const onChangeInner = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
@@ -55,7 +55,7 @@ export const RadioGroup: FC<Props> = ({
   return (
     <fieldset {...props} id={name} className={classNameVal}>
       {Children.map(children, (child) =>
-        cloneElement(child as ReactElement, {
+        cloneElement(child as ReactElement<any>, {
           name,
           selectedValue: value || selectedValue,
           onChange: onChangeInner,

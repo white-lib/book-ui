@@ -3,7 +3,9 @@ import type { Meta } from "@storybook/react";
 
 import { RadioGroup } from "./RadioGroup.tsx";
 import { FormControl } from "lib/stories/Form/FormControl";
-import { FormControlLabel, FormLabel, Radio } from "lib/main.ts";
+import { FormControlLabel } from "lib/stories/Form/FormControlLabel";
+import { FormLabel } from "lib/stories/Form/FormLabel";
+import { Radio } from "lib/stories/Inputs/Radio";
 import { decorators } from "lib/storybook/decorators.tsx";
 
 // import { FormControlLabel } from "../../Form/FormControlLabel";

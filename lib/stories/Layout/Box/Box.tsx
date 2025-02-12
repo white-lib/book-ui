@@ -3,11 +3,11 @@ import classnames from "classnames";
 
 import styles from "./Box.module.css";
 
-import { createClassName } from "lib/helpers/createClassName.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
 type Tags = "div" | "section";
 
-type Props = { component?: Tags } & DetailedHTMLProps<
+export type Props = { component?: Tags } & DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > &
@@ -20,7 +20,7 @@ export const Box: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("box"),
+    withClassPrefix("box"),
     styles.main,
     styles[component],
     className,

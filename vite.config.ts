@@ -21,7 +21,11 @@ export default defineConfig({
         // https://rollupjs.org/configuration-options/#input
         glob
           .sync("lib/**/*.{ts,tsx}", {
-            ignore: ["lib/**/*.d.ts", "lib/**/*.stories.tsx"],
+            ignore: [
+              "lib/**/*.d.ts",
+              "lib/**/*.stories.tsx",
+              "lib/storybook/**/*",
+            ],
           })
           .map((file) => [
             // 1. The name of the entry point
@@ -40,7 +44,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      // "@": fileURLToPath(new URL("./lib", import.meta.url)),
+      "@": fileURLToPath(new URL("./lib", import.meta.url)),
       lib: "/lib",
     },
   },

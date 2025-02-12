@@ -1,5 +1,10 @@
-import { Colors, ColorsCore } from "./colors.core";
+import { ArrangementCore } from "./arrangement.core";
+
+require("dotenv").config();
+
 import * as fs from "node:fs";
+
+import { Colors, ColorsCore } from "./colors.core";
 import { DimensionsCore } from "./dimensions.core";
 import { Config } from "./config.core";
 
@@ -15,10 +20,12 @@ export class ScssRootCore {
 
   private readonly colorsCore: ColorsCore;
   private readonly dimensionsCore: DimensionsCore;
+  private readonly arrangementCore: ArrangementCore;
 
   constructor(config: Config) {
     this.colorsCore = new ColorsCore();
     this.dimensionsCore = new DimensionsCore(config.baseSize);
+    this.arrangementCore = new ArrangementCore();
 
     this.grayColors = this.colorsCore.generateGrayShades(config.primary);
 
@@ -262,7 +269,64 @@ export class ScssRootCore {
     return `
 \t--bu-gap: ${this.dimensionsCore.getGap()};
 \t--bu-space: ${this.dimensionsCore.getSpace()};
+\t--bu-height: ${this.dimensionsCore.getHeight()};
 `;
+  }
+
+  private getSizeClasses() {
+    const sizes = this.dimensionsCore.getSizes();
+    let content = `\n`;
+
+    for (const size in sizes) {
+      const value = sizes[size];
+      content += `
+.bu-size-${size} {
+\t--bu-size: var(--bu-size-${size});
+\t--bu-height: var(--bu-size-${size});
+\t--bu-space: calc(var(--bu-size-${size}) / 2);
+\t--bu-radius: calc(var(--bu-size-${size}) / 8);
+\t--bu-font-size: calc(var(--bu-size-${size}) / 2.5);
+\t--bu-gap: calc(var(--bu-size-${size}) / 6);
+\t--bu-height-small: calc(var(--bu-size-${size}) * 0.5);
+\t--bu-radius-small: calc(var(--bu-size-${size}) / 10);
+\t--bu-space-small: calc(var(--bu-size-${size}) / 4);
+}
+
+.padding-x-${size} {
+\tpadding-left: var(--bu-space);
+\tpadding-right: var(--bu-space);
+}
+      `;
+    }
+
+    return content;
+  }
+
+  getArrangementClasses() {
+    const justifyContent = this.arrangementCore.getJustifyContent();
+    const alignItems = this.arrangementCore.getAlignItems();
+
+    let content = `\n`;
+
+    for (const value of justifyContent) {
+      content += `
+.justify-content-${value} {
+\tjustify-content: ${value};
+}
+      `;
+    }
+
+    content += "\n";
+
+    for (const value of alignItems) {
+      content += `
+.align-items-${value} {
+\talign-items: ${value};
+}
+      `;
+    }
+
+    return content;
   }
 
   generateScssRootColors(): string {
@@ -315,6 +379,11 @@ export class ScssRootCore {
     content += ScssRootCore.getCloseTag();
 
     content += "\n";
+
+    content += this.getSizeClasses();
+    content += this.getArrangementClasses();
+
+    content += "\n";
     content += ScssRootCore.getDarkModeTag();
     content += ScssRootCore.getDarkModeColors();
     content += ScssRootCore.getCloseTag();
@@ -323,10 +392,16 @@ export class ScssRootCore {
   }
 
   save(rootVars: string) {
-    const outPath = `${__dirname}/../../dist/assets/root.css`;
+    const outPath = `${__dirname}/../../dist/assets/main.css`;
     const outDevPath = `${__dirname}/../../lib/assets/styles/root.scss`;
 
-    [outPath, outDevPath].forEach((path) => {
+    const paths = [outPath];
+
+    if (process.env.CLI_MODE === "development") {
+      paths.push(outDevPath);
+    }
+
+    paths.forEach((path) => {
       fs.writeFile(path, rootVars, (err) => {
         if (err) {
           console.log("err", err); // TODO: handle error

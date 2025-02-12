@@ -8,8 +8,9 @@ import {
 import classnames from "classnames";
 
 import styles from "./Link.module.css";
-import { createClassName } from "../../../helpers/createClassName.tsx";
-import { useBaseContext } from "../../../system/base.provider.tsx";
+
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
+import { useBaseContext } from "lib/system/base.provider.tsx";
 
 type Props = { disabled?: boolean } & DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -24,10 +25,11 @@ export const Link: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("link"),
+    withClassPrefix("link"),
     styles.main,
     className,
   );
+
   const { Link } = useBaseContext();
 
   const dynamicProps = useMemo(() => {

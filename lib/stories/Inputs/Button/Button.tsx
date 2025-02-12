@@ -9,12 +9,9 @@ import {
 import classnames from "classnames";
 
 import styles from "./Button.module.css";
-import {
-  createClassName,
-  createSizeClassName,
-} from "lib/helpers/createClassName.tsx";
+import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 
-import { Link } from "lib/main.ts";
+import { Link } from "lib/stories/Navigation/Link";
 import LoadingIcon from "lib/stories/Icons/assets/Loading.tsx";
 
 import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
@@ -50,13 +47,11 @@ export const Button: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("btn"),
+    withClassPrefix("btn"),
     styles.main,
     styles[variant],
     styles[color],
-    createSizeClassName(size, {
-      paddingX: true,
-    }),
+    createClassName({ size, paddingX: true }),
     disabled && styles.disabled,
     disableSpacing && styles.disableSpacing,
     className,

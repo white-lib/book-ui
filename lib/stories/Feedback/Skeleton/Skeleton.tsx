@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Skeleton.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "../../../helpers/classNames.tsx";
 import { Box } from "../../Layout/Box";
 
 export type Props = {
@@ -22,7 +22,7 @@ export const Skeleton: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("sk"),
+    withClassPrefix("sk"),
     styles.main,
     styles[variant],
     className,

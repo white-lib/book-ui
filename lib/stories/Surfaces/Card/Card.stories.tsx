@@ -1,18 +1,21 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import MountainImg from "./assets/mountain.jpeg";
-import { Avatar } from "../../DataDisplay/Avatar";
+import { Avatar } from "lib/stories/DataDisplay/Avatar";
 
 import { Card } from "./Card.tsx";
 import { CardHeader } from "./components/CardHeader";
 import { CardMedia } from "./components/CardMedia";
-import { Typography } from "../../DataDisplay/Typography";
 import { CardContent } from "./components/CardContent";
 import { CardActions } from "./components/CardActions";
-import { Button } from "../../../main.ts";
-import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
-import SaveIcon from "../../Icons/assets/Save.tsx";
-import { decorators } from "../../../storybook/decorators.tsx";
+
+import { Typography } from "lib/stories/DataDisplay/Typography";
+import { Button } from "lib/stories/Inputs/Button";
+
+import FavoriteIcon from "lib/stories/Icons/assets/Favorite.tsx";
+import SaveIcon from "lib/stories/Icons/assets/Save.tsx";
+
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

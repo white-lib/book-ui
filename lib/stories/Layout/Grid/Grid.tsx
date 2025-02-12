@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Grid.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "../../../helpers/classNames.tsx";
 
 type Cols = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
@@ -39,7 +39,7 @@ export const Grid: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("grid"),
+    withClassPrefix("grid"),
     styles.main,
     container && styles.container,
     item && styles.item,

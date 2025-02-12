@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Card.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "../../../helpers/classNames.tsx";
 import { Box } from "../../Layout/Box";
 
 type Props = { topSpace?: boolean; bottomSpace?: boolean } & DetailedHTMLProps<
@@ -18,7 +18,7 @@ export const Card: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("card"),
+    withClassPrefix("card"),
     styles.main,
     topSpace && styles.topSpace,
     bottomSpace && styles.bottomSpace,

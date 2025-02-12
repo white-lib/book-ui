@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./CardMedia.module.css";
 
-import { createClassName } from "../../../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
 type Props = {
   src?: string | ReactNode;
@@ -19,7 +19,7 @@ export const CardMedia: FC<Props> = ({
   height = "190px",
   ...props
 }) => {
-  const classNameVal = classnames(createClassName("card"), styles.main);
+  const classNameVal = classnames(withClassPrefix("card"), styles.main);
 
   return (
     <img

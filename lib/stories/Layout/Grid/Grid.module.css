@@ -4,6 +4,9 @@
 }
 .main.item {
   display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 .main.xs-0, .main.sm-0, .main.lg-0 {
   display: none;

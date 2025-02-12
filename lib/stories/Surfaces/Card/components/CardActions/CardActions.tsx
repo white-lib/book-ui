@@ -31,7 +31,7 @@ export const CardActions: FC<Props> = ({
   return (
     <Box {...props} className={classNameVal}>
       {Children.map(children, (child) =>
-        cloneElement(child as ReactElement, {
+        cloneElement(child as ReactElement<any>, {
           disableSpacing,
         }),
       )}

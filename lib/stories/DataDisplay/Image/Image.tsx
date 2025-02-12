@@ -10,12 +10,12 @@ import classnames from "classnames";
 
 import styles from "./Image.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
 import { Props as SkeletonProps, Skeleton } from "../../Feedback/Skeleton";
-import BrokenImage from "../../Icons/assets/BrokenImage.tsx";
-import { Box } from "../../../main.ts";
-import { halfTheValue } from "../../../helpers/skinning.tsx";
+import BrokenImage from "lib/stories/Icons/assets/BrokenImage.tsx";
+import { Box } from "lib/stories/Layout/Box";
+import { halfTheValue } from "lib/helpers/skinning.tsx";
 
 type Props = {
   children?: ReactNode;
@@ -41,7 +41,7 @@ export const Image: FC<Props> = ({
   const [isError, setIsError] = useState(false);
 
   const classNameVal = classnames(
-    createClassName("img"),
+    withClassPrefix("img"),
     styles.main,
     className,
     isLoading && styles.hidden,

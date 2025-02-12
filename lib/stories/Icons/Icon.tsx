@@ -2,7 +2,7 @@ import { FC } from "react";
 import classnames from "classnames";
 
 import styles from "./Link.module.css";
-import { createClassName } from "../../helpers/createClassName.tsx";
+import { withClassPrefix } from "../../helpers/classNames.tsx";
 import { unitToPx } from "../../helpers/skinning.tsx";
 
 export type Props = React.SVGProps<SVGSVGElement>;
@@ -16,7 +16,7 @@ export const Icon: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName(`icon-${name}`),
+    withClassPrefix(`icon-${name}`),
     styles.main,
     className,
   );

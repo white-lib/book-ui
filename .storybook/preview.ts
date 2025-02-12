@@ -1,4 +1,3 @@
-import "../lib/assets/styles/dimensions.scss";
 import "../lib/assets/styles/root.scss";
 import "../lib/assets/styles/dev.scss";
 

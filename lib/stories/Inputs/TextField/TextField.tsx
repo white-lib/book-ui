@@ -12,11 +12,10 @@ import classnames from "classnames";
 import inputStyles from "./../Inputs.module.css";
 import styles from "./TextField.module.css";
 
-import {
-  createClassName,
-  createSizeClassName,
-} from "lib/helpers/createClassName.tsx";
-import { Box, Typography } from "../../../main.ts";
+import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
+
+import { Typography } from "lib/stories/DataDisplay/Typography";
+import { Box } from "lib/stories/Layout/Box";
 
 import Visibility from "../../Icons/assets/Visibility.tsx";
 import VisibilityOff from "../../Icons/assets/VisibilityOff.tsx";
@@ -65,11 +64,11 @@ export const TextField: FC<Props> = ({
   const [innerValue, setInnerValue] = useState(value);
 
   const classNameVal = classnames(
-    createClassName("txtf"),
+    withClassPrefix("txtf"),
     inputStyles.main,
     inputStyles[color],
     inputStyles[variant],
-    createSizeClassName(size),
+    createClassName({ size }),
     error && inputStyles.error,
     disabled && inputStyles.disabled,
     className,

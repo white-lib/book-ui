@@ -23,9 +23,12 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
+  "sideEffects": [
+    "**/*.css"
+  ],
   "peerDependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
@@ -38,8 +41,8 @@
     "@storybook/react-vite": "^8.5.3",
     "@storybook/test": "^8.5.3",
     "@types/node": "^22.13.1",
-    "@types/react": "^18.3.18",
-    "@types/react-dom": "^18.3.5",
+    "@types/react": "^19.0.8",
+    "@types/react-dom": "^19.0.3",
     "@typescript-eslint/eslint-plugin": "^8.17.0",
     "@typescript-eslint/parser": "^8.17.0",
     "@vitejs/plugin-react": "^4.3.4",
@@ -59,9 +62,6 @@
     "vite-plugin-dts": "^4.5.0",
     "vite-plugin-lib-inject-css": "^2.1.1"
   },
-  "sideEffects": [
-    "**/*.css"
-  ],
   "dependencies": {
     "classnames": "^2.5.1"
   }

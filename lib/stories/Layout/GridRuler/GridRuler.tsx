@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./GridRuler.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "../../../helpers/classNames.tsx";
 
 type Spacing = "sm" | "md" | "lg";
 
@@ -14,7 +14,7 @@ type Props = { spacing?: Spacing } & DetailedHTMLProps<
 
 export const GridRuler: FC<Props> = ({ spacing, className }) => {
   const classNameVal = classnames(
-    createClassName("grid-ruler"),
+    withClassPrefix("grid-ruler"),
     styles.main,
     spacing && styles[`spacing-${spacing}`],
     className,

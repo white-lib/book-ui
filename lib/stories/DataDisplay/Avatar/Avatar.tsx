@@ -3,14 +3,11 @@ import classnames from "classnames";
 
 import styles from "./Avatar.module.css";
 
-import {
-  createClassName,
-  createSizeClassName,
-} from "../../../helpers/createClassName.tsx";
+import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 import { Box } from "../../Layout/Box";
 import { Image } from "../Image";
-import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
-import { useSizeToObj } from "../../../hooks/useSizeToObj.tsx";
+import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
+import { useSizeToObj } from "lib/hooks/useSizeToObj.tsx";
 
 type Props = {
   children?: ReactNode;
@@ -60,9 +57,9 @@ export const Avatar: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("avatar"),
+    withClassPrefix("avatar"),
     styles.main,
-    createSizeClassName(size),
+    createClassName({ size }),
   );
 
   const sizeObj = useSizeToObj(size, { square: true });

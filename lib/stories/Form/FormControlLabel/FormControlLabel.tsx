@@ -11,9 +11,9 @@ import classnames from "classnames";
 import styles from "./FormControlLabel.module.css";
 
 import {
+  withClassPrefix,
   createClassName,
-  createSizeClassName,
-} from "../../../helpers/createClassName.tsx";
+} from "../../../helpers/classNames.tsx";
 import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
 
 type Props = {
@@ -37,15 +37,15 @@ export const FormControlLabel: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("clabel"),
-    createSizeClassName(size),
+    withClassPrefix("clabel"),
+    createClassName({ size }),
     styles.main,
     className,
   );
 
   return (
     <label {...props} className={classNameVal}>
-      {cloneElement(control as ReactElement, {
+      {cloneElement(control as ReactElement<any>, {
         id: value,
         name,
         value,

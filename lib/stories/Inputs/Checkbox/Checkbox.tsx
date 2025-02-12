@@ -3,10 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Checkbox.module.css";
 
-import {
-  createClassName,
-  createSizeClassName,
-} from "lib/helpers/createClassName.tsx";
+import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 
 import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
 import { DEFAULT_COLOR } from "lib/system/color.types.ts";
@@ -30,10 +27,10 @@ export const Checkbox: FC<Props> = ({
   const [isChecked, setIsChecked] = useState<boolean>(checked || false);
 
   const classNameVal = classnames(
-    createClassName("cb"),
+    withClassPrefix("cb"),
     styles.main,
     styles[color],
-    createSizeClassName(size),
+    createClassName({ size }),
     isChecked && styles.checked,
     disabled && "disabled",
     className,

@@ -8,7 +8,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import { createClassName } from "lib/helpers/createClassName.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
 import { Props as ButtonProps } from "../Button/Button.tsx";
 
@@ -31,7 +31,7 @@ export const ButtonGroup: FC<Props> = ({
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("btn-group"),
+    withClassPrefix("btn-group"),
     styles.main,
     styles[variant],
     styles[orientation],
@@ -41,7 +41,7 @@ export const ButtonGroup: FC<Props> = ({
   return (
     <Box {...props} className={classNameVal}>
       {Children.map(children, (child) =>
-        cloneElement(child as ReactElement, {
+        cloneElement(child as ReactElement<any>, {
           variant,
           color,
         }),

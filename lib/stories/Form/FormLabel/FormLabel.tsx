@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./FormLabel.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "../../../helpers/classNames.tsx";
 
 type Props = DetailedHTMLProps<
   React.LabelHTMLAttributes<HTMLLabelElement>,
@@ -12,7 +12,7 @@ type Props = DetailedHTMLProps<
 
 export const FormLabel: FC<Props> = ({ children, className, ...props }) => {
   const classNameVal = classnames(
-    createClassName("label"),
+    withClassPrefix("label"),
     styles.main,
     className,
   );

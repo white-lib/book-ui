@@ -3,11 +3,12 @@ import classnames from "classnames";
 
 import styles from "./AppBar.module.css";
 
-import { createClassName } from "../../../helpers/createClassName.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
-type Tags = "div" | "section";
+type Tags = "div" | "section" | "header" | "footer";
+type Position = "fixed" | "absolute" | "sticky" | "static" | "relative";
 
-type Props = { component?: Tags } & DetailedHTMLProps<
+type Props = { component?: Tags; position?: Position } & DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > &
@@ -15,14 +16,16 @@ type Props = { component?: Tags } & DetailedHTMLProps<
 
 export const AppBar: FC<Props> = ({
   component = "div",
+  position = "static",
   children,
   className,
   ...props
 }) => {
   const classNameVal = classnames(
-    createClassName("box"),
+    withClassPrefix("box"),
     styles.main,
     styles[component],
+    styles[position],
     className,
   );
   return createElement(
