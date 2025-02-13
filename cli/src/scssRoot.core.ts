@@ -420,7 +420,7 @@ export class ScssRootCore {
   }
 
   save(rootVars: string) {
-    const outPath = `${__dirname}/../../dist/assets/main.css`;
+    const outPath = `${__dirname}/../../dist/assets/root.css`;
     const outDevPath = `${__dirname}/../../lib/assets/styles/root.scss`;
 
     const paths = [outPath];
