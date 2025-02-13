@@ -4,7 +4,6 @@ export type Theme = "device" | "light" | "dark";
 
 export const useTheme = (theme: Theme) => {
   useEffect(() => {
-    console.log("theme", theme);
     if (theme === "device") {
       return;
     }
