@@ -1,3 +1,4 @@
+"use client";
 import { createContext, PropsWithChildren, ReactElement } from "react";
 import useContextWrapper from "../hooks/useContextWrapper.tsx";
 import { singletonStorage } from "./singletonStorage.tsx";
@@ -7,6 +8,7 @@ type BaseContextType = {
   theme?: Theme;
   classPrefix?: string;
   Link?: any;
+  Img?: any;
 };
 
 const BaseContext = createContext<BaseContextType | null>(null);
@@ -19,9 +21,10 @@ export const useBaseContext = () =>
 
 export function BaseProvider({
   children,
-  theme = "light",
+  theme = "device",
   classPrefix = "",
   Link = "a",
+  Img = "img",
 }: PropsWithChildren<BaseContextType>) {
   singletonStorage.classPrefix = classPrefix;
 
@@ -30,6 +33,7 @@ export function BaseProvider({
   return (
     <BaseContext.Provider
       value={{
+        Img: Img || ("img" as unknown as ReactElement<HTMLImageElement>),
         Link: Link || ("a" as unknown as ReactElement<HTMLAnchorElement>),
       }}
     >

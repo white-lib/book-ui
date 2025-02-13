@@ -8,11 +8,16 @@
   left: 0;
   box-sizing: border-box;
 }
-.main .fixed {
+.main.fixed {
   position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
 }
-.main .static {
-  position: fixed;
+.main.sticky {
+  position: sticky;
+  top: 0;
+  margin-bottom: var(--bu-space);
 }
 
 /*# sourceMappingURL=AppBar.module.css.map */

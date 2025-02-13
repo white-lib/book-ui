@@ -29,15 +29,13 @@
 }
 
 @mixin active {
-  @media (hover: hover) {
+  &:not(:disabled):not(.disabled):active {
+    @content;
+  }
+
+  @media (hover: none) {
     &:not(:disabled):not(.disabled):active {
       @content;
-    }
-
-    @media (hover: none) {
-      &:not(:disabled):not(.disabled):active {
-        @content;
-      }
     }
   }
 }

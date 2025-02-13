@@ -5,6 +5,7 @@ import { extname, relative, resolve } from "path";
 import { fileURLToPath } from "node:url";
 import { glob } from "glob";
 import { libInjectCss } from "vite-plugin-lib-inject-css";
+import preserveDirectives from "rollup-preserve-directives";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -12,10 +13,15 @@ export default defineConfig({
   build: {
     copyPublicDir: false,
     lib: {
-      entry: resolve(__dirname, "lib/main.ts"),
+      entry: {
+        ".": resolve(__dirname, "lib/main.ts"),
+        next: resolve(__dirname, "lib/next.ts"),
+      },
+      name: "book-ui",
       formats: ["es"],
     },
     rollupOptions: {
+      plugins: [preserveDirectives()],
       external: ["react", "react/jsx-runtime"],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input

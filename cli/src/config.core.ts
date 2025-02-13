@@ -2,8 +2,10 @@ import fs from "fs";
 
 export type Config = {
   primary: string;
-  secondary?: string;
+  secondary: string;
   baseSize: number;
+  fixShade: boolean;
+  method: "analogous" | "monochromatic";
 };
 
 export class ConfigCore {

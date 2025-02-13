@@ -11,6 +11,7 @@ program
   .option("-p, --primary <type>", "Define primary color")
   .option("-s, --secondary <type>", "Define secondary color")
   .option("-b, --baseSize <type>", "Define base size")
+  .option("-m, --method <type>", "Define generate method")
   .action((options) => {
     const configCore = new ConfigCore();
     const configFromFile = configCore.getConfig();
@@ -19,6 +20,8 @@ program
       primary: options.primary || configFromFile?.primary,
       secondary: options.secondary || configFromFile?.secondary,
       baseSize: options.baseSize || configFromFile?.baseSize || 40,
+      fixShade: options.fixShade || configFromFile?.fixShade || false,
+      method: options.method || configFromFile?.method || "analogous",
     };
 
     if (!config.primary) {

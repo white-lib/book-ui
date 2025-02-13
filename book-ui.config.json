@@ -1,5 +1,6 @@
 {
-  "primary": "#550628",
-  "secondary": "#928641",
-  "baseSize": 40
+  "primary": "#455947",
+  "baseSize": 40,
+  "method": "monochromatic",
+  "fixShade": true
 }

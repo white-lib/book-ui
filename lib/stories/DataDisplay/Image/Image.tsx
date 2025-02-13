@@ -1,4 +1,7 @@
+"use client";
+
 import {
+  cloneElement,
   DetailedHTMLProps,
   FC,
   ImgHTMLAttributes,
@@ -6,6 +9,7 @@ import {
   useCallback,
   useState,
 } from "react";
+
 import classnames from "classnames";
 
 import styles from "./Image.module.css";
@@ -16,6 +20,7 @@ import { Props as SkeletonProps, Skeleton } from "../../Feedback/Skeleton";
 import BrokenImage from "lib/stories/Icons/assets/BrokenImage.tsx";
 import { Box } from "lib/stories/Layout/Box";
 import { halfTheValue } from "lib/helpers/skinning.tsx";
+import { useBaseContext } from "lib/system/base.provider.tsx";
 
 export type Props = {
   src?: string | ReactNode;
@@ -38,7 +43,9 @@ export const Image: FC<Props> = ({
   className,
   ...props
 }) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const { Img } = useBaseContext();
+
+  const [isLoading, setIsLoading] = useState(Img === "img");
   const [isError, setIsError] = useState(false);
 
   const classNameVal = classnames(
@@ -79,24 +86,28 @@ export const Image: FC<Props> = ({
     );
   }
 
+  const inNext = isLoading && Img !== "img";
+
   return (
     <>
-      {isLoading && (
+      {isLoading && Img !== "img" ? (
         <Skeleton variant={skeleton} width={width} height={height} />
+      ) : (
+        <></>
       )}
-      <img
-        {...props}
-        src={src}
-        alt={alt}
-        title={title || alt}
-        width={width}
-        height={height}
-        className={classNameVal}
-        onLoad={onLoad}
-        onError={onError}
-        aria-hidden={isLoading && "true"}
-        aria-label={title || alt}
-      />
+      {cloneElement(<Img />, {
+        src: src,
+        alt: alt,
+        title: title || alt,
+        width: width,
+        height: height,
+        className: classNameVal,
+        onLoad: onLoad,
+        onError: onError,
+        "aria-hidden": inNext && "true",
+        "aria-label": title || alt,
+        ...props,
+      })}
     </>
   );
 };

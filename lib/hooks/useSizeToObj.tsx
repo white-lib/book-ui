@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useState } from "react";
 import { SizeExt } from "../system/measurement.types.ts";
 import { getCssVar } from "../helpers/skinning.tsx";

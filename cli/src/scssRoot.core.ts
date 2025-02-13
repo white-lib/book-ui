@@ -23,7 +23,7 @@ export class ScssRootCore {
   private readonly arrangementCore: ArrangementCore;
 
   constructor(config: Config) {
-    this.colorsCore = new ColorsCore();
+    this.colorsCore = new ColorsCore(config.method, config.fixShade);
     this.dimensionsCore = new DimensionsCore(config.baseSize);
     this.arrangementCore = new ArrangementCore();
 
@@ -66,6 +66,13 @@ export class ScssRootCore {
 
   private static getDarkModeTag() {
     return `[data-bu-theme="dark"] {`;
+  }
+
+  private static getDarkModeMedia() {
+    return `
+@media (prefers-color-scheme: dark) {
+\t:root:not([data-bu-theme]) {
+    `;
   }
 
   private static getCommonColors() {
@@ -140,9 +147,9 @@ export class ScssRootCore {
 
   private static getDarkModeColors() {
     return `
-    color-scheme: dark;
+\tcolor-scheme: dark;
     
-\t--bu-text-color: var(--bu-text-gray-50); 
+\t--bu-text-color: var(--bu-gray-50); 
 \t--bu-text-invert-color: #000000; 
 \t--bu-text-heading-color: var(--bu-primary-50); 
 \t--bu-text-hint-color: var(--bu-gray-300); 
@@ -150,10 +157,13 @@ export class ScssRootCore {
 \t--bu-skeleton-color-2: var(--bu-gray-900);
 \t--bu-input-bg: var(--bu-gray-800);
 
-\t--bu-btn-primary-text-bg-hover: var(--bu-gray-800);
-\t--bu-btn-primary-text-color-active: var(--bu-gray-400);
+\t--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
+\t--bu-btn-primary-text-bg-active: var(--bu-primary-600);
 
-\t--bu-container-bg: var(--bu-gray-900);
+\t--bu-btn-primary-text-color: var(--bu-primary-50);
+\t--bu-btn-primary-text-color-active: var(--bu-primary-100);
+
+\t--bu-container-bg: var(--bu-primary-900);
 \t--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
 \t--bu-container-border-color: var(--bu-gray-800);
 `;
@@ -162,12 +172,25 @@ export class ScssRootCore {
   private getButtonColors() {
     return this.withColors(
       (type: string) => `
-\t--bu-btn-${type}-bg: var(--bu-${type}-600);
-\t--bu-btn-${type}-text-color: var(--bu-white);
-\t--bu-btn-${type}-text-bg-hover: var(--bu-gray-200);
-\t--bu-btn-${type}-hover: var(--bu-${type}-500);
+\t--bu-btn-${type}-bg: var(--bu-${type}-500);
+\t--bu-btn-${type}-hover: var(--bu-${type}-600);
 \t--bu-btn-${type}-active: var(--bu-${type}-700);
-\t--bu-btn-${type}-text-color-active: var(--bu-${type}-500);
+\t--bu-btn-${type}-primary-color: var(--bu-white);
+
+\t--bu-btn-${type}-text-bg: transparent;
+\t--bu-btn-${type}-text-bg-hover: var(--bu-${type}-200);
+\t--bu-btn-${type}-text-bg-active: var(--bu-${type}-400);
+
+\t--bu-btn-${type}-text-color: var(--bu-${type}-950);
+\t--bu-btn-${type}-text-color-hover: var(--bu-${type}-50);
+\t--bu-btn-${type}-text-color-active: var(--bu-${type}-50);
+
+\t--bu-btn-${type}-outlined-bg-hover: var(--bu-${type}-400);
+\t--bu-btn-${type}-outlined-bg-active: var(--bu-${type}-600);
+
+\t--bu-btn-${type}-outlined-color: var(--bu-${type}-500);
+\t--bu-btn-${type}-outlined-color-hover: var(--bu-${type}-50);
+\t--bu-btn-${type}-outlined-color-active: var(--bu-${type}-50);
 
 \t--bu-btn-${type}-outlined-border: var(--bu-${type}-500);
 \t--bu-btn-${type}-outlined-border-hover: var(--bu-${type}-400);
@@ -381,6 +404,12 @@ export class ScssRootCore {
 
     content += this.getSizeClasses();
     // content += this.getArrangementClasses();
+
+    content += "\n";
+    content += ScssRootCore.getDarkModeMedia();
+    content += ScssRootCore.getDarkModeColors();
+    content += ScssRootCore.getCloseTag();
+    content += ScssRootCore.getCloseTag();
 
     content += "\n";
     content += ScssRootCore.getDarkModeTag();

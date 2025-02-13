@@ -1,9 +1,13 @@
 import { useEffect } from "react";
 
-export type Theme = "light" | "dark";
+export type Theme = "device" | "light" | "dark";
 
 export const useTheme = (theme: Theme) => {
   useEffect(() => {
+    console.log("theme", theme);
+    if (theme === "device") {
+      return;
+    }
     const root = document?.documentElement;
 
     if (!root) {

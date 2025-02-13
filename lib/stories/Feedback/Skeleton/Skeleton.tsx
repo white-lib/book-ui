@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Skeleton.module.css";
 
-import { withClassPrefix } from "../../../helpers/classNames.tsx";
+import { withClassPrefix } from "lib/helpers/classNames.tsx";
 import { Box } from "../../Layout/Box";
 
 export type Props = {

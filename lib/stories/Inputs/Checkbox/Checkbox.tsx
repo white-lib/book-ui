@@ -1,3 +1,5 @@
+"use client";
+
 import { FC, DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 import classnames from "classnames";
 

@@ -1,59 +1,88 @@
 :root {
 
-	--bu-primary-50: #fde7f1;
-	--bu-primary-100: #fccfe2;
-	--bu-primary-200: #f8a0c6;
-	--bu-primary-300: #f570a9;
-	--bu-primary-400: #f2408d;
-	--bu-primary-500: #ee1170;
-	--bu-primary-600: #bf0d5a;
-	--bu-primary-700: #8f0a43;
-	--bu-primary-800: #5f072d;
-	--bu-primary-900: #300316;
+	--bu-primary-50: #ffffff;
+	--bu-primary-100: #e3e8e4;
+	--bu-primary-200: #c6d2c7;
+	--bu-primary-300: #617d63;
+	--bu-primary-400: #536b55;
+	--bu-primary-500: #455947;
+	--bu-primary-600: #3e5040;
+	--bu-primary-700: #29352b;
+	--bu-primary-800: #1c241c;
+	--bu-primary-900: #0d0d0d;
+	--bu-primary-950: #000000;
 
-	--bu-secondary-50: #f7f6ed;
-	--bu-secondary-100: #efecdc;
-	--bu-secondary-200: #e0dab8;
-	--bu-secondary-300: #d0c795;
-	--bu-secondary-400: #c0b572;
-	--bu-secondary-500: #b0a24f;
-	--bu-secondary-600: #8d823f;
-	--bu-secondary-700: #6a612f;
-	--bu-secondary-800: #47411f;
-	--bu-secondary-900: #232010;
+	--bu-secondary-50: #ffffff;
+	--bu-secondary-100: #e3e8e4;
+	--bu-secondary-200: #c6d2c7;
+	--bu-secondary-300: #617d63;
+	--bu-secondary-400: #536b55;
+	--bu-secondary-500: #455947;
+	--bu-secondary-600: #3e5040;
+	--bu-secondary-700: #29352b;
+	--bu-secondary-800: #1c241c;
+	--bu-secondary-900: #0d0d0d;
+	--bu-secondary-950: #000000;
 
-	--bu-gray-50: #fdfcfc;
-	--bu-gray-100: #e8e3e5;
-	--bu-gray-200: #d0c8cb;
-	--bu-gray-300: #b8adb2;
-	--bu-gray-400: #9f9398;
-	--bu-gray-500: #86797f;
-	--bu-gray-600: #6a6265;
-	--bu-gray-700: #4f4a4c;
-	--bu-gray-800: #343233;
-	--bu-gray-900: #1a1919;
+	--bu-gray-50: #f9fafa;
+	--bu-gray-100: #e3e8e4;
+	--bu-gray-200: #c8d0c9;
+	--bu-gray-300: #adb8ae;
+	--bu-gray-400: #939f94;
+	--bu-gray-500: #79867a;
+	--bu-gray-600: #6e786f;
+	--bu-gray-700: #4a4f4b;
+	--bu-gray-800: #323432;
+	--bu-gray-900: #141514;
+	--bu-gray-950: #0d0d0d;
 
 	--bu-white: #ffffff;
 	--bu-black: #000000;
 	--bu-empty-color: var(--bu-gray-100);
 	--bu-font-color: #000000;
   
-	--bu-btn-primary-bg: var(--bu-primary-600);
-	--bu-btn-primary-text-color: var(--bu-white);
-	--bu-btn-primary-text-bg-hover: var(--bu-gray-200);
-	--bu-btn-primary-hover: var(--bu-primary-500);
+	--bu-btn-primary-bg: var(--bu-primary-500);
+	--bu-btn-primary-hover: var(--bu-primary-600);
 	--bu-btn-primary-active: var(--bu-primary-700);
-	--bu-btn-primary-text-color-active: var(--bu-primary-500);
+	--bu-btn-primary-primary-color: var(--bu-white);
+
+	--bu-btn-primary-text-bg: transparent;
+	--bu-btn-primary-text-bg-hover: var(--bu-primary-200);
+	--bu-btn-primary-text-bg-active: var(--bu-primary-400);
+
+	--bu-btn-primary-text-color: var(--bu-primary-950);
+	--bu-btn-primary-text-color-hover: var(--bu-primary-50);
+	--bu-btn-primary-text-color-active: var(--bu-primary-50);
+
+	--bu-btn-primary-outlined-bg-hover: var(--bu-primary-400);
+	--bu-btn-primary-outlined-bg-active: var(--bu-primary-600);
+
+	--bu-btn-primary-outlined-color: var(--bu-primary-500);
+	--bu-btn-primary-outlined-color-hover: var(--bu-primary-50);
+	--bu-btn-primary-outlined-color-active: var(--bu-primary-50);
 
 	--bu-btn-primary-outlined-border: var(--bu-primary-500);
 	--bu-btn-primary-outlined-border-hover: var(--bu-primary-400);
 
-	--bu-btn-secondary-bg: var(--bu-secondary-600);
-	--bu-btn-secondary-text-color: var(--bu-white);
-	--bu-btn-secondary-text-bg-hover: var(--bu-gray-200);
-	--bu-btn-secondary-hover: var(--bu-secondary-500);
+	--bu-btn-secondary-bg: var(--bu-secondary-500);
+	--bu-btn-secondary-hover: var(--bu-secondary-600);
 	--bu-btn-secondary-active: var(--bu-secondary-700);
-	--bu-btn-secondary-text-color-active: var(--bu-secondary-500);
+	--bu-btn-secondary-primary-color: var(--bu-white);
+
+	--bu-btn-secondary-text-bg: transparent;
+	--bu-btn-secondary-text-bg-hover: var(--bu-secondary-200);
+	--bu-btn-secondary-text-bg-active: var(--bu-secondary-400);
+
+	--bu-btn-secondary-text-color: var(--bu-secondary-950);
+	--bu-btn-secondary-text-color-hover: var(--bu-secondary-50);
+	--bu-btn-secondary-text-color-active: var(--bu-secondary-50);
+
+	--bu-btn-secondary-outlined-bg-hover: var(--bu-secondary-400);
+	--bu-btn-secondary-outlined-bg-active: var(--bu-secondary-600);
+
+	--bu-btn-secondary-outlined-color: var(--bu-secondary-500);
+	--bu-btn-secondary-outlined-color-hover: var(--bu-secondary-50);
+	--bu-btn-secondary-outlined-color-active: var(--bu-secondary-50);
 
 	--bu-btn-secondary-outlined-border: var(--bu-secondary-500);
 	--bu-btn-secondary-outlined-border-hover: var(--bu-secondary-400);
@@ -219,10 +248,13 @@
 	padding-right: var(--bu-space);
 }
       
-[data-bu-theme="dark"] {
-    color-scheme: dark;
+
+@media (prefers-color-scheme: dark) {
+	:root:not([data-bu-theme]) {
     
-	--bu-text-color: var(--bu-text-gray-50); 
+	color-scheme: dark;
+    
+	--bu-text-color: var(--bu-gray-50); 
 	--bu-text-invert-color: #000000; 
 	--bu-text-heading-color: var(--bu-primary-50); 
 	--bu-text-hint-color: var(--bu-gray-300); 
@@ -230,10 +262,34 @@
 	--bu-skeleton-color-2: var(--bu-gray-900);
 	--bu-input-bg: var(--bu-gray-800);
 
-	--bu-btn-primary-text-bg-hover: var(--bu-gray-800);
-	--bu-btn-primary-text-color-active: var(--bu-gray-400);
+	--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
+	--bu-btn-primary-text-bg-active: var(--bu-primary-600);
 
-	--bu-container-bg: var(--bu-gray-900);
+	--bu-btn-primary-text-color: var(--bu-primary-50);
+	--bu-btn-primary-text-color-active: var(--bu-primary-100);
+
+	--bu-container-bg: var(--bu-primary-900);
+	--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
+	--bu-container-border-color: var(--bu-gray-800);
+}}
+[data-bu-theme="dark"] {
+	color-scheme: dark;
+    
+	--bu-text-color: var(--bu-gray-50); 
+	--bu-text-invert-color: #000000; 
+	--bu-text-heading-color: var(--bu-primary-50); 
+	--bu-text-hint-color: var(--bu-gray-300); 
+	--bu-skeleton-color-1: var(--bu-gray-800);
+	--bu-skeleton-color-2: var(--bu-gray-900);
+	--bu-input-bg: var(--bu-gray-800);
+
+	--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
+	--bu-btn-primary-text-bg-active: var(--bu-primary-600);
+
+	--bu-btn-primary-text-color: var(--bu-primary-50);
+	--bu-btn-primary-text-color-active: var(--bu-primary-100);
+
+	--bu-container-bg: var(--bu-primary-900);
 	--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
 	--bu-container-border-color: var(--bu-gray-800);
 }

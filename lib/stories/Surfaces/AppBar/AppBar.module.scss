@@ -9,11 +9,16 @@
   left: 0;
   box-sizing: border-box;
 
-  .fixed {
+  &.fixed {
     position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
   }
 
-  .static {
-    position: fixed;
+  &.sticky {
+    position: sticky;
+    top: 0;
+    margin-bottom: var(--bu-space);
   }
 }

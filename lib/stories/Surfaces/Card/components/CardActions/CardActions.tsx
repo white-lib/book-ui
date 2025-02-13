@@ -16,23 +16,14 @@ type Props = { disableSpacing?: boolean; end?: boolean } & DetailedHTMLProps<
   HTMLDivElement
 >;
 
-export const CardActions: FC<Props> = ({
-  disableSpacing,
-  children,
-  end,
-  ...props
-}) => {
-  const classNameVal = classnames(
-    styles.main,
-    disableSpacing && styles.disableSpacing,
-    end && styles.end,
-  );
+export const CardActions: FC<Props> = ({ children, end, ...props }) => {
+  const classNameVal = classnames(styles.main, end && styles.end);
 
   return (
     <Box {...props} className={classNameVal}>
       {Children.map(children, (child) =>
         cloneElement(child as ReactElement<any>, {
-          disableSpacing,
+          ...props,
         }),
       )}
     </Box>

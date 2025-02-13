@@ -16,7 +16,7 @@ type Props = { component?: Tags; position?: Position } & DetailedHTMLProps<
 
 export const AppBar: FC<Props> = ({
   component = "div",
-  position = "static",
+  position,
   children,
   className,
   ...props
@@ -25,7 +25,7 @@ export const AppBar: FC<Props> = ({
     withClassPrefix("box"),
     styles.main,
     styles[component],
-    styles[position],
+    position && styles[position],
     className,
   );
   return createElement(

@@ -8,13 +8,7 @@ import { Image, Props as ImageProps } from "lib/stories/DataDisplay/Image";
 
 type Props = ImageProps;
 
-export const CardMedia: FC<Props> = ({
-  src,
-  alt,
-  width = "100%",
-  height,
-  ...props
-}) => {
+export const CardMedia: FC<Props> = ({ src, alt, width, height, ...props }) => {
   const classNameVal = classnames(withClassPrefix("card"), styles.main);
 
   return (

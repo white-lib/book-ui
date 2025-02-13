@@ -1,17 +1,26 @@
 export type Colors = Record<number, string>;
 
 export class ColorsCore {
+  private method: "analogous" | "monochromatic";
+  private fixShade: boolean;
+
+  constructor(method: "analogous" | "monochromatic", fixShade: boolean) {
+    this.method = method;
+    this.fixShade = fixShade;
+  }
+
   private readonly shades: Record<number, number> = {
-    50: 95,
+    50: 98,
     100: 90,
     200: 80,
     300: 70,
     400: 60,
     500: 50,
-    600: 40,
+    600: 45,
     700: 30,
     800: 20,
-    900: 10,
+    900: 8,
+    950: 5,
   };
 
   private static hexToHSL(hex: string) {
@@ -72,6 +81,17 @@ export class ColorsCore {
       .join("")}`;
   }
 
+  private getNearestShade(lightness: number): string {
+    const shadeEntries = Object.entries(this.shades);
+
+    return shadeEntries.reduce((closest, [shade, L]) => {
+      return Math.abs(L - lightness) <
+        Math.abs(this.shades[Number(closest)] - lightness)
+        ? shade
+        : closest;
+    }, shadeEntries[0][0]);
+  }
+
   generateGrayShades(color: string): Colors {
     const hsl = ColorsCore.hexToHSL(color);
     let colorShades: Colors = {};
@@ -80,18 +100,50 @@ export class ColorsCore {
       colorShades[shade] = ColorsCore.hslToHex(
         hsl.h,
         (this.shades[shade] / 100) * 10,
-        shade === "50" ? 99 : this.shades[shade],
+        this.shades[shade],
       );
     }
 
     return colorShades;
   }
 
-  generateShades(color: string): Colors {
+  generateShadesFromMiddle(color: string): Colors {
+    const hsl = ColorsCore.hexToHSL(color);
+
+    const baseShade = 500;
+    const baseLightness = this.shades[baseShade];
+
+    const adjustmentFactor = hsl.l / baseLightness;
+
+    return Object.fromEntries(
+      Object.entries(this.shades).map(([val, L]) => {
+        const shade = Number(val);
+        const inRange = shade > 200 && shade < 900;
+        const shadeL = this.shades[shade];
+
+        return [
+          shade,
+          ColorsCore.hslToHex(
+            hsl.h,
+            hsl.s,
+            inRange ? shadeL * adjustmentFactor : shadeL,
+          ),
+        ];
+      }),
+    );
+  }
+
+  getAnalogousShades(color: string): Colors {
     const hsl = ColorsCore.hexToHSL(color);
     let colorShades: Colors = {};
 
+    const nearestShade = this.getNearestShade(hsl.l);
+
     for (let shade in this.shades) {
+      if (shade === nearestShade) {
+        colorShades[shade] = color;
+        continue;
+      }
       colorShades[shade] = ColorsCore.hslToHex(
         hsl.h,
         hsl.s,
@@ -100,5 +152,25 @@ export class ColorsCore {
     }
 
     return colorShades;
+  }
+
+  generateShades(color: string): Colors {
+    let colors: Colors = {};
+
+    if (this.fixShade) {
+      colors = this.generateShadesFromMiddle(color);
+    } else {
+      colors = this.getAnalogousShades(color);
+    }
+
+    if (this.method === "monochromatic") {
+      const grayShades = this.generateGrayShades(color);
+      colors["50"] = "#ffffff";
+      colors["100"] = grayShades["100"];
+      colors["900"] = grayShades["950"];
+      colors["950"] = "#000000";
+    }
+
+    return colors;
   }
 }
