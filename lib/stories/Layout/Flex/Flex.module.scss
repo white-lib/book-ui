@@ -2,6 +2,8 @@ $direction: (row, row-reverse, column, column-reverse);
 $justifyContent: (flex-start, center, flex-end, space-between);
 $alignItems: (flex-start, center, flex-end);
 
+$sizes: "xs", "sm", "md", "lg", "xl";
+
 @mixin justifyContent() {
   @each $value in $justifyContent {
     &.justify-content-#{$value} {
@@ -26,12 +28,20 @@ $alignItems: (flex-start, center, flex-end);
   }
 }
 
+@mixin gaps() {
+  @each $value in $sizes {
+    &.gap-#{$value} {
+      gap: var(--bu-gap-#{$value});
+    }
+  }
+}
+
 .main {
   display: flex;
   box-sizing: border-box;
-  gap: var(--bu-gap);
 
   @include alignItems;
   @include justifyContent;
   @include flexDirection;
+  @include gaps;
 }

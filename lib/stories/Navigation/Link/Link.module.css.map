@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["Link.module.scss"],"names":[],"mappings":"AAIA;EACE;EACA;EACA;EACA;;AAEA;EACE;IACE;;EAGF;IAdF;;;AAmBA;EACE;IApBF","file":"Link.module.css"}
+{"version":3,"sourceRoot":"","sources":["Link.module.scss","../../../assets/styles/_mixins.scss"],"names":[],"mappings":"AAEA;EACE;EACA;EACA;EACA;;ACiBA;EACE;IDfA","file":"Link.module.css"}

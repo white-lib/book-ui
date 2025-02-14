@@ -57,7 +57,7 @@
 	--bu-btn-primary-outlined-bg-hover: var(--bu-primary-400);
 	--bu-btn-primary-outlined-bg-active: var(--bu-primary-600);
 
-	--bu-btn-primary-outlined-color: var(--bu-primary-500);
+	--bu-btn-primary-outlined-color: var(--bu-primary-950);
 	--bu-btn-primary-outlined-color-hover: var(--bu-primary-50);
 	--bu-btn-primary-outlined-color-active: var(--bu-primary-50);
 
@@ -80,7 +80,7 @@
 	--bu-btn-secondary-outlined-bg-hover: var(--bu-secondary-400);
 	--bu-btn-secondary-outlined-bg-active: var(--bu-secondary-600);
 
-	--bu-btn-secondary-outlined-color: var(--bu-secondary-500);
+	--bu-btn-secondary-outlined-color: var(--bu-secondary-950);
 	--bu-btn-secondary-outlined-color-hover: var(--bu-secondary-50);
 	--bu-btn-secondary-outlined-color-active: var(--bu-secondary-50);
 
@@ -124,6 +124,12 @@
 	--bu-size-lg: 2.875rem;
 	--bu-size-xl: 3.25rem;
 
+	--bu-gap-xs: 0.9375rem;
+	--bu-gap-sm: 1.0625rem;
+	--bu-gap-md: 1.25rem;
+	--bu-gap-lg: 1.4375rem;
+	--bu-gap-xl: 1.625rem;
+
 	--bu-font-size-h1: clamp(1.75rem, 1.4903846153846154rem + 1.153846153846154vw, 2.5rem);
 	--bu-font-size-h2: clamp(1.625rem, 1.4086538461538463rem + 0.9615384615384616vw, 2.25rem); 
 	--bu-font-size-h3: clamp(1.5rem, 1.3269230769230769rem + 0.7692307692307693vw, 2rem); 
@@ -134,7 +140,9 @@
 	--bu-text-color: var(--bu-gray-900); 
 	--bu-text-invert-color: #ffffff; 
 	--bu-text-heading-color: var(--bu-primary-900);
-	--bu-text-hint-color: var(--bu-gray-500); 
+	--bu-text-hint-color: var(--bu-gray-500);
+
+	--bu-link-color: var(--bu-gray-900); 
 
 	--bu-container-bg: var(--bu-gray-50);
 	--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
@@ -258,12 +266,18 @@
 	--bu-text-invert-color: #000000; 
 	--bu-text-heading-color: var(--bu-primary-50); 
 	--bu-text-hint-color: var(--bu-gray-300); 
+
+	--bu-link-color: var(--bu-gray-50); 
+
 	--bu-skeleton-color-1: var(--bu-gray-800);
 	--bu-skeleton-color-2: var(--bu-gray-900);
 	--bu-input-bg: var(--bu-gray-800);
 
 	--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
 	--bu-btn-primary-text-bg-active: var(--bu-primary-600);
+
+	--bu-btn-primary-outlined-color: var(--bu-primary-50);
+	--bu-btn-primary-outlined-border: var(--bu-primary-300);
 
 	--bu-btn-primary-text-color: var(--bu-primary-50);
 	--bu-btn-primary-text-color-active: var(--bu-primary-100);
@@ -279,12 +293,18 @@
 	--bu-text-invert-color: #000000; 
 	--bu-text-heading-color: var(--bu-primary-50); 
 	--bu-text-hint-color: var(--bu-gray-300); 
+
+	--bu-link-color: var(--bu-gray-50); 
+
 	--bu-skeleton-color-1: var(--bu-gray-800);
 	--bu-skeleton-color-2: var(--bu-gray-900);
 	--bu-input-bg: var(--bu-gray-800);
 
 	--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
 	--bu-btn-primary-text-bg-active: var(--bu-primary-600);
+
+	--bu-btn-primary-outlined-color: var(--bu-primary-50);
+	--bu-btn-primary-outlined-border: var(--bu-primary-300);
 
 	--bu-btn-primary-text-color: var(--bu-primary-50);
 	--bu-btn-primary-text-color-active: var(--bu-primary-100);

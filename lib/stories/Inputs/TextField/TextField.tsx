@@ -56,7 +56,7 @@ export const TextField: FC<Props> = ({
   loading,
   required,
   fullWidth,
-  value,
+  value = "",
   onChange,
   onFocus,
   onBlur,

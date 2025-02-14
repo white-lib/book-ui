@@ -107,7 +107,9 @@ export class ScssRootCore {
 \t--bu-text-color: var(--bu-gray-900); 
 \t--bu-text-invert-color: #ffffff; 
 \t--bu-text-heading-color: var(--bu-primary-900);
-\t--bu-text-hint-color: var(--bu-gray-500); 
+\t--bu-text-hint-color: var(--bu-gray-500);
+
+\t--bu-link-color: var(--bu-gray-900); 
 `;
   }
 
@@ -153,12 +155,18 @@ export class ScssRootCore {
 \t--bu-text-invert-color: #000000; 
 \t--bu-text-heading-color: var(--bu-primary-50); 
 \t--bu-text-hint-color: var(--bu-gray-300); 
+
+\t--bu-link-color: var(--bu-gray-50); 
+
 \t--bu-skeleton-color-1: var(--bu-gray-800);
 \t--bu-skeleton-color-2: var(--bu-gray-900);
 \t--bu-input-bg: var(--bu-gray-800);
 
 \t--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
 \t--bu-btn-primary-text-bg-active: var(--bu-primary-600);
+
+\t--bu-btn-primary-outlined-color: var(--bu-primary-50);
+\t--bu-btn-primary-outlined-border: var(--bu-primary-300);
 
 \t--bu-btn-primary-text-color: var(--bu-primary-50);
 \t--bu-btn-primary-text-color-active: var(--bu-primary-100);
@@ -188,7 +196,7 @@ export class ScssRootCore {
 \t--bu-btn-${type}-outlined-bg-hover: var(--bu-${type}-400);
 \t--bu-btn-${type}-outlined-bg-active: var(--bu-${type}-600);
 
-\t--bu-btn-${type}-outlined-color: var(--bu-${type}-500);
+\t--bu-btn-${type}-outlined-color: var(--bu-${type}-950);
 \t--bu-btn-${type}-outlined-color-hover: var(--bu-${type}-50);
 \t--bu-btn-${type}-outlined-color-active: var(--bu-${type}-50);
 
@@ -272,6 +280,17 @@ export class ScssRootCore {
 
     for (const size in sizes) {
       content += `\t--bu-size-${size}: ${sizes[size]};\n`;
+    }
+
+    return content;
+  }
+
+  private getGaps() {
+    const gaps = this.dimensionsCore.getGaps();
+    let content = `\n`;
+
+    for (const size in gaps) {
+      content += `\t--bu-gap-${size}: ${gaps[size]};\n`;
     }
 
     return content;
@@ -376,6 +395,9 @@ export class ScssRootCore {
 
     // sizes
     content += this.getSizes();
+
+    // gaps
+    content += this.getGaps();
 
     // Heading font sizes
     content += this.getHeadingSizes();

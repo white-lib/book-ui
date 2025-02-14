@@ -1,26 +1,12 @@
-@mixin link-active {
-  text-decoration: var(--bu-link-active-decoration);
-}
+@use "../../../assets/styles/mixins";
 
 .main {
+  text-decoration: none;
+  color: var(--bu-link-color);
   font-size: var(--bu-font-size);
-  text-decoration: var(--bu-link-decoration);
-  color: var(--bu-color-primary);
   font-family: var(--bu-font-family);
 
-  @media (hover: hover) {
-    &:not(:disabled):not(.disabled):hover {
-      text-decoration: var(--bu-link-hover-decoration);
-    }
-
-    &:not(:disabled):not(.disabled):active {
-      @include link-active;
-    }
-  }
-
-  @media (hover: none) {
-    &:not(:disabled):not(.disabled):active {
-      @include link-active;
-    }
+  @include mixins.hover {
+    text-decoration: underline;
   }
 }

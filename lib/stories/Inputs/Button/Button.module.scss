@@ -47,7 +47,7 @@
       border-color: var(--bu-btn-#{$type}-outlined-border);
       border-width: 1px;
       border-style: solid;
-      color: var(--bu-btn-#{$type}-outlined-border);
+      color: var(--bu-btn-#{$type}-outlined-color);
 
       @include mixins.hover() {
         border-color: var(--bu-btn-#{$type}-outlined-border-hover);

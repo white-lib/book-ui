@@ -85,7 +85,7 @@
     flex-basis: 100%;
   }
 }
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
   .main.md-1 {
     flex-basis: 8.3333333333%;
   }

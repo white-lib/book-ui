@@ -3,11 +3,7 @@ import classnames from "classnames";
 
 import styles from "./Flex.module.css";
 
-import {
-  createClassName,
-  FlexDirection,
-  withClassPrefix,
-} from "lib/helpers/classNames.tsx";
+import { FlexDirection, withClassPrefix } from "lib/helpers/classNames.tsx";
 
 import { Props as BoxProps } from "lib/stories/Layout/Box";
 
@@ -33,10 +29,10 @@ export const Flex: FC<Props> = ({
 }) => {
   const classNameVal = classnames(
     withClassPrefix("flex"),
-    createClassName({ size: gap }),
     flexDirection && styles["flex-direction-" + flexDirection],
     justifyContent && styles["justify-content-" + justifyContent],
     alignItems && styles["align-items-" + alignItems],
+    gap && styles["gap-" + gap],
     styles.main,
     className,
   );

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Image } from "./Image.tsx";
 import MountainImg from "./assets/mountain.jpeg";
 
-import { decorators } from "../../../storybook/decorators.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

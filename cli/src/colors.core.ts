@@ -10,7 +10,7 @@ export class ColorsCore {
   }
 
   private readonly shades: Record<number, number> = {
-    50: 98,
+    50: 95,
     100: 90,
     200: 80,
     300: 70,

@@ -3,7 +3,7 @@ import type { Meta } from "@storybook/react";
 import { ButtonGroup } from "./ButtonGroup.tsx";
 import { Button } from "../Button";
 
-import { decorators } from "../../../storybook/decorators.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

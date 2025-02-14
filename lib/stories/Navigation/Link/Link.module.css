@@ -1,20 +1,12 @@
 .main {
+  text-decoration: none;
+  color: var(--bu-link-color);
   font-size: var(--bu-font-size);
-  text-decoration: var(--bu-link-decoration);
-  color: var(--bu-color-primary);
   font-family: var(--bu-font-family);
 }
 @media (hover: hover) {
   .main:not(:disabled):not(.disabled):hover {
-    text-decoration: var(--bu-link-hover-decoration);
-  }
-  .main:not(:disabled):not(.disabled):active {
-    text-decoration: var(--bu-link-active-decoration);
-  }
-}
-@media (hover: none) {
-  .main:not(:disabled):not(.disabled):active {
-    text-decoration: var(--bu-link-active-decoration);
+    text-decoration: underline;
   }
 }
 

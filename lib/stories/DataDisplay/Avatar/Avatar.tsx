@@ -73,6 +73,7 @@ export const Avatar: FC<Props> = ({
 
     return (
       <Box
+        {...props}
         className={classNameVal}
         style={{
           width: width || sizeObj?.width,

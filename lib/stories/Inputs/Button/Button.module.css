@@ -64,7 +64,7 @@
   border-color: var(--bu-btn-primary-outlined-border);
   border-width: 1px;
   border-style: solid;
-  color: var(--bu-btn-primary-outlined-border);
+  color: var(--bu-btn-primary-outlined-color);
 }
 @media (hover: hover) {
   .main.outlined.primary:not(:disabled):not(.disabled):hover {
@@ -90,7 +90,7 @@
   border-color: var(--bu-btn-secondary-outlined-border);
   border-width: 1px;
   border-style: solid;
-  color: var(--bu-btn-secondary-outlined-border);
+  color: var(--bu-btn-secondary-outlined-color);
 }
 @media (hover: hover) {
   .main.outlined.secondary:not(:disabled):not(.disabled):hover {

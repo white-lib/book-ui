@@ -1,7 +1,6 @@
 .main {
   display: flex;
   box-sizing: border-box;
-  gap: var(--bu-gap);
 }
 .main.align-items-flex-start {
   align-items: flex-start;
@@ -35,6 +34,21 @@
 }
 .main.flex-direction-column-reverse {
   flex-direction: column-reverse;
+}
+.main.gap-xs {
+  gap: var(--bu-gap-xs);
+}
+.main.gap-sm {
+  gap: var(--bu-gap-sm);
+}
+.main.gap-md {
+  gap: var(--bu-gap-md);
+}
+.main.gap-lg {
+  gap: var(--bu-gap-lg);
+}
+.main.gap-xl {
+  gap: var(--bu-gap-xl);
 }
 
 /*# sourceMappingURL=Flex.module.css.map */

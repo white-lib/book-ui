@@ -1,9 +1,10 @@
+export type SizeValues = Record<string, number>;
 export type Sizes = Record<string, string>;
 
 export class DimensionsCore {
   private static readonly htmlFontSize = 16;
 
-  private readonly sizes: Sizes;
+  private readonly sizes: SizeValues;
 
   private readonly baseHeight: number;
   private readonly gap: string;
@@ -11,11 +12,11 @@ export class DimensionsCore {
 
   constructor(baseHeight: number) {
     this.sizes = {
-      xs: this.rem(baseHeight * 0.75),
-      sm: this.rem(baseHeight * 0.85),
-      md: this.rem(baseHeight),
-      lg: this.rem(baseHeight * 1.15),
-      xl: this.rem(baseHeight * 1.3),
+      xs: baseHeight * 0.75,
+      sm: baseHeight * 0.85,
+      md: baseHeight,
+      lg: baseHeight * 1.15,
+      xl: baseHeight * 1.3,
     };
 
     this.baseHeight = baseHeight;
@@ -24,7 +25,23 @@ export class DimensionsCore {
   }
 
   getSizes(): Sizes {
-    return this.sizes;
+    const sizes: Sizes = {};
+
+    for (const size in this.sizes) {
+      sizes[size] = this.rem(this.sizes[size]);
+    }
+
+    return sizes;
+  }
+
+  getGaps(): Sizes {
+    const gaps: Sizes = {};
+
+    for (const size in this.sizes) {
+      gaps[size] = this.rem(this.sizes[size] / 2);
+    }
+
+    return gaps;
   }
 
   getGap() {
