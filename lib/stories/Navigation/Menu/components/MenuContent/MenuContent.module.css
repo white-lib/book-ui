@@ -1,0 +1,29 @@
+.main {
+  position: absolute;
+  background: var(--bu-containerBg);
+  box-shadow: var(--bu-container-shadow);
+  border: var(--bu-container-border) solid var(--bu-containerBorderColor);
+  z-index: 1000;
+}
+.main.open_bottom {
+  top: 100%;
+  margin-top: var(--bu-space);
+}
+.main.open_bottom.stick_left {
+  left: 0;
+}
+.main.open_bottom.stick_right {
+  right: 0;
+}
+.main.open_top {
+  bottom: 100%;
+  margin-bottom: var(--bu-space);
+}
+.main.open_top.stick_left {
+  left: 0;
+}
+.main.open_top.stick_right {
+  right: 0;
+}
+
+/*# sourceMappingURL=MenuContent.module.css.map */

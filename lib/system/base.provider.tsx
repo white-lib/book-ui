@@ -4,11 +4,11 @@ import useContextWrapper from "../hooks/useContextWrapper.tsx";
 import { singletonStorage } from "./singletonStorage.tsx";
 import { Theme, useTheme } from "../hooks/useTheme.tsx";
 
-type BaseContextType = {
+export type BaseContextType = {
   theme?: Theme;
   classPrefix?: string;
-  Link?: any;
-  Img?: any;
+  Link?: unknown;
+  Img?: unknown;
 };
 
 const BaseContext = createContext<BaseContextType | null>(null);

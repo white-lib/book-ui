@@ -7,6 +7,7 @@ export { Typography } from "./stories/DataDisplay/Typography";
 
 // FEEDBACK
 export { Skeleton } from "./stories/Feedback/Skeleton";
+export { Dialog } from "./stories/Feedback/Dialog";
 
 // FORM
 export { FormControl } from "./stories/Form/FormControl";
@@ -24,6 +25,7 @@ export { Radio } from "./stories/Inputs/Radio";
 export { RadioGroup } from "./stories/Inputs/RadioGroup";
 export { TextField } from "./stories/Inputs/TextField";
 export { Select } from "./stories/Inputs/Select";
+export { Switch } from "./stories/Inputs/Switch";
 
 // LAYOUT
 export { Box } from "./stories/Layout/Box";
@@ -34,6 +36,13 @@ export { GridRuler } from "./stories/Layout/GridRuler";
 // NAVIGATION
 export { Link } from "./stories/Navigation/Link";
 
+export {
+  Menu,
+  MenuTrigger,
+  MenuItem,
+  MenuContent,
+} from "./stories/Navigation/Menu";
+
 // SURFACES
 export { AppBar } from "./stories/Surfaces/AppBar";
 export {
@@ -43,6 +52,7 @@ export {
   CardActions,
   CardContent,
 } from "./stories/Surfaces/Card";
+export { Accordion } from "./stories/Surfaces/Accordion";
 
 // PROVIDERS
 export * from "./system/base.provider";

@@ -16,10 +16,10 @@ import styles from "./ButtonGroup.module.css";
 import { Box } from "../../Layout/Box";
 import { DEFAULT_COLOR } from "lib/system/color.types.ts";
 
-type Props = { orientation?: "horizontal" | "vertical" } & Pick<
-  ButtonProps,
-  "variant" | "color"
-> &
+type Props = {
+  orientation?: "horizontal" | "vertical";
+  fullWidth?: boolean;
+} & Pick<ButtonProps, "variant" | "color"> &
   DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export const ButtonGroup: FC<Props> = ({
@@ -28,6 +28,7 @@ export const ButtonGroup: FC<Props> = ({
   variant = "contained",
   orientation = "horizontal",
   color = DEFAULT_COLOR,
+  fullWidth = false,
   ...props
 }) => {
   const classNameVal = classnames(
@@ -35,6 +36,7 @@ export const ButtonGroup: FC<Props> = ({
     styles.main,
     styles[variant],
     styles[orientation],
+    fullWidth && styles["full-width"],
     className,
   );
 

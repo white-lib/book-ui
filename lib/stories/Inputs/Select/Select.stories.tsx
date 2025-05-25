@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { Select } from "./Select.tsx";
-import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
-import { decorators } from "../../../storybook/decorators.tsx";
+import FavoriteIcon from "lib/stories/Icons/assets/Favorite.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -74,7 +74,8 @@ export const Properties = () => {
       <Select
         label="With Error"
         helperText="Some helper text"
-        error="This field is required"
+        error
+        errorText="This field is required"
         required
       >
         {Children}

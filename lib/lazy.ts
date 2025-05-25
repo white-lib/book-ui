@@ -28,6 +28,12 @@ export const Skeleton = React.lazy(() =>
   })),
 );
 
+export const Dialog = React.lazy(() =>
+  import("./stories/Feedback/Dialog").then((module) => ({
+    default: module.Dialog,
+  })),
+);
+
 // FORM
 export const FormControl = React.lazy(() =>
   import("./stories/Form/FormControl").then((module) => ({
@@ -90,6 +96,12 @@ export const Select = React.lazy(() =>
   })),
 );
 
+export const Switch = React.lazy(() =>
+  import("./stories/Inputs/Switch").then((module) => ({
+    default: module.Switch,
+  })),
+);
+
 // ICONS
 export { Icon, Icons } from "./stories/Icons";
 
@@ -125,6 +137,30 @@ export const Link = React.lazy(() =>
   })),
 );
 
+export const Menu = React.lazy(() =>
+  import("./stories/Navigation/Menu").then((module) => ({
+    default: module.Menu,
+  })),
+);
+
+export const MenuTrigger = React.lazy(() =>
+  import("./stories/Navigation/Menu").then((module) => ({
+    default: module.MenuTrigger,
+  })),
+);
+
+export const MenuContent = React.lazy(() =>
+  import("./stories/Navigation/Menu").then((module) => ({
+    default: module.MenuContent,
+  })),
+);
+
+export const MenuItem = React.lazy(() =>
+  import("./stories/Navigation/Menu").then((module) => ({
+    default: module.MenuItem,
+  })),
+);
+
 // SURFACES
 export const AppBar = React.lazy(() =>
   import("./stories/Surfaces/AppBar").then((module) => ({
@@ -147,6 +183,12 @@ export const CardHeader = React.lazy(() =>
 export const CardMedia = React.lazy(() =>
   import("./stories/Surfaces/Card").then((module) => ({
     default: module.CardMedia,
+  })),
+);
+
+export const Accordion = React.lazy(() =>
+  import("./stories/Surfaces/Accordion").then((module) => ({
+    default: module.Accordion,
   })),
 );
 

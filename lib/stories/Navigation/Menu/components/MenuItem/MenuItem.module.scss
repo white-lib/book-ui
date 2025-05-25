@@ -1,0 +1,8 @@
+.main {
+  background: var(--bu-containerBg);
+  padding: calc(var(--bu-container-space)) var(--bu-container-space);
+
+  &:hover {
+    //cursor: pointer;
+  }
+}

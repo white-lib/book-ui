@@ -2,8 +2,8 @@
 
 import { program } from "commander";
 
-import { ScssRootCore } from "./scssRoot.core";
-import { Config, ConfigCore } from "./config.core";
+import { ScssRootCore } from "./core/scssRoot.core";
+import { Config, ConfigCore } from "./core/config.core";
 
 program
   .version("1.0.0")
@@ -12,7 +12,7 @@ program
   .option("-s, --secondary <type>", "Define secondary color")
   .option("-b, --baseSize <type>", "Define base size")
   .option("-m, --method <type>", "Define generate method")
-  .action((options) => {
+  .action(async (options) => {
     const configCore = new ConfigCore();
     const configFromFile = configCore.getConfig();
 
@@ -33,7 +33,7 @@ program
     }
 
     const rootCore = new ScssRootCore(config);
-    const rootVars = rootCore.generateScssRootColors();
+    const rootVars = await rootCore.generateScssRootColors();
     rootCore.save(rootVars);
   });
 

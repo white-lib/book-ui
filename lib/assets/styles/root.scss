@@ -1,106 +1,105 @@
 :root {
-
-	--bu-primary-50: #ffffff;
-	--bu-primary-100: #e3e8e4;
+	--bu-primary-50: #f1f4f1;
+	--bu-primary-100: #e2e9e3;
 	--bu-primary-200: #c6d2c7;
-	--bu-primary-300: #617d63;
-	--bu-primary-400: #536b55;
-	--bu-primary-500: #455947;
-	--bu-primary-600: #3e5040;
-	--bu-primary-700: #29352b;
-	--bu-primary-800: #1c241c;
-	--bu-primary-900: #0d0d0d;
-	--bu-primary-950: #000000;
+	--bu-primary-300: #a9bcab;
+	--bu-primary-400: #8ca68f;
+	--bu-primary-500: #6f9073;
+	--bu-primary-600: #648167;
+	--bu-primary-700: #455947;
+	--bu-primary-800: #2d392e;
+	--bu-primary-900: #121712;
+	--bu-primary-950: #0b0e0b;
 
-	--bu-secondary-50: #ffffff;
-	--bu-secondary-100: #e3e8e4;
-	--bu-secondary-200: #c6d2c7;
-	--bu-secondary-300: #617d63;
-	--bu-secondary-400: #536b55;
-	--bu-secondary-500: #455947;
-	--bu-secondary-600: #3e5040;
-	--bu-secondary-700: #29352b;
-	--bu-secondary-800: #1c241c;
-	--bu-secondary-900: #0d0d0d;
-	--bu-secondary-950: #000000;
-
-	--bu-gray-50: #f9fafa;
+	--bu-gray-50: #f1f3f1;
 	--bu-gray-100: #e3e8e4;
 	--bu-gray-200: #c8d0c9;
 	--bu-gray-300: #adb8ae;
 	--bu-gray-400: #939f94;
 	--bu-gray-500: #79867a;
 	--bu-gray-600: #6e786f;
-	--bu-gray-700: #4a4f4b;
+	--bu-gray-700: #565c57;
 	--bu-gray-800: #323432;
 	--bu-gray-900: #141514;
 	--bu-gray-950: #0d0d0d;
 
-	--bu-white: #ffffff;
-	--bu-black: #000000;
-	--bu-empty-color: var(--bu-gray-100);
-	--bu-font-color: #000000;
-  
-	--bu-btn-primary-bg: var(--bu-primary-500);
-	--bu-btn-primary-hover: var(--bu-primary-600);
-	--bu-btn-primary-active: var(--bu-primary-700);
-	--bu-btn-primary-primary-color: var(--bu-white);
+	--bu-commonWhite: #ffffff;
+	--bu-commonBlack: #000000;
+	--bu-commonEmptyColor: #e3e8e4;
+	--bu-commonFontColor: #000000;
+	--bu-commonSuccessColor: #52c41a;
+	--bu-commonWarningColor: #ff9966;
+	--bu-commonErrorColor: #ff4d4f;
 
-	--bu-btn-primary-text-bg: transparent;
-	--bu-btn-primary-text-bg-hover: var(--bu-primary-200);
+	--bu-btn-primary-contained-bg-default: var(--bu-primary-500);
+	--bu-btn-primary-contained-text-default: var(--bu-primary-50);
+	--bu-btn-primary-contained-bg-hover: var(--bu-primary-600);
+	--bu-btn-primary-contained-text-hover: var(--bu-primary-50);
+	--bu-btn-primary-contained-bg-active: var(--bu-primary-700);
+	--bu-btn-primary-contained-text-active: var(--bu-primary-50);
+
+	--bu-btn-primary-outlined-bg-default: transparent;
+	--bu-btn-primary-outlined-text-default: var(--bu-primary-500);
+	--bu-btn-primary-outlined-borderColor-default: var(--bu-primary-500);
+	--bu-btn-primary-outlined-bg-hover: var(--bu-primary-500);
+	--bu-btn-primary-outlined-text-hover: var(--bu-primary-50);
+	--bu-btn-primary-outlined-borderColor-hover: var(--bu-primary-500);
+	--bu-btn-primary-outlined-bg-active: var(--bu-primary-400);
+	--bu-btn-primary-outlined-text-active: var(--bu-primary-50);
+	--bu-btn-primary-outlined-borderColor-active: var(--bu-primary-400);
+
+	--bu-btn-primary-text-bg-default: transparent;
+	--bu-btn-primary-text-text-default: var(--bu-primary-950);
+	--bu-btn-primary-text-bg-hover: var(--bu-primary-300);
+	--bu-btn-primary-text-text-hover: var(--bu-primary-50);
 	--bu-btn-primary-text-bg-active: var(--bu-primary-400);
+	--bu-btn-primary-text-text-active: var(--bu-primary-50);
 
-	--bu-btn-primary-text-color: var(--bu-primary-950);
-	--bu-btn-primary-text-color-hover: var(--bu-primary-50);
-	--bu-btn-primary-text-color-active: var(--bu-primary-50);
+	--bu-btn-secondary-contained-bg-default: var(--bu-primary-500);
+	--bu-btn-secondary-contained-text-default: var(--bu-primary-50);
+	--bu-btn-secondary-contained-bg-hover: var(--bu-primary-600);
+	--bu-btn-secondary-contained-text-hover: var(--bu-primary-50);
+	--bu-btn-secondary-contained-bg-active: var(--bu-primary-700);
+	--bu-btn-secondary-contained-text-active: var(--bu-primary-50);
 
-	--bu-btn-primary-outlined-bg-hover: var(--bu-primary-400);
-	--bu-btn-primary-outlined-bg-active: var(--bu-primary-600);
+	--bu-btn-secondary-outlined-bg-default: transparent;
+	--bu-btn-secondary-outlined-text-default: var(--bu-primary-500);
+	--bu-btn-secondary-outlined-borderColor-default: var(--bu-primary-500);
+	--bu-btn-secondary-outlined-bg-hover: var(--bu-primary-500);
+	--bu-btn-secondary-outlined-text-hover: var(--bu-primary-50);
+	--bu-btn-secondary-outlined-borderColor-hover: var(--bu-primary-500);
+	--bu-btn-secondary-outlined-bg-active: var(--bu-primary-400);
+	--bu-btn-secondary-outlined-text-active: var(--bu-primary-50);
+	--bu-btn-secondary-outlined-borderColor-active: var(--bu-primary-400);
 
-	--bu-btn-primary-outlined-color: var(--bu-primary-950);
-	--bu-btn-primary-outlined-color-hover: var(--bu-primary-50);
-	--bu-btn-primary-outlined-color-active: var(--bu-primary-50);
+	--bu-btn-secondary-text-bg-default: transparent;
+	--bu-btn-secondary-text-text-default: var(--bu-primary-950);
+	--bu-btn-secondary-text-bg-hover: var(--bu-primary-300);
+	--bu-btn-secondary-text-text-hover: var(--bu-primary-50);
+	--bu-btn-secondary-text-bg-active: var(--bu-primary-400);
+	--bu-btn-secondary-text-text-active: var(--bu-primary-50);
 
-	--bu-btn-primary-outlined-border: var(--bu-primary-500);
-	--bu-btn-primary-outlined-border-hover: var(--bu-primary-400);
-
-	--bu-btn-secondary-bg: var(--bu-secondary-500);
-	--bu-btn-secondary-hover: var(--bu-secondary-600);
-	--bu-btn-secondary-active: var(--bu-secondary-700);
-	--bu-btn-secondary-primary-color: var(--bu-white);
-
-	--bu-btn-secondary-text-bg: transparent;
-	--bu-btn-secondary-text-bg-hover: var(--bu-secondary-200);
-	--bu-btn-secondary-text-bg-active: var(--bu-secondary-400);
-
-	--bu-btn-secondary-text-color: var(--bu-secondary-950);
-	--bu-btn-secondary-text-color-hover: var(--bu-secondary-50);
-	--bu-btn-secondary-text-color-active: var(--bu-secondary-50);
-
-	--bu-btn-secondary-outlined-bg-hover: var(--bu-secondary-400);
-	--bu-btn-secondary-outlined-bg-active: var(--bu-secondary-600);
-
-	--bu-btn-secondary-outlined-color: var(--bu-secondary-950);
-	--bu-btn-secondary-outlined-color-hover: var(--bu-secondary-50);
-	--bu-btn-secondary-outlined-color-active: var(--bu-secondary-50);
-
-	--bu-btn-secondary-outlined-border: var(--bu-secondary-500);
-	--bu-btn-secondary-outlined-border-hover: var(--bu-secondary-400);
-
-	--bu-skeleton-color-1: var(--bu-gray-100);
-	--bu-skeleton-color-2: var(--bu-gray-200);
+	--bu-skeletonColor1: var(--bu-gray-100);
+	--bu-skeletonColor2: var(--bu-gray-200);
 
 	--bu-input-primary-bg: var(--bu-gray-100);
+	--bu-input-primary-filled-bg: var(--bu-gray-50);
 	--bu-input-primary-border: var(--bu-gray-400);
 	--bu-input-primary-border-focus: var(--bu-primary-500);
 	--bu-input-primary-border-style: solid;
 	--bu-input-primary-border-width: 1px;
 
-	--bu-input-secondary-bg: var(--bu-gray-100);
-	--bu-input-secondary-border: var(--bu-gray-400);
-	--bu-input-secondary-border-focus: var(--bu-secondary-500);
-	--bu-input-secondary-border-style: solid;
-	--bu-input-secondary-border-width: 1px;
+	--bu-input-primary-standard-bg-default: var(--bu-gray-100);
+
+	--bu-input-primary-standard-bg-hover: var(--bu-gray-100);
+
+	--bu-input-primary-standard-bg-checked: var(--bu-gray-100);
+
+	--bu-input-secondary-standard-bg-default: var(--bu-gray-100);
+
+	--bu-input-secondary-standard-bg-hover: var(--bu-gray-100);
+
+	--bu-input-secondary-standard-bg-checked: var(--bu-gray-100);
 
 	--bu-control-primary-color: var(--bu-gray-300);
 	--bu-control-primary-hover: var(--bu-primary-600);
@@ -108,15 +107,10 @@
 	--bu-control-primary-mark-color: var(--bu-white);
 	--bu-control-primary-border-width: 1px;
 
-	--bu-control-secondary-color: var(--bu-gray-300);
-	--bu-control-secondary-hover: var(--bu-secondary-600);
-	--bu-control-secondary-checked-bg: var(--bu-secondary-500);
-	--bu-control-secondary-mark-color: var(--bu-white);
-	--bu-control-secondary-border-width: 1px;
-
-	--bu-font-family: Inter, -apple-system, "Segoe UI", "Helvetica Neue", Arial,
-    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-    "Segoe UI Symbol", "Noto Color Emoji";
+	--bu-font-family:
+		Inter, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
+		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+		"Noto Color Emoji";
 
 	--bu-size-xs: 1.875rem;
 	--bu-size-sm: 2.125rem;
@@ -130,26 +124,50 @@
 	--bu-gap-lg: 1.4375rem;
 	--bu-gap-xl: 1.625rem;
 
-	--bu-font-size-h1: clamp(1.75rem, 1.4903846153846154rem + 1.153846153846154vw, 2.5rem);
-	--bu-font-size-h2: clamp(1.625rem, 1.4086538461538463rem + 0.9615384615384616vw, 2.25rem); 
-	--bu-font-size-h3: clamp(1.5rem, 1.3269230769230769rem + 0.7692307692307693vw, 2rem); 
-	--bu-font-size-h4: clamp(1.375rem, 1.2451923076923077rem + 0.576923076923077vw, 1.75rem);
-	--bu-font-size-h5: clamp(1.25rem, 1.1634615384615385rem + 0.38461538461538464vw, 1.5rem);
-	--bu-font-size-h6: clamp(1.125rem, 1.0817307692307692rem + 0.19230769230769232vw, 1.25rem);
+	--bu-font-size-h1: clamp(
+		1.75rem,
+		1.4903846153846154rem + 1.153846153846154vw,
+		2.5rem
+	);
+	--bu-font-size-h2: clamp(
+		1.625rem,
+		1.4086538461538463rem + 0.9615384615384616vw,
+		2.25rem
+	);
+	--bu-font-size-h3: clamp(
+		1.5rem,
+		1.3269230769230769rem + 0.7692307692307693vw,
+		2rem
+	);
+	--bu-font-size-h4: clamp(
+		1.375rem,
+		1.2451923076923077rem + 0.576923076923077vw,
+		1.75rem
+	);
+	--bu-font-size-h5: clamp(
+		1.25rem,
+		1.1634615384615385rem + 0.38461538461538464vw,
+		1.5rem
+	);
+	--bu-font-size-h6: clamp(
+		1.125rem,
+		1.0817307692307692rem + 0.19230769230769232vw,
+		1.25rem
+	);
 
-	--bu-text-color: var(--bu-gray-900); 
-	--bu-text-invert-color: #ffffff; 
-	--bu-text-heading-color: var(--bu-primary-900);
-	--bu-text-hint-color: var(--bu-gray-500);
+	--bu-textColor: var(--bu-gray-900);
+	--bu-textInvertColor: var(--bu-commonWhite);
+	--bu-textHeadingColor: var(--bu-primary-900);
+	--bu-textHintColor: var(--bu-gray-500);
+	--bu-textLinkColor: var(--bu-gray-900);
 
-	--bu-link-color: var(--bu-gray-900); 
-
-	--bu-container-bg: var(--bu-gray-50);
-	--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
+	--bu-container-shadow: 0 10px 20px -12px rgba(16, 24, 40, 0.1);
 	--bu-container-border: 1px;
-	--bu-container-border-color: var(--bu-gray-200);
 	--bu-container-radius: 0.5rem;
 	--bu-container-space: 0.8rem;
+
+	--bu-containerBg: var(--bu-gray-50);
+	--bu-containerBorderColor: var(--bu-gray-200);
 
 	--bu-gap: 0.75rem;
 	--bu-space: 0.5rem;
@@ -170,7 +188,6 @@
 	--bu-disabled-opacity: 0.7;
 }
 
-
 .bu-size-xs {
 	--bu-size: var(--bu-size-xs);
 	--bu-height: var(--bu-size-xs);
@@ -187,7 +204,7 @@
 	padding-left: var(--bu-space);
 	padding-right: var(--bu-space);
 }
-      
+
 .bu-size-sm {
 	--bu-size: var(--bu-size-sm);
 	--bu-height: var(--bu-size-sm);
@@ -204,7 +221,7 @@
 	padding-left: var(--bu-space);
 	padding-right: var(--bu-space);
 }
-      
+
 .bu-size-md {
 	--bu-size: var(--bu-size-md);
 	--bu-height: var(--bu-size-md);
@@ -221,7 +238,7 @@
 	padding-left: var(--bu-space);
 	padding-right: var(--bu-space);
 }
-      
+
 .bu-size-lg {
 	--bu-size: var(--bu-size-lg);
 	--bu-height: var(--bu-size-lg);
@@ -238,7 +255,7 @@
 	padding-left: var(--bu-space);
 	padding-right: var(--bu-space);
 }
-      
+
 .bu-size-xl {
 	--bu-size: var(--bu-size-xl);
 	--bu-height: var(--bu-size-xl);
@@ -255,61 +272,63 @@
 	padding-left: var(--bu-space);
 	padding-right: var(--bu-space);
 }
-      
 
 @media (prefers-color-scheme: dark) {
 	:root:not([data-bu-theme]) {
-    
-	color-scheme: dark;
-    
-	--bu-text-color: var(--bu-gray-50); 
-	--bu-text-invert-color: #000000; 
-	--bu-text-heading-color: var(--bu-primary-50); 
-	--bu-text-hint-color: var(--bu-gray-300); 
+		color-scheme: dark;
 
-	--bu-link-color: var(--bu-gray-50); 
+		--bu-input-bg: var(--bu-gray-800);
+		--bu-input-primary-filled-bg: var(--bu-gray-900);
 
-	--bu-skeleton-color-1: var(--bu-gray-800);
-	--bu-skeleton-color-2: var(--bu-gray-900);
-	--bu-input-bg: var(--bu-gray-800);
+		--bu-container-shadow: 0 10px 20px -12px rgba(16, 24, 40, 0.1);
 
-	--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
-	--bu-btn-primary-text-bg-active: var(--bu-primary-600);
+		--bu-btn-primary-text-text-default: var(--bu-primary-50);
+		--bu-btn-primary-text-text-hover: var(--bu-primary-50);
+		--bu-btn-primary-text-text-active: var(--bu-primary-50);
 
-	--bu-btn-primary-outlined-color: var(--bu-primary-50);
-	--bu-btn-primary-outlined-border: var(--bu-primary-300);
+		--bu-btn-secondary-text-text-default: var(--bu-primary-50);
+		--bu-btn-secondary-text-text-hover: var(--bu-primary-50);
+		--bu-btn-secondary-text-text-active: var(--bu-primary-50);
 
-	--bu-btn-primary-text-color: var(--bu-primary-50);
-	--bu-btn-primary-text-color-active: var(--bu-primary-100);
+		--bu-skeletonColor1: var(--bu-gray-800);
+		--bu-skeletonColor2: var(--bu-gray-900);
 
-	--bu-container-bg: var(--bu-primary-900);
-	--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
-	--bu-container-border-color: var(--bu-gray-800);
-}}
+		--bu-containerBg: var(--bu-primary-900);
+		--bu-containerBorderColor: var(--bu-gray-800);
+
+		--bu-textColor: var(--bu-gray-50);
+		--bu-textInvertColor: #000000;
+		--bu-textHeadingColor: var(--bu-primary-50);
+		--bu-textHintColor: var(--bu-gray-300);
+		--bu-textLinkColor: var(--bu-gray-50);
+	}
+}
+
 [data-bu-theme="dark"] {
 	color-scheme: dark;
-    
-	--bu-text-color: var(--bu-gray-50); 
-	--bu-text-invert-color: #000000; 
-	--bu-text-heading-color: var(--bu-primary-50); 
-	--bu-text-hint-color: var(--bu-gray-300); 
 
-	--bu-link-color: var(--bu-gray-50); 
-
-	--bu-skeleton-color-1: var(--bu-gray-800);
-	--bu-skeleton-color-2: var(--bu-gray-900);
 	--bu-input-bg: var(--bu-gray-800);
+	--bu-input-primary-filled-bg: var(--bu-gray-900);
 
-	--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
-	--bu-btn-primary-text-bg-active: var(--bu-primary-600);
+	--bu-container-shadow: 0 10px 20px -12px rgba(16, 24, 40, 0.1);
 
-	--bu-btn-primary-outlined-color: var(--bu-primary-50);
-	--bu-btn-primary-outlined-border: var(--bu-primary-300);
+	--bu-btn-primary-text-text-default: var(--bu-primary-50);
+	--bu-btn-primary-text-text-hover: var(--bu-primary-50);
+	--bu-btn-primary-text-text-active: var(--bu-primary-50);
 
-	--bu-btn-primary-text-color: var(--bu-primary-50);
-	--bu-btn-primary-text-color-active: var(--bu-primary-100);
+	--bu-btn-secondary-text-text-default: var(--bu-primary-50);
+	--bu-btn-secondary-text-text-hover: var(--bu-primary-50);
+	--bu-btn-secondary-text-text-active: var(--bu-primary-50);
 
-	--bu-container-bg: var(--bu-primary-900);
-	--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
-	--bu-container-border-color: var(--bu-gray-800);
+	--bu-skeletonColor1: var(--bu-gray-800);
+	--bu-skeletonColor2: var(--bu-gray-900);
+
+	--bu-containerBg: var(--bu-primary-900);
+	--bu-containerBorderColor: var(--bu-gray-800);
+
+	--bu-textColor: var(--bu-gray-50);
+	--bu-textInvertColor: #000000;
+	--bu-textHeadingColor: var(--bu-primary-50);
+	--bu-textHintColor: var(--bu-gray-300);
+	--bu-textLinkColor: var(--bu-gray-50);
 }

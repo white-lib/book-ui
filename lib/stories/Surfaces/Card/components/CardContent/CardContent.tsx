@@ -6,8 +6,8 @@ import { Box } from "../../../../Layout/Box";
 
 type Props = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-export const CardContent: FC<Props> = ({ children, ...props }) => {
-  const classNameVal = classnames(styles.main);
+export const CardContent: FC<Props> = ({ className, children, ...props }) => {
+  const classNameVal = classnames(styles.main, className);
 
   return (
     <Box {...props} className={classNameVal}>

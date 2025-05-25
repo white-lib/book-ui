@@ -1,3 +1,6 @@
+.main {
+  box-sizing: border-box;
+}
 .main.container {
   display: flex;
   flex-wrap: wrap;
@@ -7,6 +10,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  width: 100%;
 }
 .main.xs-0, .main.sm-0, .main.lg-0 {
   display: none;

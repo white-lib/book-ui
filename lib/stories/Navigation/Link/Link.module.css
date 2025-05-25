@@ -1,6 +1,6 @@
 .main {
   text-decoration: none;
-  color: var(--bu-link-color);
+  color: var(--bu-textLinkColor);
   font-size: var(--bu-font-size);
   font-family: var(--bu-font-family);
 }

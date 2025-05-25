@@ -10,12 +10,13 @@ import classnames from "classnames";
 import styles from "./Link.module.css";
 
 import { withClassPrefix } from "lib/helpers/classNames.tsx";
-import { useBaseContext } from "lib/system/base.provider.tsx";
+import { BaseContextType, useBaseContext } from "lib/system/base.provider.tsx";
 
 type Props = { disabled?: boolean } & DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
->;
+> &
+  BaseContextType["Link"];
 
 export const Link: FC<Props> = ({
   children,
@@ -32,6 +33,8 @@ export const Link: FC<Props> = ({
 
   const { Link } = useBaseContext();
 
+  const isBaseA = Link === "a";
+
   const dynamicProps = useMemo(() => {
     const dynamicObj: Partial<Props> = {};
     if (disabled) {
@@ -42,6 +45,15 @@ export const Link: FC<Props> = ({
     return dynamicObj;
   }, [disabled]);
 
+  if (isBaseA) {
+    return (
+      <a className={classNameVal} {...props}>
+        {children}
+      </a>
+    );
+  }
+
+  // @ts-ignore
   return cloneElement(<Link />, {
     // @ts-ignore
     children: children,

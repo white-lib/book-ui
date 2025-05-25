@@ -1,11 +1,28 @@
 .main {
   display: flex;
+  flex-wrap: wrap;
   gap: 0;
+  box-sizing: border-box;
+  overflow: hidden;
 
   & > button,
   & > a {
+    max-width: 100%;
+    box-sizing: border-box;
+
     &:not(:first-child):not(:last-child) {
       border-radius: 0;
+    }
+  }
+
+  &.full-width {
+    flex-wrap: unset;
+
+    & > button,
+    & > a {
+      width: 100%;
+      padding-left: 0;
+      padding-right: 0;
     }
   }
 

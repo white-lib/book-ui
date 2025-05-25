@@ -26,56 +26,64 @@
     color var(--bu-duration-xs) ease-in-out,
     border-color var(--bu-duration-xs) ease-in-out;
 
+  &.selected {
+    filter: brightness(1.2);
+  }
+
   &.contained {
     @include mixins.with-color-type using ($type) {
-      background: var(--bu-btn-#{$type}-bg);
-      color: var(--bu-btn-#{$type}-primary-color);
+      background: var(--bu-btn-#{$type}-contained-bg-default);
+      color: var(--bu-btn-#{$type}-contained-text-default);
 
       @include mixins.hover() {
-        background: var(--bu-btn-#{$type}-hover);
+        background: var(--bu-btn-#{$type}-contained-bg-hover);
+        color: var(--bu-btn-#{$type}-contained-text-hover);
       }
 
       @include mixins.active() {
-        background: var(--bu-btn-#{$type}-active);
+        background: var(--bu-btn-#{$type}-contained-bg-active);
+        color: var(--bu-btn-#{$type}-contained-text-active);
       }
     }
   }
 
   &.outlined {
     @include mixins.with-color-type using ($type) {
-      background: transparent;
-      border-color: var(--bu-btn-#{$type}-outlined-border);
+      background: var(--bu-btn-#{$type}-outlined-bg-default);
+
       border-width: 1px;
       border-style: solid;
-      color: var(--bu-btn-#{$type}-outlined-color);
+      border-color: var(--bu-btn-#{$type}-outlined-borderColor-default);
+
+      color: var(--bu-btn-#{$type}-outlined-text-default);
 
       @include mixins.hover() {
-        border-color: var(--bu-btn-#{$type}-outlined-border-hover);
-        background-color: var(--bu-btn-#{$type}-outlined-bg-hover);
-        color: var(--bu-btn-#{$type}-outlined-color-hover);
+        background: var(--bu-btn-#{$type}-outlined-bg-hover);
+        border-color: var(--bu-btn-#{$type}-outlined-borderColor-hover);
+        color: var(--bu-btn-#{$type}-outlined-text-hover);
       }
 
       @include mixins.active() {
-        border-color: var(--bu-btn-#{$type}-outlined-border-hover);
-        background-color: var(--bu-btn-#{$type}-outlined-bg-active);
-        color: var(--bu-btn-#{$type}-outlined-color-active);
+        background: var(--bu-btn-#{$type}-outlined-bg-active);
+        border-color: var(--bu-btn-#{$type}-outlined-borderColor-active);
+        color: var(--bu-btn-#{$type}-outlined-text-active);
       }
     }
   }
 
   &.text {
     @include mixins.with-color-type using ($type) {
-      background-color: transparent;
-      color: var(--bu-btn-#{$type}-text-color);
+      background-color: var(--bu-btn-#{$type}-text-bg-default);
+      color: var(--bu-btn-#{$type}-text-text-default);
 
       @include mixins.hover() {
         background-color: var(--bu-btn-#{$type}-text-bg-hover);
-        color: var(--bu-btn-#{$type}-text-color-hover);
+        color: var(--bu-btn-#{$type}-text-text-hover);
       }
 
       @include mixins.active() {
         background-color: var(--bu-btn-#{$type}-text-bg-active);
-        color: var(--bu-btn-#{$type}-text-color-active);
+        color: var(--bu-btn-#{$type}-text-text-active);
       }
     }
   }
@@ -83,5 +91,9 @@
   &.disableSpacing {
     min-width: var(--bu-height);
     padding: 0;
+  }
+
+  &.fullWidth {
+    width: 100%;
   }
 }

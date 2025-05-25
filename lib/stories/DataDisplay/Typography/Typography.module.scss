@@ -1,12 +1,12 @@
 @mixin heading {
   font-weight: bold;
-  color: var(--bu-text-heading-color);
+  color: var(--bu-textHeadingColor);
   margin: 0;
 }
 
 @mixin text {
   font-size: var(--bu-font-size);
-  color: var(--bu-text-color);
+  color: var(--bu-textColor);
 }
 
 $headings: h1, h2, h3, h4, h5, h6;
@@ -35,11 +35,10 @@ $headings: h1, h2, h3, h4, h5, h6;
 
 .hint {
   @include text;
-  color: var(--bu-text-hint-color);
+  color: var(--bu-textHintColor);
   font-size: var(--bu-font-size-hint);
 }
 
 .error {
-  @include text;
-  color: var(--bu-error-color);
+  color: var(--bu-commonErrorColor);
 }

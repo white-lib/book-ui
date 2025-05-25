@@ -1,6 +1,6 @@
 .main {
   border-radius: 50%;
-  background: var(--bu-empty-color);
+  background: var(--bu-emptyColor);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -8,6 +8,7 @@ import {
   useState,
   useMemo,
   ChangeEvent,
+  useEffect,
 } from "react";
 import classnames from "classnames";
 
@@ -32,10 +33,12 @@ export type Props = {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   helperText?: string;
-  error?: string;
+  error?: boolean;
+  errorText?: string;
   loading?: boolean;
   required?: boolean;
   fullWidth?: boolean;
+  inputDisabled?: boolean;
 } & Omit<
   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
   "size" | "children"
@@ -49,17 +52,18 @@ export const TextField: FC<Props> = ({
   className,
   placeholder,
   disabled,
+  inputDisabled,
   startIcon,
   endIcon,
   helperText,
   error,
+  errorText,
   loading,
   required,
   fullWidth,
   value = "",
   onChange,
-  onFocus,
-  onBlur,
+  style,
   ...props
 }) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -75,6 +79,10 @@ export const TextField: FC<Props> = ({
     disabled && inputStyles.disabled,
     className,
   );
+
+  useEffect(() => {
+    setInnerValue(value);
+  }, [value]);
 
   const localType = useMemo(() => {
     if (passwordVisible) {
@@ -104,11 +112,11 @@ export const TextField: FC<Props> = ({
 
   return (
     <Box className={classnames(styles.wrapper, fullWidth && styles.fullWidth)}>
-      <Box className={classNameVal}>
+      <Box className={classNameVal} style={style}>
         {startIcon}
         <input
           type={localType}
-          disabled={disabled}
+          disabled={disabled || inputDisabled}
           placeholder={requiredPlaceholder}
           value={innerValue}
           onChange={handleOnChange}
@@ -119,12 +127,9 @@ export const TextField: FC<Props> = ({
       {helperText && !error && (
         <Typography variant="hint">{helperText}</Typography>
       )}
-      {error && (
-        <Typography
-          variant="hint"
-          className={classnames(error && styles.errorText)}
-        >
-          {error}
+      {error && errorText && (
+        <Typography variant="hint" error>
+          {errorText}
         </Typography>
       )}
     </Box>

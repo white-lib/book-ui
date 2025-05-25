@@ -22,7 +22,7 @@ export default defineConfig({
     },
     rollupOptions: {
       plugins: [preserveDirectives()],
-      external: ["react", "react/jsx-runtime"],
+      external: ["react", "react/jsx-runtime", "next/image"],
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob

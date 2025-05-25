@@ -2,5 +2,5 @@
   "primary": "#455947",
   "baseSize": 40,
   "method": "monochromatic",
-  "fixShade": true
+  "fixShade": false
 }

@@ -27,6 +27,7 @@ type Story = StoryObj<typeof meta>;
 export const Standard: Story = {
   args: {
     placeholder: "Standard",
+    error: false,
   },
 };
 
@@ -34,6 +35,7 @@ export const Outlined: Story = {
   args: {
     placeholder: "Outlined",
     variant: "outlined",
+    error: false,
   },
 };
 
@@ -41,6 +43,7 @@ export const Filled: Story = {
   args: {
     placeholder: "Text",
     variant: "filled",
+    error: false,
   },
 };
 
@@ -48,6 +51,7 @@ export const Borderless: Story = {
   args: {
     placeholder: "Borderless",
     variant: "borderless",
+    error: false,
   },
 };
 
@@ -58,7 +62,8 @@ export const Properties = () => (
     <TextField
       placeholder="With Error"
       helperText="Some helper text"
-      error="This field is required"
+      error
+      errorText="This field is required"
       required
     />
   </div>

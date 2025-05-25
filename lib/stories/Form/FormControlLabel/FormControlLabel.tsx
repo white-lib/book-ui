@@ -10,11 +10,9 @@ import classnames from "classnames";
 
 import styles from "./FormControlLabel.module.css";
 
-import {
-  withClassPrefix,
-  createClassName,
-} from "../../../helpers/classNames.tsx";
-import { DEFAULT_SIZE, Size } from "../../../system/measurement.types.ts";
+import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
+
+import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
 
 type Props = {
   label?: string;
@@ -51,7 +49,7 @@ export const FormControlLabel: FC<Props> = ({
         value,
         checked: selectedValue === value,
       })}
-      {label && <span>{label}</span>}
+      {label && <span className={styles.label}>{label}</span>}
     </label>
   );
 };

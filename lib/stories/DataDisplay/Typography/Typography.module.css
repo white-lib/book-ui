@@ -6,68 +6,66 @@
 
 .h1 {
   font-weight: bold;
-  color: var(--bu-text-heading-color);
+  color: var(--bu-textHeadingColor);
   margin: 0;
   font-size: var(--bu-font-size-h1);
 }
 
 .h2 {
   font-weight: bold;
-  color: var(--bu-text-heading-color);
+  color: var(--bu-textHeadingColor);
   margin: 0;
   font-size: var(--bu-font-size-h2);
 }
 
 .h3 {
   font-weight: bold;
-  color: var(--bu-text-heading-color);
+  color: var(--bu-textHeadingColor);
   margin: 0;
   font-size: var(--bu-font-size-h3);
 }
 
 .h4 {
   font-weight: bold;
-  color: var(--bu-text-heading-color);
+  color: var(--bu-textHeadingColor);
   margin: 0;
   font-size: var(--bu-font-size-h4);
 }
 
 .h5 {
   font-weight: bold;
-  color: var(--bu-text-heading-color);
+  color: var(--bu-textHeadingColor);
   margin: 0;
   font-size: var(--bu-font-size-h5);
 }
 
 .h6 {
   font-weight: bold;
-  color: var(--bu-text-heading-color);
+  color: var(--bu-textHeadingColor);
   margin: 0;
   font-size: var(--bu-font-size-h6);
 }
 
 .span {
   font-size: var(--bu-font-size);
-  color: var(--bu-text-color);
+  color: var(--bu-textColor);
 }
 
 .p {
   font-size: var(--bu-font-size);
-  color: var(--bu-text-color);
+  color: var(--bu-textColor);
   display: block;
 }
 
 .hint {
   font-size: var(--bu-font-size);
-  color: var(--bu-text-color);
-  color: var(--bu-text-hint-color);
+  color: var(--bu-textColor);
+  color: var(--bu-textHintColor);
   font-size: var(--bu-font-size-hint);
 }
 
 .error {
-  font-size: var(--bu-font-size);
-  color: var(--bu-text-color);
-  color: var(--bu-error-color);
+  color: var(--bu-commonErrorColor);
 }
 
 /*# sourceMappingURL=Typography.module.css.map */

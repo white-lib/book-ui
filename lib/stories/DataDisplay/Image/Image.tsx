@@ -20,7 +20,7 @@ import { Props as SkeletonProps, Skeleton } from "../../Feedback/Skeleton";
 import BrokenImage from "lib/stories/Icons/assets/BrokenImage.tsx";
 import { Box } from "lib/stories/Layout/Box";
 import { halfTheValue } from "lib/helpers/skinning.tsx";
-import { useBaseContext } from "lib/system/base.provider.tsx";
+import { BaseContextType, useBaseContext } from "lib/system/base.provider.tsx";
 
 export type Props = {
   src?: string | ReactNode;
@@ -29,7 +29,8 @@ export type Props = {
   height?: number | string;
   skeleton?: SkeletonProps["variant"];
   objectFit?: "cover" | "contain" | "fill" | "none" | "scale-down";
-} & DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement>;
+} & DetailedHTMLProps<ImgHTMLAttributes<HTMLImageElement>, HTMLImageElement> &
+  BaseContextType["Img"];
 
 export const Image: FC<Props> = ({
   children,
@@ -45,7 +46,9 @@ export const Image: FC<Props> = ({
 }) => {
   const { Img } = useBaseContext();
 
-  const [isLoading, setIsLoading] = useState(Img === "img");
+  const isBaseImg = Img === "img";
+
+  const [isLoading, setIsLoading] = useState(isBaseImg);
   const [isError, setIsError] = useState(false);
 
   const classNameVal = classnames(
@@ -86,28 +89,43 @@ export const Image: FC<Props> = ({
     );
   }
 
-  const inNext = isLoading && Img !== "img";
+  if (isBaseImg) {
+    return (
+      <>
+        {isLoading ? (
+          <Skeleton variant={skeleton} width={width} height={height} />
+        ) : (
+          <></>
+        )}
+        <img
+          src={src}
+          alt={alt}
+          title={title || alt}
+          width={width}
+          height={height}
+          className={classNameVal}
+          onLoad={onLoad}
+          onError={onError}
+          aria-hidden={isLoading}
+          aria-label={title || alt}
+          {...props}
+        />
+      </>
+    );
+  }
 
-  return (
-    <>
-      {isLoading && Img !== "img" ? (
-        <Skeleton variant={skeleton} width={width} height={height} />
-      ) : (
-        <></>
-      )}
-      {cloneElement(<Img />, {
-        src: src,
-        alt: alt,
-        title: title || alt,
-        width: width,
-        height: height,
-        className: classNameVal,
-        onLoad: onLoad,
-        onError: onError,
-        "aria-hidden": inNext && "true",
-        "aria-label": title || alt,
-        ...props,
-      })}
-    </>
-  );
+  // @ts-ignore
+  return cloneElement(<Img />, {
+    src: src,
+    alt: alt,
+    title: title || alt,
+    width: width,
+    height: height,
+    className: classNameVal,
+    onLoad: onLoad,
+    onError: onError,
+    "aria-hidden": false,
+    "aria-label": title || alt,
+    ...props,
+  });
 };

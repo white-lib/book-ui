@@ -28,7 +28,8 @@ export type Props = {
   label?: string;
   startIcon?: ReactNode;
   helperText?: string;
-  error?: string;
+  error?: boolean;
+  errorText?: string;
   loading?: boolean;
   required?: boolean;
   fullWidth?: boolean;
@@ -48,6 +49,7 @@ export const Select: FC<Props> = ({
   startIcon,
   helperText,
   error,
+  errorText,
   loading,
   required,
   fullWidth,
@@ -103,12 +105,9 @@ export const Select: FC<Props> = ({
       {helperText && !error && (
         <Typography variant="hint">{helperText}</Typography>
       )}
-      {error && (
-        <Typography
-          variant="hint"
-          className={classnames(error && styles.errorText)}
-        >
-          {error}
+      {error && errorText && (
+        <Typography variant="hint" error>
+          {errorText}
         </Typography>
       )}
     </Box>

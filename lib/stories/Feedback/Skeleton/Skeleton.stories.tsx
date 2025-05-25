@@ -3,7 +3,7 @@ import type { Meta } from "@storybook/react";
 import { Skeleton } from "./Skeleton.tsx";
 import { Box } from "../../Layout/Box";
 
-import { decorators } from "../../../storybook/decorators.tsx";
+import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

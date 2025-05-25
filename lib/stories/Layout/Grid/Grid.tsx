@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from "react";
 import classnames from "classnames";
 
 import styles from "./Grid.module.css";
@@ -22,6 +22,7 @@ type Props = {
   spacing?: Spacing;
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;
+  children?: ReactNode;
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export const Grid: FC<Props> = ({

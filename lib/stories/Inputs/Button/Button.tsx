@@ -9,6 +9,7 @@ import {
 import classnames from "classnames";
 
 import styles from "./Button.module.css";
+
 import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 
 import { Link } from "lib/stories/Navigation/Link";
@@ -25,7 +26,10 @@ export type Props = {
   startIcon?: ReactNode;
   endIcon?: ReactNode;
   loading?: boolean;
+  onlyLoader?: boolean;
   disableSpacing?: boolean;
+  fullWidth?: boolean;
+  selected?: boolean;
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
   HTMLButtonElement
@@ -39,11 +43,14 @@ export const Button: FC<Props> = ({
   color = DEFAULT_COLOR,
   className,
   disabled,
+  selected,
   href,
   startIcon,
   endIcon,
   loading,
+  onlyLoader,
   disableSpacing,
+  fullWidth,
   ...props
 }) => {
   const classNameVal = classnames(
@@ -52,7 +59,9 @@ export const Button: FC<Props> = ({
     styles[variant],
     styles[color],
     createClassName({ size, paddingX: true }),
+    selected && styles.selected,
     disabled && styles.disabled,
+    fullWidth && styles.fullWidth,
     disableSpacing && styles.disableSpacing,
     className,
   );
@@ -60,7 +69,7 @@ export const Button: FC<Props> = ({
   const modifiedChildren = (
     <>
       {loading ? <LoadingIcon /> : startIcon}
-      {children}
+      {loading && onlyLoader ? <></> : children}
       {endIcon}
     </>
   );

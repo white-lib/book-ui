@@ -1,4 +1,10 @@
-import { createElement, FC, ReactNode } from "react";
+import {
+  createElement,
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  ReactNode,
+} from "react";
 import classnames from "classnames";
 
 import styles from "./Typography.module.css";
@@ -13,7 +19,12 @@ type Props = {
   error?: boolean;
   className?: string;
   children: ReactNode;
-};
+} & DetailedHTMLProps<HTMLAttributes<HTMLHeadingElement>, HTMLHeadingElement> &
+  DetailedHTMLProps<
+    HTMLAttributes<HTMLParagraphElement>,
+    HTMLParagraphElement
+  > &
+  DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
 
 const validTags: Array<Tag> = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span"];
 

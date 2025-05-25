@@ -1,7 +1,7 @@
 .main {
   width: 100%;
-  background: var(--bu-container-bg);
-  border-bottom: var(--bu-container-border) solid var(--bu-container-border-color);
+  background: var(--bu-containerBg);
+  border-bottom: var(--bu-container-border) solid var(--bu-containerBorderColor);
   padding: var(--bu-space);
   min-height: var(--bu-height);
   top: 0;

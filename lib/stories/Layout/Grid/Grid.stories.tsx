@@ -1,7 +1,7 @@
 import type { Meta } from "@storybook/react";
 
 import { Grid } from "./Grid.tsx";
-import { Box } from "../Box";
+import { Flex } from "../Flex";
 import { GridRuler } from "../GridRuler";
 import { decorators } from "lib/storybook/decorators.tsx";
 import { Typography } from "lib/main.ts";
@@ -42,24 +42,56 @@ export const Main = () => (
       style={{ height: "100%" }}
     >
       <Grid item xs={1} sm={6} md={4} lg={3}>
-        <Box>
+        <Flex
+          style={{
+            width: "100px",
+            height: "100px",
+            background: "var(--bu-primary-600)",
+          }}
+          alignItems="center"
+          justifyContent="center"
+        >
           <Typography variant="p">Div 1</Typography>
-        </Box>
+        </Flex>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
-        <Box>
+        <Flex
+          style={{
+            width: "100px",
+            height: "100px",
+            background: "var(--bu-primary-600)",
+          }}
+          alignItems="center"
+          justifyContent="center"
+        >
           <Typography variant="p">Div 2</Typography>
-        </Box>
+        </Flex>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
-        <Box>
+        <Flex
+          style={{
+            width: "100px",
+            height: "100px",
+            background: "var(--bu-primary-600)",
+          }}
+          alignItems="center"
+          justifyContent="center"
+        >
           <Typography variant="p">Div 3</Typography>
-        </Box>
+        </Flex>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
-        <Box>
+        <Flex
+          style={{
+            width: "100px",
+            height: "100px",
+            background: "var(--bu-primary-600)",
+          }}
+          alignItems="center"
+          justifyContent="center"
+        >
           <Typography variant="p">Div 4</Typography>
-        </Box>
+        </Flex>
       </Grid>
     </Grid>
   </div>

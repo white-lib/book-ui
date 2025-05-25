@@ -1,5 +1,5 @@
 .main {
-  background: var(--bu-skeleton-color-1);
+  background: var(--bu-skeletonColor1);
   animation: pulsate var(--bu-duration-lg) infinite;
 }
 
@@ -22,12 +22,12 @@
 
 @keyframes pulsate {
   0% {
-    background: var(--bu-skeleton-color-1);
+    background: var(--bu-skeletonColor1);
   }
   50% {
-    background: var(--bu-skeleton-color-2);
+    background: var(--bu-skeletonColor2);
   }
   100% {
-    background: var(--bu-skeleton-color-1);
+    background: var(--bu-skeletonColor1);
   }
 }

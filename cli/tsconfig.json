@@ -8,6 +8,9 @@
     "sourceMap": true,
     "esModuleInterop": true,
     "moduleResolution": "node",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "shared/*": ["../shared/*"]
+    }
   },
 }

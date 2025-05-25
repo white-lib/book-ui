@@ -1,10 +1,13 @@
-export type Colors = Record<number, string>;
+export type Shade = "dark" | "light";
+export type GenerationMethod = "analogous" | "monochromatic";
+
+export type ColorsWithShade = Record<number, string>;
 
 export class ColorsCore {
-  private method: "analogous" | "monochromatic";
-  private fixShade: boolean;
+  private readonly method: GenerationMethod;
+  private readonly fixShade: boolean;
 
-  constructor(method: "analogous" | "monochromatic", fixShade: boolean) {
+  constructor(method: GenerationMethod, fixShade: boolean) {
     this.method = method;
     this.fixShade = fixShade;
   }
@@ -17,7 +20,7 @@ export class ColorsCore {
     400: 60,
     500: 50,
     600: 45,
-    700: 30,
+    700: 35,
     800: 20,
     900: 8,
     950: 5,
@@ -92,22 +95,7 @@ export class ColorsCore {
     }, shadeEntries[0][0]);
   }
 
-  generateGrayShades(color: string): Colors {
-    const hsl = ColorsCore.hexToHSL(color);
-    let colorShades: Colors = {};
-
-    for (let shade in this.shades) {
-      colorShades[shade] = ColorsCore.hslToHex(
-        hsl.h,
-        (this.shades[shade] / 100) * 10,
-        this.shades[shade],
-      );
-    }
-
-    return colorShades;
-  }
-
-  generateShadesFromMiddle(color: string): Colors {
+  private generateShadesFromMiddle(color: string): ColorsWithShade {
     const hsl = ColorsCore.hexToHSL(color);
 
     const baseShade = 500;
@@ -133,9 +121,9 @@ export class ColorsCore {
     );
   }
 
-  getAnalogousShades(color: string): Colors {
+  private getAnalogousShades(color: string): ColorsWithShade {
     const hsl = ColorsCore.hexToHSL(color);
-    let colorShades: Colors = {};
+    let colorShades: ColorsWithShade = {};
 
     const nearestShade = this.getNearestShade(hsl.l);
 
@@ -154,8 +142,44 @@ export class ColorsCore {
     return colorShades;
   }
 
-  generateShades(color: string): Colors {
-    let colors: Colors = {};
+  generateGrayShades(color: string): ColorsWithShade {
+    let hsl = ColorsCore.hexToHSL(color);
+
+    if (this.method === "monochromatic") {
+      if (hsl.l < 50) {
+        hsl = ColorsCore.hexToHSL("#000000");
+      } else {
+        hsl = ColorsCore.hexToHSL("#ffffff");
+      }
+    }
+
+    let colorShades: ColorsWithShade = {};
+
+    for (let shade in this.shades) {
+      let shadeValue = this.shades[shade];
+
+      if (this.method === "monochromatic") {
+        if (shade === "50") {
+          shadeValue = 99;
+        }
+      }
+
+      colorShades[shade] = ColorsCore.hslToHex(
+        hsl.h,
+        (this.shades[shade] / 100) * 10,
+        shadeValue,
+      );
+    }
+
+    return colorShades;
+  }
+
+  generateShades(color: string): {
+    shade: Shade;
+    colors: ColorsWithShade;
+  } {
+    let colors: ColorsWithShade = {};
+    const hsl = ColorsCore.hexToHSL(color);
 
     if (this.fixShade) {
       colors = this.generateShadesFromMiddle(color);
@@ -171,6 +195,9 @@ export class ColorsCore {
       colors["950"] = "#000000";
     }
 
-    return colors;
+    return {
+      shade: hsl.l >= 60 ? "light" : "dark",
+      colors,
+    };
   }
 }

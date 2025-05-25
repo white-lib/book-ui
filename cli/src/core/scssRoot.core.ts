@@ -4,21 +4,48 @@ require("dotenv").config();
 
 import * as fs from "node:fs";
 
-import { Colors, ColorsCore } from "./colors.core";
+import * as prettier from "prettier";
+
+import { ColorsWithShade, ColorsCore, Shade } from "./colors.core";
 import { DimensionsCore } from "./dimensions.core";
 import { Config } from "./config.core";
 
-export type ColorTypes = keyof Pick<Config, "primary" | "secondary">;
+import { ColorType, ColorTheme, VarColor } from "../types/color.types";
+
+import { CommonColors } from "../colors/common.colors";
+import { ButtonColors } from "../colors/button.colors";
+import { SkeletonColors } from "../colors/skeleton.colors";
+import { PureComponentColor } from "../colors/pureComponentColors";
+import { ContainerColors } from "../colors/container.colors";
+import { TextColors } from "../colors/text.colors";
+import { InputColors } from "../colors/input.colors";
+
+const DEFAULT_THEME: ColorTheme = "light";
 
 export class ScssRootCore {
-  private readonly grayColors: Colors;
+  private readonly grayColors: ColorsWithShade;
+  private readonly commonColors: CommonColors;
+  private readonly skeletonColors: SkeletonColors;
+  private readonly containerColors: ContainerColors;
+  private readonly textColors: TextColors;
+  private readonly inputColors: InputColors;
 
-  private readonly colorTypes: Record<ColorTypes, Colors | null> = {
+  private readonly colorTypes: Record<
+    ColorType,
+    {
+      shade: Shade;
+      colors: ColorsWithShade;
+      buttons: ButtonColors;
+    } | null
+  > = {
     primary: null,
     secondary: null,
+    gray: null,
+    common: null,
   };
 
   private readonly colorsCore: ColorsCore;
+
   private readonly dimensionsCore: DimensionsCore;
   private readonly arrangementCore: ArrangementCore;
 
@@ -29,6 +56,12 @@ export class ScssRootCore {
 
     this.grayColors = this.colorsCore.generateGrayShades(config.primary);
 
+    this.commonColors = new CommonColors();
+    this.skeletonColors = new SkeletonColors();
+    this.containerColors = new ContainerColors();
+    this.textColors = new TextColors();
+    this.inputColors = new InputColors();
+
     for (const colorType in this.colorTypes) {
       const color: string = String(config[colorType as keyof Config]);
 
@@ -36,24 +69,20 @@ export class ScssRootCore {
         continue;
       }
 
-      this.colorTypes[colorType as ColorTypes] =
-        this.colorsCore.generateShades(color);
+      const colorData = this.colorsCore.generateShades(color);
+
+      this.colorTypes[colorType as ColorType] = {
+        shade: colorData.shade,
+        colors: colorData.colors,
+        buttons: new ButtonColors(colorData.shade),
+      };
+
+      break;
     }
   }
 
-  private withColors(callback: (type: string) => string) {
-    let content = "";
-    for (const colorType in this.colorTypes) {
-      const type = colorType as ColorTypes;
-
-      if (this.colorTypes[type] === null) {
-        continue;
-      }
-
-      content += callback(type);
-    }
-
-    return content;
+  private static capitalize(val: string | number): string {
+    return String(val).charAt(0).toUpperCase() + String(val).slice(1);
   }
 
   private static getRootTag() {
@@ -75,41 +104,12 @@ export class ScssRootCore {
     `;
   }
 
-  private static getCommonColors() {
-    return `
-\t--bu-white: #ffffff;
-\t--bu-black: #000000;
-\t--bu-empty-color: var(--bu-gray-100);
-\t--bu-font-color: #000000;
-  `;
-  }
-
-  private static getSkeletonColors() {
-    return `
-\t--bu-skeleton-color-1: var(--bu-gray-100);
-\t--bu-skeleton-color-2: var(--bu-gray-200);
-`;
-  }
-
   private static getContainerVars() {
     return `
-\t--bu-container-bg: var(--bu-gray-50);
 \t--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
 \t--bu-container-border: 1px;
-\t--bu-container-border-color: var(--bu-gray-200);
 \t--bu-container-radius: 0.5rem;
 \t--bu-container-space: 0.8rem;
-`;
-  }
-
-  private static getTextVars() {
-    return `
-\t--bu-text-color: var(--bu-gray-900); 
-\t--bu-text-invert-color: #ffffff; 
-\t--bu-text-heading-color: var(--bu-primary-900);
-\t--bu-text-hint-color: var(--bu-gray-500);
-
-\t--bu-link-color: var(--bu-gray-900); 
 `;
   }
 
@@ -147,63 +147,159 @@ export class ScssRootCore {
 `;
   }
 
-  private static getDarkModeColors() {
-    return `
-\tcolor-scheme: dark;
-    
-\t--bu-text-color: var(--bu-gray-50); 
-\t--bu-text-invert-color: #000000; 
-\t--bu-text-heading-color: var(--bu-primary-50); 
-\t--bu-text-hint-color: var(--bu-gray-300); 
+  private withColors(callback: (type: ColorType) => string) {
+    let content = "";
+    for (const colorType in this.colorTypes) {
+      const type = colorType as ColorType;
 
-\t--bu-link-color: var(--bu-gray-50); 
+      if (this.colorTypes[type] === null) {
+        continue;
+      }
 
-\t--bu-skeleton-color-1: var(--bu-gray-800);
-\t--bu-skeleton-color-2: var(--bu-gray-900);
-\t--bu-input-bg: var(--bu-gray-800);
+      content += callback(type);
+    }
 
-\t--bu-btn-primary-text-bg-hover: var(--bu-primary-800);
-\t--bu-btn-primary-text-bg-active: var(--bu-primary-600);
-
-\t--bu-btn-primary-outlined-color: var(--bu-primary-50);
-\t--bu-btn-primary-outlined-border: var(--bu-primary-300);
-
-\t--bu-btn-primary-text-color: var(--bu-primary-50);
-\t--bu-btn-primary-text-color-active: var(--bu-primary-100);
-
-\t--bu-container-bg: var(--bu-primary-900);
-\t--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
-\t--bu-container-border-color: var(--bu-gray-800);
-`;
+    return content;
   }
 
-  private getButtonColors() {
-    return this.withColors(
-      (type: string) => `
-\t--bu-btn-${type}-bg: var(--bu-${type}-500);
-\t--bu-btn-${type}-hover: var(--bu-${type}-600);
-\t--bu-btn-${type}-active: var(--bu-${type}-700);
-\t--bu-btn-${type}-primary-color: var(--bu-white);
+  private injectVars<T extends Object>(colors: T): string {
+    let content = "\n";
 
-\t--bu-btn-${type}-text-bg: transparent;
-\t--bu-btn-${type}-text-bg-hover: var(--bu-${type}-200);
-\t--bu-btn-${type}-text-bg-active: var(--bu-${type}-400);
+    for (const [name, value] of Object.entries(colors)) {
+      if (typeof value === "string") {
+        content += `\t--bu-${name}: ${value};\n`;
+        continue;
+      }
 
-\t--bu-btn-${type}-text-color: var(--bu-${type}-950);
-\t--bu-btn-${type}-text-color-hover: var(--bu-${type}-50);
-\t--bu-btn-${type}-text-color-active: var(--bu-${type}-50);
+      if (value.type === "common") {
+        content += `\t--bu-${name}: var(--bu-${value.type}${ScssRootCore.capitalize(value.shade)});\n`;
+        continue;
+      }
 
-\t--bu-btn-${type}-outlined-bg-hover: var(--bu-${type}-400);
-\t--bu-btn-${type}-outlined-bg-active: var(--bu-${type}-600);
+      content += `\t--bu-${name}: var(--bu-${value.type}-${value.shade});\n`;
+    }
 
-\t--bu-btn-${type}-outlined-color: var(--bu-${type}-950);
-\t--bu-btn-${type}-outlined-color-hover: var(--bu-${type}-50);
-\t--bu-btn-${type}-outlined-color-active: var(--bu-${type}-50);
+    return content;
+  }
 
-\t--bu-btn-${type}-outlined-border: var(--bu-${type}-500);
-\t--bu-btn-${type}-outlined-border-hover: var(--bu-${type}-400);
-`,
+  private mergeVars<T extends string[]>(...strings: T): string {
+    return strings.join("");
+  }
+
+  private getCommonColors(theme: ColorTheme = DEFAULT_THEME) {
+    return this.injectVars<PureComponentColor>(
+      this.commonColors.getColors(theme),
     );
+  }
+
+  private getSkeletonColors(theme: ColorTheme = DEFAULT_THEME) {
+    return this.injectVars<PureComponentColor>(
+      this.skeletonColors.getColors(theme),
+    );
+  }
+
+  private getContainerColors(theme: ColorTheme = DEFAULT_THEME) {
+    return this.injectVars<PureComponentColor>(
+      this.containerColors.getColors(theme),
+    );
+  }
+
+  private getTextColors(theme: ColorTheme = DEFAULT_THEME) {
+    return this.injectVars<PureComponentColor>(
+      this.textColors.getColors(theme),
+    );
+  }
+
+  private getInputColors(theme: ColorTheme = DEFAULT_THEME) {
+    const inputColors = this.inputColors.getColors(theme);
+
+    return this.withColors((type: ColorType) => {
+      let content = "";
+      for (const [colorType, variants] of Object.entries(inputColors)) {
+        for (const [variant, states] of Object.entries(variants)) {
+          for (const [state, props] of Object.entries(states)) {
+            for (const [prop, value] of Object.entries(props)) {
+              if (value === null) {
+                continue;
+              }
+
+              if (typeof value === "string") {
+                continue;
+              }
+
+              const obj = value as VarColor;
+
+              if (obj.type === "common" && obj.shade) {
+                content += `\t--bu-input-${colorType}-${variant}-${prop}-${state}: var(--bu-${obj.type}${ScssRootCore.capitalize(obj.shade)});\n`;
+                continue;
+              }
+
+              content += `\t--bu-input-${colorType}-${variant}-${prop}-${state}: var(--bu-${obj.type}-${obj.shade});\n`;
+            }
+            content += "\n";
+          }
+          content += "\n";
+        }
+        content += "\n";
+      }
+
+      return content;
+    });
+  }
+
+  private getDarkModeColors() {
+    const theme: ColorTheme = "dark";
+
+    return this.mergeVars(
+      `
+\tcolor-scheme: dark;
+
+\t--bu-input-bg: var(--bu-gray-800);
+\t--bu-input-primary-filled-bg: var(--bu-gray-900);
+
+\t--bu-container-shadow: 0 10px 20px -12px rgba(16,24,40,.1);
+`,
+      this.getButtonColors(theme),
+      this.getSkeletonColors(theme),
+      this.getContainerColors(theme),
+      this.getTextColors(theme),
+    );
+  }
+
+  private getButtonColors(theme: ColorTheme) {
+    return this.withColors((type: ColorType) => {
+      let content = "";
+
+      const buttonColors = this.colorTypes[type]?.buttons?.getColors(theme);
+
+      if (!buttonColors) {
+        return content;
+      }
+
+      for (const [colorType, variants] of Object.entries(buttonColors)) {
+        for (const [variant, states] of Object.entries(variants)) {
+          for (const [state, props] of Object.entries(states)) {
+            for (const [prop, shade] of Object.entries(props)) {
+              if (shade === null) {
+                continue;
+              }
+
+              let varName = `var(--bu-${type}-${shade})`;
+
+              if (shade === 0) {
+                varName = "transparent";
+              }
+
+              content += `\t--bu-btn-${colorType}-${variant}-${prop}-${state}: ${varName};\n`;
+            }
+          }
+          content += "\n";
+        }
+        content += "\n";
+      }
+
+      return content;
+    });
   }
 
   private getControlVars() {
@@ -222,6 +318,7 @@ export class ScssRootCore {
     return this.withColors(
       (type: string) => `
 \t--bu-input-${type}-bg: var(--bu-gray-100);
+\t--bu-input-${type}-filled-bg: var(--bu-gray-50);
 \t--bu-input-${type}-border: var(--bu-gray-400);
 \t--bu-input-${type}-border-focus: var(--bu-${type}-500);
 \t--bu-input-${type}-border-style: solid;
@@ -234,14 +331,14 @@ export class ScssRootCore {
     let content = "\n";
 
     for (const colorType in this.colorTypes) {
-      const type = colorType as ColorTypes;
+      const type = colorType as ColorType;
 
       if (this.colorTypes[type] === null) {
         continue;
       }
 
-      for (const shade in this.colorTypes[type]) {
-        content += `\t--bu-${colorType}-${shade}: ${this.colorTypes[type][shade]};\n`;
+      for (const shade in this.colorTypes[type]?.colors) {
+        content += `\t--bu-${colorType}-${shade}: ${this.colorTypes[type]?.colors[shade]};\n`;
       }
 
       content += "\n";
@@ -370,7 +467,7 @@ export class ScssRootCore {
     return content;
   }
 
-  generateScssRootColors(): string {
+  generateScssRootColors(): Promise<string> {
     let content = ScssRootCore.getRootTag();
 
     content += this.getColorsByType();
@@ -378,14 +475,17 @@ export class ScssRootCore {
     // colors
     content += this.getNeutralColors();
 
-    content += ScssRootCore.getCommonColors();
+    content += this.getCommonColors();
 
-    content += this.getButtonColors();
+    content += "\n";
+    content += this.getButtonColors("light");
 
-    content += ScssRootCore.getSkeletonColors();
+    content += this.getSkeletonColors();
 
     // inputs
     content += this.getInputVars();
+    content += "\n";
+    content += this.getInputColors();
 
     // controls
     content += this.getControlVars();
@@ -402,11 +502,12 @@ export class ScssRootCore {
     // Heading font sizes
     content += this.getHeadingSizes();
 
-    // Text vars
-    content += ScssRootCore.getTextVars();
+    // Text colors
+    content += this.getTextColors();
 
     // Container vars
     content += ScssRootCore.getContainerVars();
+    content += this.getContainerColors();
 
     // Space
     content += this.getSpaces();
@@ -425,25 +526,30 @@ export class ScssRootCore {
     content += "\n";
 
     content += this.getSizeClasses();
-    // content += this.getArrangementClasses();
 
     content += "\n";
     content += ScssRootCore.getDarkModeMedia();
-    content += ScssRootCore.getDarkModeColors();
+    content += this.getDarkModeColors();
     content += ScssRootCore.getCloseTag();
     content += ScssRootCore.getCloseTag();
 
     content += "\n";
+    content += "\n";
     content += ScssRootCore.getDarkModeTag();
-    content += ScssRootCore.getDarkModeColors();
+    content += this.getDarkModeColors();
     content += ScssRootCore.getCloseTag();
 
-    return content;
+    return prettier.format(content, {
+      semi: false,
+      useTabs: true,
+      tabWidth: 2,
+      parser: "css",
+    });
   }
 
   save(rootVars: string) {
-    const outPath = `${__dirname}/../../dist/assets/root.css`;
-    const outDevPath = `${__dirname}/../../lib/assets/styles/root.scss`;
+    const outPath = `${__dirname}/../../../dist/assets/root.css`;
+    const outDevPath = `${__dirname}/../../../lib/assets/styles/root.scss`;
 
     const paths = [outPath];
 
