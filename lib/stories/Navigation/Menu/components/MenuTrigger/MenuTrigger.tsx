@@ -20,7 +20,7 @@ export const MenuTrigger: FC<Props> = ({
   return (
     <Box
       className={classnames(styles.main, className)}
-      onClick={onMenuTriggerClick}
+      onClick={triggerOnHover ? () => {} : onMenuTriggerClick}
       onMouseEnter={triggerOnHover ? onMenuTriggerClick : undefined}
       onMouseLeave={triggerOnHover ? onMenuTriggerClick : undefined}
     >

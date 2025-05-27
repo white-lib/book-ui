@@ -65,7 +65,7 @@ export class ButtonColors extends ComponentColors<
             props.borderColor = this.isLight() ? 600 : 500;
             break;
           case "text":
-            props.bg = this.isLight() ? 600 : 300;
+            props.bg = this.isLight() ? 600 : 500;
             props.text = this.isLight() ? 900 : 50;
             break;
         }
