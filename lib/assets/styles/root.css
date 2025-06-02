@@ -1,6 +1,6 @@
 :root {
-  --bu-primary-50: #f1f4f1;
-  --bu-primary-100: #e2e9e3;
+  --bu-primary-50: #ffffff;
+  --bu-primary-100: #e8e3e3;
   --bu-primary-200: #c6d2c7;
   --bu-primary-300: #a9bcab;
   --bu-primary-400: #8ca68f;
@@ -8,18 +8,18 @@
   --bu-primary-600: #648167;
   --bu-primary-700: #455947;
   --bu-primary-800: #2d392e;
-  --bu-primary-900: #121712;
-  --bu-primary-950: #0b0e0b;
-  --bu-gray-50: #f1f3f1;
-  --bu-gray-100: #e3e8e4;
-  --bu-gray-200: #c8d0c9;
-  --bu-gray-300: #adb8ae;
-  --bu-gray-400: #939f94;
-  --bu-gray-500: #79867a;
-  --bu-gray-600: #6e786f;
-  --bu-gray-700: #565c57;
-  --bu-gray-800: #323432;
-  --bu-gray-900: #141514;
+  --bu-primary-900: #0d0d0d;
+  --bu-primary-950: #000000;
+  --bu-gray-50: #fdfcfc;
+  --bu-gray-100: #e8e3e3;
+  --bu-gray-200: #d0c8c8;
+  --bu-gray-300: #b8adad;
+  --bu-gray-400: #9f9393;
+  --bu-gray-500: #867979;
+  --bu-gray-600: #786e6e;
+  --bu-gray-700: #5c5656;
+  --bu-gray-800: #343232;
+  --bu-gray-900: #151414;
   --bu-gray-950: #0d0d0d;
   --bu-commonWhite: #ffffff;
   --bu-commonBlack: #000000;
@@ -45,7 +45,7 @@
   --bu-btn-primary-outlined-borderColor-active: var(--bu-primary-400);
   --bu-btn-primary-text-bg-default: transparent;
   --bu-btn-primary-text-text-default: var(--bu-primary-950);
-  --bu-btn-primary-text-bg-hover: var(--bu-primary-300);
+  --bu-btn-primary-text-bg-hover: var(--bu-primary-500);
   --bu-btn-primary-text-text-hover: var(--bu-primary-50);
   --bu-btn-primary-text-bg-active: var(--bu-primary-400);
   --bu-btn-primary-text-text-active: var(--bu-primary-50);
@@ -66,7 +66,7 @@
   --bu-btn-secondary-outlined-borderColor-active: var(--bu-primary-400);
   --bu-btn-secondary-text-bg-default: transparent;
   --bu-btn-secondary-text-text-default: var(--bu-primary-950);
-  --bu-btn-secondary-text-bg-hover: var(--bu-primary-300);
+  --bu-btn-secondary-text-bg-hover: var(--bu-primary-500);
   --bu-btn-secondary-text-text-hover: var(--bu-primary-50);
   --bu-btn-secondary-text-bg-active: var(--bu-primary-400);
   --bu-btn-secondary-text-text-active: var(--bu-primary-50);

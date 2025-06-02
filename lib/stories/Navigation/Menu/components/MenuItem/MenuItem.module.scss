@@ -2,7 +2,8 @@
   background: var(--bu-containerBg);
   padding: calc(var(--bu-container-space)) var(--bu-container-space);
 
-  &:hover {
-    //cursor: pointer;
+  &.clickable:hover {
+    cursor: pointer;
+    filter: brightness(1.5);
   }
 }

@@ -1,4 +1,10 @@
-import { DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import {
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  useEffect,
+  useRef,
+} from "react";
 import classnames from "classnames";
 
 import styles from "./Dialog.module.css";
@@ -22,6 +28,20 @@ export const Dialog: FC<Props> = ({
   className,
   children,
 }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!contentRef.current || !open) {
+      return;
+    }
+
+    contentRef.current.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "center",
+    });
+  }, [open]);
+
   if (!open) {
     return null;
   }
@@ -40,7 +60,7 @@ export const Dialog: FC<Props> = ({
       alignItems="center"
       justifyContent="center"
     >
-      <Card>
+      <Card ref={contentRef}>
         <CardContent className={styles.card}>
           <Button
             variant="text"

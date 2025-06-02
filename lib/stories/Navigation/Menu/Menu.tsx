@@ -7,7 +7,6 @@ import {
   ReactElement,
   useCallback,
   useState,
-  Fragment,
   useRef,
 } from "react";
 import classnames from "classnames";
@@ -18,16 +17,13 @@ import { withClassPrefix } from "lib/helpers/classNames.tsx";
 import { BaseContextType } from "lib/system/base.provider.tsx";
 import { Box } from "lib/stories/Layout/Box";
 import { useOutsideClick } from "lib/hooks/useOutsideClick.tsx";
+import { useCleanChildren } from "lib/hooks/useCleanChildren.tsx";
 
 type Props = { disabled?: boolean } & DetailedHTMLProps<
   HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
 > &
   BaseContextType["Link"];
-
-function isFragment(child: ReactElement<any, any>): child is ReactElement<any> {
-  return child.type === Fragment;
-}
 
 export const Menu: FC<Props> = ({
   children,
@@ -60,10 +56,7 @@ export const Menu: FC<Props> = ({
 
   useOutsideClick(ref, onOutsideClick, open);
 
-  const neededChildren = isFragment(children as ReactElement)
-    ? (Children.toArray(children)[0] as ReactElement<{ children: any }>).props
-        ?.children
-    : children;
+  const neededChildren = useCleanChildren(children);
 
   return (
     <Box className={classNameVal} {...props} ref={ref}>

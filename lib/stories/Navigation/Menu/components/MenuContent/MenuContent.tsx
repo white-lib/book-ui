@@ -1,9 +1,20 @@
-import { FC, ReactNode, useEffect, useRef, useState } from "react";
+import {
+  Children,
+  cloneElement,
+  FC,
+  isValidElement,
+  ReactElement,
+  ReactNode,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import { Flex } from "lib/stories/Layout/Flex";
 
 import styles from "./MenuContent.module.scss";
 import { useIsVisible } from "lib/hooks/useIsVisible.tsx";
 import classnames from "classnames";
+import { useCleanChildren } from "lib/hooks/useCleanChildren.tsx";
 
 type Props = {
   children?: ReactNode;
@@ -17,6 +28,7 @@ type Props = {
 
 export const MenuContent: FC<Props> = ({
   open,
+  onOutsideClick,
   direction = "bottom",
   stickTo = "left",
   className,
@@ -68,7 +80,9 @@ export const MenuContent: FC<Props> = ({
     }
   }, [isIntersecting, open, outCorner]);
 
-  if (!open) {
+  const neededChildren = useCleanChildren(children);
+
+  if (!open || !neededChildren) {
     return <></>;
   }
 
@@ -83,7 +97,15 @@ export const MenuContent: FC<Props> = ({
       )}
       ref={ref}
     >
-      {children}
+      {Children.map(neededChildren, (child: ReactNode) => {
+        if (!isValidElement(child)) {
+          return <></>;
+        }
+
+        return cloneElement(child as ReactElement<any>, {
+          onOutsideClick,
+        });
+      })}
     </Flex>
   );
 };

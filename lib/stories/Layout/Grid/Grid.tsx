@@ -5,7 +5,7 @@ import styles from "./Grid.module.css";
 
 import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
-type Cols = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
+// type Cols = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12;
 
 type Spacing = "sm" | "md" | "lg";
 
@@ -15,10 +15,10 @@ type AlignItems = "flex-start" | "center" | "flex-end";
 type Props = {
   container?: boolean;
   item?: boolean;
-  xs?: Cols;
-  sm?: Cols;
-  md?: Cols;
-  lg?: Cols;
+  xs?: number;
+  sm?: number;
+  md?: number;
+  lg?: number;
   spacing?: Spacing;
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;

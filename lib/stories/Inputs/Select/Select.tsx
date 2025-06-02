@@ -95,9 +95,11 @@ export const Select: FC<Props> = ({
           onChange={handleOnChange}
           {...props}
         >
-          <option selected disabled>
-            {requiredLabel}
-          </option>
+          {requiredLabel && (
+            <option selected disabled>
+              {requiredLabel}
+            </option>
+          )}
           {innerValue && !hideNoneValue && <option value={""}>None</option>}
           {children}
         </select>

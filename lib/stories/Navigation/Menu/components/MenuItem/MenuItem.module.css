@@ -2,5 +2,9 @@
   background: var(--bu-containerBg);
   padding: calc(var(--bu-container-space)) var(--bu-container-space);
 }
+.main.clickable:hover {
+  cursor: pointer;
+  filter: brightness(1.5);
+}
 
 /*# sourceMappingURL=MenuItem.module.css.map */
