@@ -1,4 +1,4 @@
-import { FC, DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
+import { FC, DetailedHTMLProps, InputHTMLAttributes } from "react";
 import classnames from "classnames";
 
 import styles from "./Switch.module.css";
@@ -24,14 +24,12 @@ export const Switch: FC<Props> = ({
   onChange,
   ...props
 }) => {
-  const [isChecked, setIsChecked] = useState<boolean>(checked || false);
-
   const classNameVal = classnames(
     withClassPrefix("sw"),
     styles.main,
     styles[color],
     createClassName({ size }),
-    isChecked && styles.checked,
+    checked && styles.checked,
     disabled && "disabled",
     className,
   );
@@ -41,10 +39,10 @@ export const Switch: FC<Props> = ({
       <input
         {...props}
         type="checkbox"
-        checked={isChecked}
+        checked={checked}
         disabled={disabled}
         onChange={(e) => {
-          setIsChecked((prev) => !prev);
+          // setIsChecked((prev) => !prev);
           onChange?.(e);
         }}
       />

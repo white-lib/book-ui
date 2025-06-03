@@ -22,6 +22,7 @@ export const Card: FC<Props> = ({
     styles.main,
     topSpace && styles.topSpace,
     bottomSpace && styles.bottomSpace,
+    props.className,
   );
 
   return (

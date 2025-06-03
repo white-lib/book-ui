@@ -11,20 +11,39 @@
     position: absolute;
     width: 100%;
     height: 100%;
+    overflow: hidden;
   }
 
   .card {
     position: relative;
-    padding: calc(var(--bu-space) * 2);
+    max-height: 90%;
+    max-width: 100%;
+  }
+
+  .card_header {
+    padding: 0 calc(var(--bu-space) * 2);
+  }
+
+  .card_content {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    position: relative;
+    padding: 0 calc(var(--bu-space) * 2) calc(var(--bu-space) * 2)
+      calc(var(--bu-space) * 2);
+
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome, Safari, and Opera */
+    }
   }
 
   .close {
-    position: absolute;
-    top: 0;
-    right: calc(var(--bu-space) / 2);
     cursor: pointer;
     min-width: 24px;
     width: 24px;
     height: 24px;
+    z-index: 1001;
   }
 }

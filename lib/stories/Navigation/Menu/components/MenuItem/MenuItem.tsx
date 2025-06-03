@@ -21,7 +21,9 @@ export const MenuItem: FC<Props> = ({
       className={classnames(styles.main, onClick && styles.clickable)}
       onClick={() => {
         onClick?.();
-        onOutsideClick?.();
+        if (onClick) {
+          onOutsideClick?.();
+        }
       }}
       {...props}
     >
