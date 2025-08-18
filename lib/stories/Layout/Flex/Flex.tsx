@@ -1,4 +1,4 @@
-import { createElement, FC } from "react";
+import { createElement } from "react";
 import classnames from "classnames";
 
 import styles from "./Flex.module.css";
@@ -17,7 +17,7 @@ type Props = {
   gap?: Size;
 } & BoxProps;
 
-export const Flex: FC<Props> = ({
+export const Flex = ({
   component = "div",
   flexDirection,
   justifyContent,
@@ -26,7 +26,7 @@ export const Flex: FC<Props> = ({
   children,
   className,
   ...props
-}) => {
+}: Props) => {
   const classNameVal = classnames(
     withClassPrefix("flex"),
     flexDirection && styles["flex-direction-" + flexDirection],

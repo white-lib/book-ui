@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 
 import { decorators } from "lib/storybook/decorators.tsx";
 import { Accordion } from "lib/stories/Surfaces/Accordion/Accordion.tsx";

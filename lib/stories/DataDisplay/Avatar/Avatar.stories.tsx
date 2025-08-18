@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 import AvatarImg from "./assets/avatar.jpeg";
 import { Avatar } from "./Avatar.tsx";
 import { decorators } from "lib/storybook/decorators.tsx";

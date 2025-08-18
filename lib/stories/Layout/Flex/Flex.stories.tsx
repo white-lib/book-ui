@@ -1,8 +1,8 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 
 import { Flex } from "./Flex.tsx";
 import { decorators } from "lib/storybook/decorators.tsx";
-import { Typography } from "lib/main.ts";
+import { Text } from "lib/main.ts";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -25,10 +25,10 @@ export default meta;
 export const Main = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
     <Flex component="div">
-      <Typography variant="span">Div</Typography>
+      <Text variant="span">Div</Text>
     </Flex>
     <Flex component="section">
-      <Typography variant="span">Section</Typography>
+      <Text variant="span">Section</Text>
     </Flex>
   </div>
 );

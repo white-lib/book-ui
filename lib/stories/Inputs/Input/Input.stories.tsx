@@ -1,14 +1,14 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
-import { TextField } from "./TextField.tsx";
+import { Input } from "./Input.tsx";
 import FavoriteIcon from "../../Icons/assets/Favorite.tsx";
 import SaveIcon from "../../Icons/assets/Save.tsx";
 import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Inputs/Text Field",
-  component: TextField,
+  title: "Inputs/Input",
+  component: Input,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -18,7 +18,7 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
   decorators,
-} satisfies Meta<typeof TextField>;
+} satisfies Meta<typeof Input>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -57,9 +57,9 @@ export const Borderless: Story = {
 
 export const Properties = () => (
   <div style={{ display: "flex", gap: "12px" }}>
-    <TextField placeholder="Properties" helperText="Some helper text" />
-    <TextField placeholder="Required" helperText="Some helper text" required />
-    <TextField
+    <Input placeholder="Properties" helperText="Some helper text" />
+    <Input placeholder="Required" helperText="Some helper text" required />
+    <Input
       placeholder="With Error"
       helperText="Some helper text"
       error
@@ -72,58 +72,58 @@ export const Properties = () => (
 export const Sizes = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
     <div style={{ display: "flex", gap: "12px", height: "100px" }}>
-      <TextField
+      <Input
         size="xs"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="sm"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="md"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="lg"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="xl"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
     </div>
     <div style={{ display: "flex", gap: "12px" }}>
-      <TextField
+      <Input
         size="xs"
         variant="outlined"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="sm"
         variant="outlined"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="md"
         variant="outlined"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="lg"
         variant="outlined"
         helperText="Some helper text"
         placeholder="Placeholder"
       />
-      <TextField
+      <Input
         size="xl"
         variant="outlined"
         helperText="Some helper text"
@@ -135,11 +135,11 @@ export const Sizes = () => (
 
 export const WithIcons = () => (
   <div style={{ display: "flex", gap: "12px" }}>
-    <TextField startIcon={<FavoriteIcon />} />
-    <TextField endIcon={<SaveIcon />} variant="outlined" />
-    <TextField
-      startIcon={<FavoriteIcon />}
-      endIcon={<SaveIcon />}
+    <Input startItem={<FavoriteIcon />} />
+    <Input endItem={<SaveIcon />} variant="outlined" />
+    <Input
+      startItem={<FavoriteIcon />}
+      endItem={<SaveIcon />}
       variant="filled"
     />
   </div>
@@ -147,8 +147,8 @@ export const WithIcons = () => (
 
 export const Colors = () => (
   <div style={{ display: "flex", gap: "12px" }}>
-    <TextField color="primary" />
-    <TextField color="secondary" />
+    <Input color="primary" />
+    <Input color="secondary" />
   </div>
 );
 

@@ -16,7 +16,7 @@ import { Card } from "lib/stories/Surfaces/Card";
 import { Button } from "lib/stories/Inputs/Button";
 import { Close } from "lib/stories/Icons/assets";
 import { Box } from "lib/stories/Layout/Box";
-import { Typography } from "lib/stories/DataDisplay/Typography";
+import { Text } from "lib/stories/DataDisplay/Text";
 
 type Props = {
   fullScreen?: boolean;
@@ -75,7 +75,7 @@ export const Dialog: FC<Props> = ({
           alignItems="center"
           className={styles.card_header}
         >
-          {title ? <Typography variant="h6">{title}</Typography> : <Box />}
+          {title ? <Text variant="h6">{title}</Text> : <Box />}
           <Button
             variant="text"
             className={styles.close}

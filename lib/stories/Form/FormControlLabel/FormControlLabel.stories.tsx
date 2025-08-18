@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { FormControlLabel } from "./FormControlLabel.tsx";
 import { Checkbox } from "lib/stories/Inputs/Checkbox";

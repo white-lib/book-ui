@@ -3,7 +3,7 @@ import "./assets/styles/root.scss";
 // DataDisplay
 export { Avatar } from "./stories/DataDisplay/Avatar";
 export { Image } from "./stories/DataDisplay/Image";
-export { Typography } from "./stories/DataDisplay/Typography";
+export { Text } from "./stories/DataDisplay/Text";
 
 // FEEDBACK
 export { Skeleton } from "./stories/Feedback/Skeleton";
@@ -22,7 +22,7 @@ export { ButtonGroup } from "./stories/Inputs/ButtonGroup";
 export { Checkbox } from "./stories/Inputs/Checkbox";
 export { Radio } from "./stories/Inputs/Radio";
 export { RadioGroup } from "./stories/Inputs/RadioGroup";
-export { TextField } from "./stories/Inputs/TextField";
+export { Input } from "./stories/Inputs/Input";
 export { Select } from "./stories/Inputs/Select";
 
 // LAYOUT

@@ -7,7 +7,7 @@ import {
 } from "react";
 import classnames from "classnames";
 
-import styles from "./Typography.module.css";
+import styles from "./Text.module.css";
 
 import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
@@ -28,7 +28,7 @@ type Props = {
 
 const validTags: Array<Tag> = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span"];
 
-export const Typography: FC<Props> = ({
+export const Text: FC<Props> = ({
   variant = "p",
   component,
   error,

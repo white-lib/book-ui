@@ -1,13 +1,13 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 
-import { Typography } from "./Typography.tsx";
+import { Text } from "./Text.tsx";
 
 import { decorators } from "lib/storybook/decorators.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
-  title: "Data Display/Typography",
-  component: Typography,
+  title: "Data Display/Text",
+  component: Text,
   parameters: {
     // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/configure/story-layout
     layout: "centered",
@@ -17,21 +17,21 @@ const meta = {
   // More on argTypes: https://storybook.js.org/docs/api/argtypes
   argTypes: {},
   decorators,
-} satisfies Meta<typeof Typography>;
+} satisfies Meta<typeof Text>;
 
 export default meta;
 
 // More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Main = () => (
   <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
-    <Typography variant="h1">Heading 1</Typography>
-    <Typography variant="h2">Heading 2</Typography>
-    <Typography variant="h3">Heading 3</Typography>
-    <Typography variant="h4">Heading 4</Typography>
-    <Typography variant="h5">Heading 5</Typography>
-    <Typography variant="h6">Heading 6</Typography>
-    <Typography variant="p">Paragraph</Typography>
-    <Typography variant="span">Span</Typography>
-    <Typography variant="hint">Hint</Typography>
+    <Text variant="h1">Heading 1</Text>
+    <Text variant="h2">Heading 2</Text>
+    <Text variant="h3">Heading 3</Text>
+    <Text variant="h4">Heading 4</Text>
+    <Text variant="h5">Heading 5</Text>
+    <Text variant="h6">Heading 6</Text>
+    <Text variant="p">Paragraph</Text>
+    <Text variant="span">Span</Text>
+    <Text variant="hint">Hint</Text>
   </div>
 );

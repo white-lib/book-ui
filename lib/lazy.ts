@@ -15,9 +15,9 @@ export const Image = React.lazy(() =>
   })),
 );
 
-export const Typography = React.lazy(() =>
-  import("./stories/DataDisplay/Typography").then((module) => ({
-    default: module.Typography,
+export const Text = React.lazy(() =>
+  import("./stories/DataDisplay/Text").then((module) => ({
+    default: module.Text,
   })),
 );
 
@@ -84,9 +84,9 @@ export const RadioGroup = React.lazy(() =>
   })),
 );
 
-export const TextField = React.lazy(() =>
-  import("./stories/Inputs/TextField").then((module) => ({
-    default: module.TextField,
+export const Input = React.lazy(() =>
+  import("./stories/Inputs/Input").then((module) => ({
+    default: module.Input,
   })),
 );
 

@@ -43,6 +43,7 @@ export const Menu: FC<Props> = ({
   const [open, setOpen] = useState<boolean>(false);
 
   const onMenuTriggerClick = useCallback(() => {
+    console.log("onMenuTriggerClick", onMenuTriggerClick);
     if (disabled) {
       return;
     }

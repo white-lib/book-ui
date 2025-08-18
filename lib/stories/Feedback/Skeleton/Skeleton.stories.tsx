@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 
 import { Skeleton } from "./Skeleton.tsx";
 import { Box } from "../../Layout/Box";

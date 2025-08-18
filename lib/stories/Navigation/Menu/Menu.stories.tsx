@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Menu } from "./Menu.tsx";
 import { decorators } from "lib/storybook/decorators.tsx";
 import { MenuTrigger } from "lib/stories/Navigation/Menu/components/MenuTrigger/MenuTrigger.tsx";
 import { Button } from "lib/stories/Inputs/Button";
 import { MenuContent } from "lib/stories/Navigation/Menu/components/MenuContent/MenuContent.tsx";
-import { Typography } from "lib/stories/DataDisplay/Typography";
+import { Text } from "lib/stories/DataDisplay/Text";
 import { MenuItem } from "lib/stories/Navigation/Menu/components/MenuItem/MenuItem.tsx";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
@@ -36,13 +36,13 @@ export const Primary: Story = {
         </MenuTrigger>
         <MenuContent>
           <MenuItem>
-            <Typography>Item 1 asdnajsklhndksandnklas</Typography>
+            <Text>Item 1 asdnajsklhndksandnklas</Text>
           </MenuItem>
           <MenuItem>
-            <Typography>Item 2</Typography>
+            <Text>Item 2</Text>
           </MenuItem>
           <MenuItem>
-            <Typography>Item 3</Typography>
+            <Text>Item 3</Text>
           </MenuItem>
         </MenuContent>
       </>

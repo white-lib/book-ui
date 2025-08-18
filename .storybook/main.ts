@@ -7,10 +7,9 @@ const config: StorybookConfig = {
 
   addons: [
     "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
     "@chromatic-com/storybook",
-    "storybook-dark-mode",
+    // "storybook-dark-mode",
+    "@storybook/addon-docs",
   ],
 
   framework: {

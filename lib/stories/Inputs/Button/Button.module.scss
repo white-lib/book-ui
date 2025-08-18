@@ -14,7 +14,7 @@
   text-decoration: none;
   border-color: transparent;
 
-  gap: calc(var(--bu-space) / 2);
+  gap: var(--bu-gap);
 
   height: var(--bu-height);
   border-radius: var(--bu-radius);
@@ -89,8 +89,12 @@
   }
 
   &.disableSpacing {
-    min-width: var(--bu-height);
     padding: 0;
+  }
+
+  &.square {
+    min-width: unset;
+    width: var(--bu-height);
   }
 
   &.fullWidth {

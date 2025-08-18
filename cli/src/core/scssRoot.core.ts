@@ -421,9 +421,9 @@ export class ScssRootCore {
 .bu-size-${size} {
 \t--bu-size: var(--bu-size-${size});
 \t--bu-height: var(--bu-size-${size});
-\t--bu-space: calc(var(--bu-size-${size}) / 2);
+\t--bu-space: calc(var(--bu-size-${size}) / 2.75);
 \t--bu-radius: calc(var(--bu-size-${size}) / 8);
-\t--bu-font-size: calc(var(--bu-size-${size}) / 2.5);
+\t--bu-font-size: calc(var(--bu-size-${size}) / 3.1);
 \t--bu-gap: calc(var(--bu-size-${size}) / 6);
 \t--bu-height-small: calc(var(--bu-size-${size}) * 0.5);
 \t--bu-radius-small: calc(var(--bu-size-${size}) / 10);

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import MountainImg from "./assets/mountain.jpeg";
 import { Avatar } from "lib/stories/DataDisplay/Avatar";
@@ -9,7 +9,7 @@ import { CardMedia } from "./components/CardMedia";
 import { CardContent } from "./components/CardContent";
 import { CardActions } from "./components/CardActions";
 
-import { Typography } from "lib/stories/DataDisplay/Typography";
+import { Text } from "lib/stories/DataDisplay/Text";
 import { Button } from "lib/stories/Inputs/Button";
 
 import FavoriteIcon from "lib/stories/Icons/assets/Favorite.tsx";
@@ -53,10 +53,10 @@ export const Main: Story = {
           aria-label="Mountains"
         />
         <CardContent>
-          <Typography variant="p">
+          <Text variant="p">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Accusantium animi commodi consequuntur cum.
-          </Typography>
+          </Text>
         </CardContent>
         <CardActions disableSpacing>
           <Button variant="text">
@@ -89,10 +89,10 @@ export const ImageOnTop: Story = {
           subheader="Jun 3, 2024"
         />
         <CardContent>
-          <Typography variant="p">
+          <Text variant="p">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit.
             Accusantium animi commodi consequuntur cum.
-          </Typography>
+          </Text>
         </CardContent>
         <CardActions disableSpacing>
           <Button variant="text">
@@ -113,14 +113,14 @@ export const Basic: Story = {
     children: (
       <>
         <CardContent>
-          <Typography>Word of the Day</Typography>
-          <Typography variant="h2">be - nev - o - lent</Typography>
-          <Typography>adjective</Typography>
-          <Typography variant="h5">
+          <Text>Word of the Day</Text>
+          <Text variant="h2">be - nev - o - lent</Text>
+          <Text>adjective</Text>
+          <Text variant="h5">
             well meaning and kindly.
             <br />
             {'"a benevolent smile"'}
-          </Typography>
+          </Text>
         </CardContent>
         <CardActions>
           <Button size="sm">Learn More</Button>

@@ -18,7 +18,7 @@
   user-select: none;
   text-decoration: none;
   border-color: transparent;
-  gap: calc(var(--bu-space) / 2);
+  gap: var(--bu-gap);
   height: var(--bu-height);
   border-radius: var(--bu-radius);
   font-size: var(--bu-font-size);
@@ -161,8 +161,11 @@
   }
 }
 .main.disableSpacing {
-  min-width: var(--bu-height);
   padding: 0;
+}
+.main.square {
+  min-width: unset;
+  width: var(--bu-height);
 }
 .main.fullWidth {
   width: 100%;

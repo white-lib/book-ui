@@ -13,7 +13,7 @@ export class DimensionsCore {
   constructor(baseHeight: number) {
     this.sizes = {
       xs: baseHeight * 0.75,
-      sm: baseHeight * 0.85,
+      sm: baseHeight * 0.82,
       md: baseHeight,
       lg: baseHeight * 1.15,
       xl: baseHeight * 1.3,

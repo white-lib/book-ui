@@ -1,4 +1,4 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 
 import { AppBar } from "./AppBar.tsx";
 import { decorators } from "lib/storybook/decorators.tsx";

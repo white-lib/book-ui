@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { FormLabel } from "./FormLabel.tsx";
 import { decorators } from "../../../storybook/decorators.tsx";

@@ -57,7 +57,7 @@ export const MenuContent: FC<Props> = ({
     if (positon !== direction) {
       setPosition(direction);
     }
-  }, [positon]);
+  }, [direction]);
 
   useEffect(() => {
     if (stickTo !== stick) {

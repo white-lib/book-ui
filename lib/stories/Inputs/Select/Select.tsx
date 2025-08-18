@@ -15,7 +15,7 @@ import styles from "./Select.module.css";
 
 import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 
-import { Typography } from "lib/stories/DataDisplay/Typography";
+import { Text } from "lib/stories/DataDisplay/Text";
 import { Box } from "lib/stories/Layout/Box";
 
 import { DEFAULT_SIZE, Size } from "lib/system/measurement.types.ts";
@@ -104,13 +104,11 @@ export const Select: FC<Props> = ({
           {children}
         </select>
       </Box>
-      {helperText && !error && (
-        <Typography variant="hint">{helperText}</Typography>
-      )}
+      {helperText && !error && <Text variant="hint">{helperText}</Text>}
       {error && errorText && (
-        <Typography variant="hint" error>
+        <Text variant="hint" error>
           {errorText}
-        </Typography>
+        </Text>
       )}
     </Box>
   );

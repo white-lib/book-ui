@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 
 import { RadioGroup } from "./RadioGroup.tsx";
 import { FormControl } from "lib/stories/Form/FormControl";

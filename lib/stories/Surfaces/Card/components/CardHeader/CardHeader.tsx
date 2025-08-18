@@ -3,7 +3,7 @@ import classnames from "classnames";
 
 import styles from "./CardHeader.module.css";
 
-import { Typography } from "../../../../DataDisplay/Typography";
+import { Text } from "../../../../DataDisplay/Text";
 import { Box } from "../../../../Layout/Box";
 
 type Props = {
@@ -26,8 +26,8 @@ export const CardHeader: FC<Props> = ({
         {avatar}
         {(title || subheader) && (
           <Box className={classnames(styles.titleSubheader)}>
-            {title && <Typography variant="span">{title}</Typography>}
-            {subheader && <Typography variant="span">{subheader}</Typography>}
+            {title && <Text variant="span">{title}</Text>}
+            {subheader && <Text variant="span">{subheader}</Text>}
           </Box>
         )}
       </Box>

@@ -1,5 +1,4 @@
 import {
-  FC,
   DetailedHTMLProps,
   ButtonHTMLAttributes,
   AnchorHTMLAttributes,
@@ -21,14 +20,16 @@ import { ColorType, DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 export type Props = {
   variant?: "contained" | "outlined" | "text";
+  colorPalette?: "primary" | "secondary";
   size?: Size;
   color?: ColorType;
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
+  startItem?: ReactNode;
+  endItem?: ReactNode;
   loading?: boolean;
   onlyLoader?: boolean;
   disableSpacing?: boolean;
   fullWidth?: boolean;
+  square?: boolean;
   selected?: boolean;
 } & DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,
@@ -36,23 +37,25 @@ export type Props = {
 > &
   DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement>;
 
-export const Button: FC<Props> = ({
+export const Button = ({
   children,
   variant = "contained",
+  colorPalette = DEFAULT_COLOR,
   size = DEFAULT_SIZE,
   color = DEFAULT_COLOR,
   className,
   disabled,
   selected,
   href,
-  startIcon,
-  endIcon,
+  startItem,
+  endItem,
   loading,
   onlyLoader,
   disableSpacing,
   fullWidth,
+  square,
   ...props
-}) => {
+}: Props) => {
   const classNameVal = classnames(
     withClassPrefix("btn"),
     styles.main,
@@ -63,14 +66,15 @@ export const Button: FC<Props> = ({
     disabled && styles.disabled,
     fullWidth && styles.fullWidth,
     disableSpacing && styles.disableSpacing,
+    square && styles.square,
     className,
   );
 
   const modifiedChildren = (
     <>
-      {loading ? <LoadingIcon /> : startIcon}
+      {loading ? <LoadingIcon /> : startItem}
       {loading && onlyLoader ? <></> : children}
-      {endIcon}
+      {endItem}
     </>
   );
 

@@ -1,13 +1,13 @@
 :root {
 	--bu-primary-50: #ffffff;
 	--bu-primary-100: #e8e3e3;
-	--bu-primary-200: #c6d2c7;
-	--bu-primary-300: #a9bcab;
-	--bu-primary-400: #8ca68f;
-	--bu-primary-500: #6f9073;
-	--bu-primary-600: #648167;
-	--bu-primary-700: #455947;
-	--bu-primary-800: #2d392e;
+	--bu-primary-200: #99d5ff;
+	--bu-primary-300: #66c0ff;
+	--bu-primary-400: #33abff;
+	--bu-primary-500: #0096ff;
+	--bu-primary-600: #0087e6;
+	--bu-primary-700: #0069b3;
+	--bu-primary-800: #003c66;
 	--bu-primary-900: #0d0d0d;
 	--bu-primary-950: #000000;
 
@@ -112,17 +112,17 @@
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji";
 
-	--bu-size-xs: 1.875rem;
-	--bu-size-sm: 2.125rem;
-	--bu-size-md: 2.5rem;
-	--bu-size-lg: 2.875rem;
-	--bu-size-xl: 3.25rem;
+	--bu-size-xs: 2.0625rem;
+	--bu-size-sm: 2.3375rem;
+	--bu-size-md: 2.75rem;
+	--bu-size-lg: 3.1624999999999996rem;
+	--bu-size-xl: 3.575rem;
 
-	--bu-gap-xs: 0.9375rem;
-	--bu-gap-sm: 1.0625rem;
-	--bu-gap-md: 1.25rem;
-	--bu-gap-lg: 1.4375rem;
-	--bu-gap-xl: 1.625rem;
+	--bu-gap-xs: 1.03125rem;
+	--bu-gap-sm: 1.16875rem;
+	--bu-gap-md: 1.375rem;
+	--bu-gap-lg: 1.5812499999999998rem;
+	--bu-gap-xl: 1.7875rem;
 
 	--bu-font-size-h1: clamp(
 		1.75rem,
@@ -169,9 +169,9 @@
 	--bu-containerBg: var(--bu-gray-50);
 	--bu-containerBorderColor: var(--bu-gray-200);
 
-	--bu-gap: 0.75rem;
-	--bu-space: 0.5rem;
-	--bu-height: 2.5rem;
+	--bu-gap: 0.825rem;
+	--bu-space: 0.55rem;
+	--bu-height: 2.75rem;
 
 	--bu-font-size: 1rem;
 	--bu-font-size-hint: 0.75rem;
@@ -191,9 +191,9 @@
 .bu-size-xs {
 	--bu-size: var(--bu-size-xs);
 	--bu-height: var(--bu-size-xs);
-	--bu-space: calc(var(--bu-size-xs) / 2);
+	--bu-space: calc(var(--bu-size-xs) / 2.75);
 	--bu-radius: calc(var(--bu-size-xs) / 8);
-	--bu-font-size: calc(var(--bu-size-xs) / 2.5);
+	--bu-font-size: calc(var(--bu-size-xs) / 3.1);
 	--bu-gap: calc(var(--bu-size-xs) / 6);
 	--bu-height-small: calc(var(--bu-size-xs) * 0.5);
 	--bu-radius-small: calc(var(--bu-size-xs) / 10);
@@ -208,9 +208,9 @@
 .bu-size-sm {
 	--bu-size: var(--bu-size-sm);
 	--bu-height: var(--bu-size-sm);
-	--bu-space: calc(var(--bu-size-sm) / 2);
+	--bu-space: calc(var(--bu-size-sm) / 2.75);
 	--bu-radius: calc(var(--bu-size-sm) / 8);
-	--bu-font-size: calc(var(--bu-size-sm) / 2.5);
+	--bu-font-size: calc(var(--bu-size-sm) / 3.1);
 	--bu-gap: calc(var(--bu-size-sm) / 6);
 	--bu-height-small: calc(var(--bu-size-sm) * 0.5);
 	--bu-radius-small: calc(var(--bu-size-sm) / 10);
@@ -225,9 +225,9 @@
 .bu-size-md {
 	--bu-size: var(--bu-size-md);
 	--bu-height: var(--bu-size-md);
-	--bu-space: calc(var(--bu-size-md) / 2);
+	--bu-space: calc(var(--bu-size-md) / 2.75);
 	--bu-radius: calc(var(--bu-size-md) / 8);
-	--bu-font-size: calc(var(--bu-size-md) / 2.5);
+	--bu-font-size: calc(var(--bu-size-md) / 3.1);
 	--bu-gap: calc(var(--bu-size-md) / 6);
 	--bu-height-small: calc(var(--bu-size-md) * 0.5);
 	--bu-radius-small: calc(var(--bu-size-md) / 10);
@@ -242,9 +242,9 @@
 .bu-size-lg {
 	--bu-size: var(--bu-size-lg);
 	--bu-height: var(--bu-size-lg);
-	--bu-space: calc(var(--bu-size-lg) / 2);
+	--bu-space: calc(var(--bu-size-lg) / 2.75);
 	--bu-radius: calc(var(--bu-size-lg) / 8);
-	--bu-font-size: calc(var(--bu-size-lg) / 2.5);
+	--bu-font-size: calc(var(--bu-size-lg) / 3.1);
 	--bu-gap: calc(var(--bu-size-lg) / 6);
 	--bu-height-small: calc(var(--bu-size-lg) * 0.5);
 	--bu-radius-small: calc(var(--bu-size-lg) / 10);
@@ -259,9 +259,9 @@
 .bu-size-xl {
 	--bu-size: var(--bu-size-xl);
 	--bu-height: var(--bu-size-xl);
-	--bu-space: calc(var(--bu-size-xl) / 2);
+	--bu-space: calc(var(--bu-size-xl) / 2.75);
 	--bu-radius: calc(var(--bu-size-xl) / 8);
-	--bu-font-size: calc(var(--bu-size-xl) / 2.5);
+	--bu-font-size: calc(var(--bu-size-xl) / 3.1);
 	--bu-gap: calc(var(--bu-size-xl) / 6);
 	--bu-height-small: calc(var(--bu-size-xl) * 0.5);
 	--bu-radius-small: calc(var(--bu-size-xl) / 10);

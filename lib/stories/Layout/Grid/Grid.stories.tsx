@@ -1,10 +1,10 @@
-import type { Meta } from "@storybook/react";
+import type { Meta } from "@storybook/react-vite";
 
 import { Grid } from "./Grid.tsx";
 import { Flex } from "../Flex";
 import { GridRuler } from "../GridRuler";
 import { decorators } from "lib/storybook/decorators.tsx";
-import { Typography } from "lib/main.ts";
+import { Text } from "lib/main.ts";
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
@@ -51,7 +51,7 @@ export const Main = () => (
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="p">Div 1</Typography>
+          <Text variant="p">Div 1</Text>
         </Flex>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
@@ -64,7 +64,7 @@ export const Main = () => (
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="p">Div 2</Typography>
+          <Text variant="p">Div 2</Text>
         </Flex>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
@@ -77,7 +77,7 @@ export const Main = () => (
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="p">Div 3</Typography>
+          <Text variant="p">Div 3</Text>
         </Flex>
       </Grid>
       <Grid item xs={1} sm={3} md={4} lg={3}>
@@ -90,7 +90,7 @@ export const Main = () => (
           alignItems="center"
           justifyContent="center"
         >
-          <Typography variant="p">Div 4</Typography>
+          <Text variant="p">Div 4</Text>
         </Flex>
       </Grid>
     </Grid>

@@ -1,4 +1,4 @@
-import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode } from "react";
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from "react";
 import classnames from "classnames";
 
 import styles from "./Grid.module.css";
@@ -25,7 +25,7 @@ type Props = {
   children?: ReactNode;
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
-export const Grid: FC<Props> = ({
+export const Grid = ({
   container,
   item,
   xs,
@@ -38,7 +38,7 @@ export const Grid: FC<Props> = ({
   className,
   children,
   ...props
-}) => {
+}: Props) => {
   const classNameVal = classnames(
     withClassPrefix("grid"),
     styles.main,

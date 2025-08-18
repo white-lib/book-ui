@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Button } from "./Button";
 import FavoriteIcon from "lib/stories/Icons/assets/Favorite.tsx";
@@ -58,8 +58,8 @@ export const Sizes = () => (
 
 export const WithIcons = () => (
   <div style={{ display: "flex", gap: "12px" }}>
-    <Button startIcon={<FavoriteIcon />}>Like</Button>
-    <Button endIcon={<SaveIcon />}>Save</Button>
+    <Button startItem={<FavoriteIcon />}>Like</Button>
+    <Button endItem={<SaveIcon />}>Save</Button>
     <Button disableSpacing>
       <FavoriteIcon />
     </Button>

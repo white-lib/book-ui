@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  FC,
   DetailedHTMLProps,
   ReactNode,
   InputHTMLAttributes,
@@ -13,11 +12,11 @@ import {
 import classnames from "classnames";
 
 import inputStyles from "./../Inputs.module.css";
-import styles from "./TextField.module.css";
+import styles from "./Input.module.css";
 
 import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 
-import { Typography } from "lib/stories/DataDisplay/Typography";
+import { Text } from "lib/stories/DataDisplay/Text";
 import { Box } from "lib/stories/Layout/Box";
 
 import Visibility from "../../Icons/assets/Visibility.tsx";
@@ -30,8 +29,8 @@ export type Props = {
   variant?: "standard" | "outlined" | "filled" | "borderless";
   size?: Size;
   color?: ColorType;
-  startIcon?: ReactNode;
-  endIcon?: ReactNode;
+  startItem?: ReactNode;
+  endItem?: ReactNode;
   helperText?: string;
   error?: boolean;
   errorText?: string;
@@ -44,7 +43,7 @@ export type Props = {
   "size" | "children"
 >;
 
-export const TextField: FC<Props> = ({
+export const Input = ({
   variant = "standard",
   size = DEFAULT_SIZE,
   color = DEFAULT_COLOR,
@@ -53,8 +52,8 @@ export const TextField: FC<Props> = ({
   placeholder,
   disabled,
   inputDisabled,
-  startIcon,
-  endIcon,
+  startItem,
+  endItem,
   helperText,
   error,
   errorText,
@@ -65,12 +64,12 @@ export const TextField: FC<Props> = ({
   onChange,
   style,
   ...props
-}) => {
+}: Props) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
   const [innerValue, setInnerValue] = useState(value);
 
   const classNameVal = classnames(
-    withClassPrefix("txtf"),
+    withClassPrefix("input"),
     inputStyles.main,
     inputStyles[color],
     inputStyles[variant],
@@ -104,16 +103,16 @@ export const TextField: FC<Props> = ({
 
   if (type === "password") {
     if (!passwordVisible) {
-      endIcon = <Visibility onClick={() => setPasswordVisible(true)} />;
+      endItem = <Visibility onClick={() => setPasswordVisible(true)} />;
     } else {
-      endIcon = <VisibilityOff onClick={() => setPasswordVisible(false)} />;
+      endItem = <VisibilityOff onClick={() => setPasswordVisible(false)} />;
     }
   }
 
   return (
     <Box className={classnames(styles.wrapper, fullWidth && styles.fullWidth)}>
       <Box className={classNameVal} style={style}>
-        {startIcon}
+        {startItem}
         <input
           type={localType}
           disabled={disabled || inputDisabled}
@@ -122,15 +121,13 @@ export const TextField: FC<Props> = ({
           onChange={handleOnChange}
           {...props}
         />
-        {endIcon}
+        {endItem}
       </Box>
-      {helperText && !error && (
-        <Typography variant="hint">{helperText}</Typography>
-      )}
+      {helperText && !error && <Text variant="hint">{helperText}</Text>}
       {error && errorText && (
-        <Typography variant="hint" error>
+        <Text variant="hint" error>
           {errorText}
-        </Typography>
+        </Text>
       )}
     </Box>
   );
