@@ -1,6 +1,14 @@
 {
   "primary": "#0096FF",
+  "secondary": "#363646",
   "baseSize": 44,
   "method": "monochromatic",
-  "fixShade": false
+  "fixShade": false,
+  "override": {
+    "dark": {
+      "container": {
+        "bg": "#23232D"
+      }
+    }
+  }
 }

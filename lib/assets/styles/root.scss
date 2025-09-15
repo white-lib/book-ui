@@ -11,6 +11,18 @@
 	--bu-primary-900: #0d0d0d;
 	--bu-primary-950: #000000;
 
+	--bu-secondary-50: #ffffff;
+	--bu-secondary-100: #e8e3e3;
+	--bu-secondary-200: #c5c5d3;
+	--bu-secondary-300: #a9a9bc;
+	--bu-secondary-400: #8c8ca6;
+	--bu-secondary-500: #6f6f90;
+	--bu-secondary-600: #646482;
+	--bu-secondary-700: #4e4e65;
+	--bu-secondary-800: #363646;
+	--bu-secondary-900: #0d0d0d;
+	--bu-secondary-950: #000000;
+
 	--bu-gray-50: #fdfcfc;
 	--bu-gray-100: #e8e3e3;
 	--bu-gray-200: #d0c8c8;
@@ -55,29 +67,29 @@
 	--bu-btn-primary-text-bg-active: var(--bu-primary-400);
 	--bu-btn-primary-text-text-active: var(--bu-primary-50);
 
-	--bu-btn-secondary-contained-bg-default: var(--bu-primary-500);
-	--bu-btn-secondary-contained-text-default: var(--bu-primary-50);
-	--bu-btn-secondary-contained-bg-hover: var(--bu-primary-600);
-	--bu-btn-secondary-contained-text-hover: var(--bu-primary-50);
-	--bu-btn-secondary-contained-bg-active: var(--bu-primary-700);
-	--bu-btn-secondary-contained-text-active: var(--bu-primary-50);
+	--bu-btn-secondary-contained-bg-default: var(--bu-secondary-500);
+	--bu-btn-secondary-contained-text-default: var(--bu-secondary-50);
+	--bu-btn-secondary-contained-bg-hover: var(--bu-secondary-600);
+	--bu-btn-secondary-contained-text-hover: var(--bu-secondary-50);
+	--bu-btn-secondary-contained-bg-active: var(--bu-secondary-700);
+	--bu-btn-secondary-contained-text-active: var(--bu-secondary-50);
 
 	--bu-btn-secondary-outlined-bg-default: transparent;
-	--bu-btn-secondary-outlined-text-default: var(--bu-primary-500);
-	--bu-btn-secondary-outlined-borderColor-default: var(--bu-primary-500);
-	--bu-btn-secondary-outlined-bg-hover: var(--bu-primary-500);
-	--bu-btn-secondary-outlined-text-hover: var(--bu-primary-50);
-	--bu-btn-secondary-outlined-borderColor-hover: var(--bu-primary-500);
-	--bu-btn-secondary-outlined-bg-active: var(--bu-primary-400);
-	--bu-btn-secondary-outlined-text-active: var(--bu-primary-50);
-	--bu-btn-secondary-outlined-borderColor-active: var(--bu-primary-400);
+	--bu-btn-secondary-outlined-text-default: var(--bu-secondary-500);
+	--bu-btn-secondary-outlined-borderColor-default: var(--bu-secondary-500);
+	--bu-btn-secondary-outlined-bg-hover: var(--bu-secondary-500);
+	--bu-btn-secondary-outlined-text-hover: var(--bu-secondary-50);
+	--bu-btn-secondary-outlined-borderColor-hover: var(--bu-secondary-500);
+	--bu-btn-secondary-outlined-bg-active: var(--bu-secondary-400);
+	--bu-btn-secondary-outlined-text-active: var(--bu-secondary-50);
+	--bu-btn-secondary-outlined-borderColor-active: var(--bu-secondary-400);
 
 	--bu-btn-secondary-text-bg-default: transparent;
-	--bu-btn-secondary-text-text-default: var(--bu-primary-950);
-	--bu-btn-secondary-text-bg-hover: var(--bu-primary-500);
-	--bu-btn-secondary-text-text-hover: var(--bu-primary-50);
-	--bu-btn-secondary-text-bg-active: var(--bu-primary-400);
-	--bu-btn-secondary-text-text-active: var(--bu-primary-50);
+	--bu-btn-secondary-text-text-default: var(--bu-secondary-950);
+	--bu-btn-secondary-text-bg-hover: var(--bu-secondary-500);
+	--bu-btn-secondary-text-text-hover: var(--bu-secondary-50);
+	--bu-btn-secondary-text-bg-active: var(--bu-secondary-400);
+	--bu-btn-secondary-text-text-active: var(--bu-secondary-50);
 
 	--bu-skeletonColor1: var(--bu-gray-100);
 	--bu-skeletonColor2: var(--bu-gray-200);
@@ -88,6 +100,25 @@
 	--bu-input-primary-border-focus: var(--bu-primary-500);
 	--bu-input-primary-border-style: solid;
 	--bu-input-primary-border-width: 1px;
+
+	--bu-input-secondary-bg: var(--bu-gray-100);
+	--bu-input-secondary-filled-bg: var(--bu-gray-50);
+	--bu-input-secondary-border: var(--bu-gray-400);
+	--bu-input-secondary-border-focus: var(--bu-secondary-500);
+	--bu-input-secondary-border-style: solid;
+	--bu-input-secondary-border-width: 1px;
+
+	--bu-input-primary-standard-bg-default: var(--bu-gray-100);
+
+	--bu-input-primary-standard-bg-hover: var(--bu-gray-100);
+
+	--bu-input-primary-standard-bg-checked: var(--bu-gray-100);
+
+	--bu-input-secondary-standard-bg-default: var(--bu-gray-100);
+
+	--bu-input-secondary-standard-bg-hover: var(--bu-gray-100);
+
+	--bu-input-secondary-standard-bg-checked: var(--bu-gray-100);
 
 	--bu-input-primary-standard-bg-default: var(--bu-gray-100);
 
@@ -107,22 +138,28 @@
 	--bu-control-primary-mark-color: var(--bu-white);
 	--bu-control-primary-border-width: 1px;
 
+	--bu-control-secondary-color: var(--bu-gray-300);
+	--bu-control-secondary-hover: var(--bu-secondary-600);
+	--bu-control-secondary-checked-bg: var(--bu-secondary-500);
+	--bu-control-secondary-mark-color: var(--bu-white);
+	--bu-control-secondary-border-width: 1px;
+
 	--bu-font-family:
 		Inter, -apple-system, "Segoe UI", "Helvetica Neue", Arial, "Noto Sans",
 		sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
 		"Noto Color Emoji";
 
-	--bu-size-xs: 2.0625rem;
-	--bu-size-sm: 2.3375rem;
+	--bu-size-xs: 1.38rem;
+	--bu-size-sm: 2.25rem;
 	--bu-size-md: 2.75rem;
-	--bu-size-lg: 3.1624999999999996rem;
-	--bu-size-xl: 3.575rem;
+	--bu-size-lg: 3.16rem;
+	--bu-size-xl: 3.58rem;
 
-	--bu-gap-xs: 1.03125rem;
-	--bu-gap-sm: 1.16875rem;
-	--bu-gap-md: 1.375rem;
-	--bu-gap-lg: 1.5812499999999998rem;
-	--bu-gap-xl: 1.7875rem;
+	--bu-gap-xs: 0.69rem;
+	--bu-gap-sm: 1.13rem;
+	--bu-gap-md: 1.38rem;
+	--bu-gap-lg: 1.58rem;
+	--bu-gap-xl: 1.79rem;
 
 	--bu-font-size-h1: clamp(
 		1.75rem,
@@ -169,7 +206,7 @@
 	--bu-containerBg: var(--bu-gray-50);
 	--bu-containerBorderColor: var(--bu-gray-200);
 
-	--bu-gap: 0.825rem;
+	--bu-gap: 0.82rem;
 	--bu-space: 0.55rem;
 	--bu-height: 2.75rem;
 
@@ -192,7 +229,7 @@
 	--bu-size: var(--bu-size-xs);
 	--bu-height: var(--bu-size-xs);
 	--bu-space: calc(var(--bu-size-xs) / 2.75);
-	--bu-radius: calc(var(--bu-size-xs) / 8);
+	--bu-radius: calc(var(--bu-size-xs) / 5.5);
 	--bu-font-size: calc(var(--bu-size-xs) / 3.1);
 	--bu-gap: calc(var(--bu-size-xs) / 6);
 	--bu-height-small: calc(var(--bu-size-xs) * 0.5);
@@ -209,7 +246,7 @@
 	--bu-size: var(--bu-size-sm);
 	--bu-height: var(--bu-size-sm);
 	--bu-space: calc(var(--bu-size-sm) / 2.75);
-	--bu-radius: calc(var(--bu-size-sm) / 8);
+	--bu-radius: calc(var(--bu-size-sm) / 5.5);
 	--bu-font-size: calc(var(--bu-size-sm) / 3.1);
 	--bu-gap: calc(var(--bu-size-sm) / 6);
 	--bu-height-small: calc(var(--bu-size-sm) * 0.5);
@@ -226,7 +263,7 @@
 	--bu-size: var(--bu-size-md);
 	--bu-height: var(--bu-size-md);
 	--bu-space: calc(var(--bu-size-md) / 2.75);
-	--bu-radius: calc(var(--bu-size-md) / 8);
+	--bu-radius: calc(var(--bu-size-md) / 5.5);
 	--bu-font-size: calc(var(--bu-size-md) / 3.1);
 	--bu-gap: calc(var(--bu-size-md) / 6);
 	--bu-height-small: calc(var(--bu-size-md) * 0.5);
@@ -243,7 +280,7 @@
 	--bu-size: var(--bu-size-lg);
 	--bu-height: var(--bu-size-lg);
 	--bu-space: calc(var(--bu-size-lg) / 2.75);
-	--bu-radius: calc(var(--bu-size-lg) / 8);
+	--bu-radius: calc(var(--bu-size-lg) / 5.5);
 	--bu-font-size: calc(var(--bu-size-lg) / 3.1);
 	--bu-gap: calc(var(--bu-size-lg) / 6);
 	--bu-height-small: calc(var(--bu-size-lg) * 0.5);
@@ -260,7 +297,7 @@
 	--bu-size: var(--bu-size-xl);
 	--bu-height: var(--bu-size-xl);
 	--bu-space: calc(var(--bu-size-xl) / 2.75);
-	--bu-radius: calc(var(--bu-size-xl) / 8);
+	--bu-radius: calc(var(--bu-size-xl) / 5.5);
 	--bu-font-size: calc(var(--bu-size-xl) / 3.1);
 	--bu-gap: calc(var(--bu-size-xl) / 6);
 	--bu-height-small: calc(var(--bu-size-xl) * 0.5);
@@ -283,17 +320,17 @@
 		--bu-container-shadow: 0 10px 20px -12px rgba(16, 24, 40, 0.1);
 
 		--bu-btn-primary-text-text-default: var(--bu-primary-50);
-		--bu-btn-primary-text-text-hover: var(--bu-primary-50);
+		--bu-btn-primary-text-text-hover: var(--bu-primary-900);
 		--bu-btn-primary-text-text-active: var(--bu-primary-50);
 
-		--bu-btn-secondary-text-text-default: var(--bu-primary-50);
-		--bu-btn-secondary-text-text-hover: var(--bu-primary-50);
-		--bu-btn-secondary-text-text-active: var(--bu-primary-50);
+		--bu-btn-secondary-text-text-default: var(--bu-secondary-50);
+		--bu-btn-secondary-text-text-hover: var(--bu-secondary-900);
+		--bu-btn-secondary-text-text-active: var(--bu-secondary-50);
 
 		--bu-skeletonColor1: var(--bu-gray-800);
 		--bu-skeletonColor2: var(--bu-gray-900);
 
-		--bu-containerBg: var(--bu-primary-900);
+		--bu-containerBg: #23232d;
 		--bu-containerBorderColor: var(--bu-gray-800);
 
 		--bu-textColor: var(--bu-gray-50);
@@ -313,17 +350,17 @@
 	--bu-container-shadow: 0 10px 20px -12px rgba(16, 24, 40, 0.1);
 
 	--bu-btn-primary-text-text-default: var(--bu-primary-50);
-	--bu-btn-primary-text-text-hover: var(--bu-primary-50);
+	--bu-btn-primary-text-text-hover: var(--bu-primary-900);
 	--bu-btn-primary-text-text-active: var(--bu-primary-50);
 
-	--bu-btn-secondary-text-text-default: var(--bu-primary-50);
-	--bu-btn-secondary-text-text-hover: var(--bu-primary-50);
-	--bu-btn-secondary-text-text-active: var(--bu-primary-50);
+	--bu-btn-secondary-text-text-default: var(--bu-secondary-50);
+	--bu-btn-secondary-text-text-hover: var(--bu-secondary-900);
+	--bu-btn-secondary-text-text-active: var(--bu-secondary-50);
 
 	--bu-skeletonColor1: var(--bu-gray-800);
 	--bu-skeletonColor2: var(--bu-gray-900);
 
-	--bu-containerBg: var(--bu-primary-900);
+	--bu-containerBg: #23232d;
 	--bu-containerBorderColor: var(--bu-gray-800);
 
 	--bu-textColor: var(--bu-gray-50);

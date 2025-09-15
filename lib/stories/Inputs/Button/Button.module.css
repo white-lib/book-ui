@@ -170,5 +170,8 @@
 .main.fullWidth {
   width: 100%;
 }
+.main.linkButton {
+  text-decoration: none;
+}
 
 /*# sourceMappingURL=Button.module.css.map */

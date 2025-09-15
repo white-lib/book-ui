@@ -1,3 +1,5 @@
+"use client";
+
 import {
   FC,
   DetailedHTMLProps,
@@ -16,18 +18,20 @@ type Props = { disabled?: boolean } & DetailedHTMLProps<
   AnchorHTMLAttributes<HTMLAnchorElement>,
   HTMLAnchorElement
 > &
-  BaseContextType["Link"];
+  BaseContextType["Link"] & { noUnderline?: boolean };
 
 export const Link: FC<Props> = ({
   children,
   className,
   disabled,
   onClick,
+  noUnderline,
   ...props
 }) => {
   const classNameVal = classnames(
     withClassPrefix("link"),
     styles.main,
+    noUnderline && styles.noUnderline,
     className,
   );
 

@@ -20,7 +20,6 @@ import { ColorType, DEFAULT_COLOR } from "lib/system/color.types.ts";
 
 export type Props = {
   variant?: "contained" | "outlined" | "text";
-  colorPalette?: "primary" | "secondary";
   size?: Size;
   color?: ColorType;
   startItem?: ReactNode;
@@ -40,7 +39,6 @@ export type Props = {
 export const Button = ({
   children,
   variant = "contained",
-  colorPalette = DEFAULT_COLOR,
   size = DEFAULT_SIZE,
   color = DEFAULT_COLOR,
   className,
@@ -67,6 +65,7 @@ export const Button = ({
     fullWidth && styles.fullWidth,
     disableSpacing && styles.disableSpacing,
     square && styles.square,
+    href && styles.linkButton,
     className,
   );
 
@@ -80,7 +79,13 @@ export const Button = ({
 
   if (href) {
     return (
-      <Link href={href} className={classNameVal} disabled={disabled} {...props}>
+      <Link
+        href={href}
+        className={classNameVal}
+        disabled={disabled}
+        {...props}
+        noUnderline
+      >
         {modifiedChildren}
       </Link>
     );

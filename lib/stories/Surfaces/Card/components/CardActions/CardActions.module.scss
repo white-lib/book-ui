@@ -1,5 +1,5 @@
 .main {
-  padding-left: var(--bu-container-space);
+  padding: 0 var(--bu-container-space);
   display: flex;
   gap: var(--bu-gap);
 
@@ -9,6 +9,6 @@
 
   &.end {
     justify-content: flex-end;
-    padding-right: var(--bu-container-space);
+    //padding-right: var(--bu-container-space);
   }
 }

@@ -10,3 +10,12 @@
   gap: calc(var(--bu-gap) / 2);
   position: relative;
 }
+
+.fullWidth {
+  width: 100%;
+}
+
+.inputContent {
+  height: 100%;
+  width: 100%;
+}

@@ -23,7 +23,7 @@ import { halfTheValue } from "lib/helpers/skinning.tsx";
 import { BaseContextType, useBaseContext } from "lib/system/base.provider.tsx";
 
 export type Props = {
-  src?: string | ReactNode;
+  src?: string | ReactNode | null;
   alt?: string;
   width?: number | string;
   height?: number | string;
@@ -34,7 +34,7 @@ export type Props = {
 
 export const Image: FC<Props> = ({
   children,
-  src,
+  src = null,
   title,
   alt,
   width,
@@ -98,7 +98,7 @@ export const Image: FC<Props> = ({
           <></>
         )}
         <img
-          src={src}
+          src={src as string | undefined}
           alt={alt}
           title={title || alt}
           width={width}
@@ -116,7 +116,7 @@ export const Image: FC<Props> = ({
 
   // @ts-ignore
   return cloneElement(<Img />, {
-    src: src,
+    src: src || null,
     alt: alt,
     title: title || alt,
     width: width,

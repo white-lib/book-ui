@@ -8,5 +8,9 @@
 
   @include mixins.hover {
     text-decoration: underline;
+
+    &.noUnderline {
+      text-decoration: none;
+    }
   }
 }

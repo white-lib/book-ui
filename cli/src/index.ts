@@ -8,13 +8,14 @@ import { Config, ConfigCore } from "./core/config.core";
 program
   .version("1.0.0")
   .description("Book UI CLI")
+  .option("-c, --config <path>", "Path to config file")
   .option("-p, --primary <type>", "Define primary color")
   .option("-s, --secondary <type>", "Define secondary color")
   .option("-b, --baseSize <type>", "Define base size")
   .option("-m, --method <type>", "Define generate method")
   .action(async (options) => {
     const configCore = new ConfigCore();
-    const configFromFile = configCore.getConfig();
+    const configFromFile = configCore.getConfig(options.config);
 
     const config: Config = {
       primary: options.primary || configFromFile?.primary,
@@ -22,6 +23,9 @@ program
       baseSize: options.baseSize || configFromFile?.baseSize || 40,
       fixShade: options.fixShade || configFromFile?.fixShade || false,
       method: options.method || configFromFile?.method || "analogous",
+      override: configFromFile?.override,
+      primaryShade: configFromFile?.primaryShade,
+      secondaryShade: configFromFile?.secondaryShade,
     };
 
     if (!config.primary) {

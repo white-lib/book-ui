@@ -1,7 +1,7 @@
 {
   "name": "book-ui",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
@@ -60,5 +60,32 @@
   },
   "dependencies": {
     "classnames": "^2.5.1"
-  }
+  },
+  "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
+  "directories": {
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/white-lib/book-ui.git"
+  },
+  "keywords": [
+    "ui",
+    "library",
+    "kit",
+    "design",
+    "react",
+    "react.js",
+    "lightweight",
+    "fast",
+    "performant",
+    "lite",
+    "small"
+  ],
+  "author": "Hrachya Martirosyan (Rach)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/white-lib/book-ui/issues"
+  },
+  "homepage": "https://github.com/white-lib/book-ui#readme"
 }

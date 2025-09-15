@@ -8,6 +8,9 @@
   .main:not(:disabled):not(.disabled):hover {
     text-decoration: underline;
   }
+  .main:not(:disabled):not(.disabled):hover.noUnderline {
+    text-decoration: none;
+  }
 }
 
 /*# sourceMappingURL=Link.module.css.map */

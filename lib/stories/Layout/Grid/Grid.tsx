@@ -23,6 +23,7 @@ type Props = {
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;
   children?: ReactNode;
+  order?: number;
 } & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export const Grid = ({
@@ -37,6 +38,8 @@ export const Grid = ({
   alignItems,
   className,
   children,
+  order,
+  style,
   ...props
 }: Props) => {
   const classNameVal = classnames(
@@ -55,7 +58,7 @@ export const Grid = ({
   );
 
   return (
-    <div {...props} className={classNameVal}>
+    <div {...props} className={classNameVal} style={{ order, ...style }}>
       {children}
     </div>
   );

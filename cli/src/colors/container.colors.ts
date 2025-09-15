@@ -2,30 +2,34 @@ import {
   PureComponentColors,
   PureComponentColorWithTheme,
 } from "./pureComponentColors";
+import { ColorOverride } from "../types/color.types";
 
 export class ContainerColors extends PureComponentColors {
   protected create() {
-    return {
-      light: {
-        containerBg: {
-          type: "gray",
-          shade: 50,
+    return this.handleOverrides<PureComponentColorWithTheme>(
+      {
+        light: {
+          containerBg: {
+            type: "gray",
+            shade: 50,
+          },
+          containerBorderColor: {
+            type: "gray",
+            shade: 200,
+          },
         },
-        containerBorderColor: {
-          type: "gray",
-          shade: 200,
+        dark: {
+          containerBg: {
+            type: "primary",
+            shade: 900,
+          },
+          containerBorderColor: {
+            type: "gray",
+            shade: 800,
+          },
         },
-      },
-      dark: {
-        containerBg: {
-          type: "primary",
-          shade: 900,
-        },
-        containerBorderColor: {
-          type: "gray",
-          shade: 800,
-        },
-      },
-    } satisfies PureComponentColorWithTheme;
+      } satisfies PureComponentColorWithTheme,
+      "container",
+    );
   }
 }

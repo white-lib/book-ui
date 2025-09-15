@@ -26,6 +26,14 @@ export { RadioGroup } from "./stories/Inputs/RadioGroup";
 export { Input } from "./stories/Inputs/Input";
 export { Select } from "./stories/Inputs/Select";
 export { Switch } from "./stories/Inputs/Switch";
+export {
+  Tabs,
+  TabsContent,
+  TabsList,
+  TabsTrigger,
+  TabsIndicator,
+  type TabValue,
+} from "./stories/Inputs/Tabs";
 
 // LAYOUT
 export { Box } from "./stories/Layout/Box";
@@ -35,6 +43,14 @@ export { GridRuler } from "./stories/Layout/GridRuler";
 
 // NAVIGATION
 export { Link } from "./stories/Navigation/Link";
+
+// OVERLAYS
+export {
+  Drawer,
+  DrawerContent,
+  DrawerTrigger,
+  DrawerClose,
+} from "./stories/Overlays/Drawer";
 
 export {
   Menu,

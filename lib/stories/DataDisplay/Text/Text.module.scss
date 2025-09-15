@@ -1,3 +1,5 @@
+@use "../../../assets/styles/mixins";
+
 @mixin heading {
   font-weight: bold;
   color: var(--bu-textHeadingColor);
@@ -15,6 +17,10 @@ $headings: h1, h2, h3, h4, h5, h6;
   font-family: var(--bu-font-family), sans-serif;
   margin: 0;
   padding: 0;
+
+  @include mixins.with-color-type using ($type) {
+    color: var(--bu-#{$type}-500);
+  }
 }
 
 @each $heading in $headings {

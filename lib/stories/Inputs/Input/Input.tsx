@@ -18,6 +18,7 @@ import { withClassPrefix, createClassName } from "lib/helpers/classNames.tsx";
 
 import { Text } from "lib/stories/DataDisplay/Text";
 import { Box } from "lib/stories/Layout/Box";
+import { Flex } from "lib/stories/Layout/Flex";
 
 import Visibility from "../../Icons/assets/Visibility.tsx";
 import VisibilityOff from "../../Icons/assets/VisibilityOff.tsx";
@@ -38,6 +39,8 @@ export type Props = {
   required?: boolean;
   fullWidth?: boolean;
   inputDisabled?: boolean;
+  children?: ReactNode;
+  inputSize?: HTMLInputElement["size"];
 } & Omit<
   DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement>,
   "size" | "children"
@@ -63,6 +66,9 @@ export const Input = ({
   value = "",
   onChange,
   style,
+  inputSize,
+  children,
+  onClick,
   ...props
 }: Props) => {
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -113,14 +119,23 @@ export const Input = ({
     <Box className={classnames(styles.wrapper, fullWidth && styles.fullWidth)}>
       <Box className={classNameVal} style={style}>
         {startItem}
-        <input
-          type={localType}
-          disabled={disabled || inputDisabled}
-          placeholder={requiredPlaceholder}
-          value={innerValue}
-          onChange={handleOnChange}
-          {...props}
-        />
+        <Flex
+          alignItems="center"
+          justifyContent="center"
+          className={styles.inputContent}
+          onClick={onClick}
+        >
+          {children}
+          <input
+            type={localType}
+            disabled={disabled || inputDisabled}
+            placeholder={requiredPlaceholder}
+            value={innerValue}
+            onChange={handleOnChange}
+            {...props}
+            size={inputSize}
+          />
+        </Flex>
         {endItem}
       </Box>
       {helperText && !error && <Text variant="hint">{helperText}</Text>}

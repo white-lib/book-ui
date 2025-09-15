@@ -8,3 +8,5 @@ export type VarColor = {
   type: ColorType;
   shade: ShadeValue;
 };
+
+export type ColorOverride = Record<ColorTheme, Record<string, any>>;

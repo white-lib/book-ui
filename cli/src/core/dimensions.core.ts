@@ -12,7 +12,7 @@ export class DimensionsCore {
 
   constructor(baseHeight: number) {
     this.sizes = {
-      xs: baseHeight * 0.75,
+      xs: baseHeight * 0.5,
       sm: baseHeight * 0.82,
       md: baseHeight,
       lg: baseHeight * 1.15,
@@ -57,6 +57,6 @@ export class DimensionsCore {
   }
 
   private rem(pixel: number): string {
-    return `${pixel / DimensionsCore.htmlFontSize}rem`;
+    return `${(pixel / DimensionsCore.htmlFontSize).toFixed(2)}rem`;
   }
 }

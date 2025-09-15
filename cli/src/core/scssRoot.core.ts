@@ -58,26 +58,36 @@ export class ScssRootCore {
 
     this.commonColors = new CommonColors();
     this.skeletonColors = new SkeletonColors();
-    this.containerColors = new ContainerColors();
+    this.containerColors = new ContainerColors({ override: config.override });
     this.textColors = new TextColors();
     this.inputColors = new InputColors();
+
+    const configShades: Record<string, Shade | undefined> = {
+      primary: config.primaryShade,
+      secondary: config.secondaryShade,
+    };
 
     for (const colorType in this.colorTypes) {
       const color: string = String(config[colorType as keyof Config]);
 
-      if (color === "undefined") {
+      if (
+        color === "undefined" ||
+        colorType === "gray" ||
+        colorType === "common"
+      ) {
         continue;
       }
 
-      const colorData = this.colorsCore.generateShades(color);
+      const colorData = this.colorsCore.generateShades(
+        color,
+        configShades[colorType],
+      );
 
       this.colorTypes[colorType as ColorType] = {
         shade: colorData.shade,
         colors: colorData.colors,
         buttons: new ButtonColors(colorData.shade),
       };
-
-      break;
     }
   }
 
@@ -135,8 +145,8 @@ export class ScssRootCore {
     return `
 \t--bu-disabled-pointer-events: none;
 \t--bu-disabled-cursor: not-allowed;
-\t--bu-disabled-filter: grayscale(1);
-\t--bu-disabled-opacity: 0.7;
+\t--bu-disabled-filter: none;
+\t--bu-disabled-opacity: 0.5;
 `;
   }
 
@@ -277,6 +287,10 @@ export class ScssRootCore {
       }
 
       for (const [colorType, variants] of Object.entries(buttonColors)) {
+        if (colorType !== type) {
+          continue;
+        }
+
         for (const [variant, states] of Object.entries(variants)) {
           for (const [state, props] of Object.entries(states)) {
             for (const [prop, shade] of Object.entries(props)) {
@@ -332,7 +346,6 @@ export class ScssRootCore {
 
     for (const colorType in this.colorTypes) {
       const type = colorType as ColorType;
-
       if (this.colorTypes[type] === null) {
         continue;
       }
@@ -422,7 +435,7 @@ export class ScssRootCore {
 \t--bu-size: var(--bu-size-${size});
 \t--bu-height: var(--bu-size-${size});
 \t--bu-space: calc(var(--bu-size-${size}) / 2.75);
-\t--bu-radius: calc(var(--bu-size-${size}) / 8);
+\t--bu-radius: calc(var(--bu-size-${size}) / 5.5);
 \t--bu-font-size: calc(var(--bu-size-${size}) / 3.1);
 \t--bu-gap: calc(var(--bu-size-${size}) / 6);
 \t--bu-height-small: calc(var(--bu-size-${size}) * 0.5);

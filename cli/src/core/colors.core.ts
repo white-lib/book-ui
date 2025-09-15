@@ -174,7 +174,10 @@ export class ColorsCore {
     return colorShades;
   }
 
-  generateShades(color: string): {
+  generateShades(
+    color: string,
+    shade?: Shade,
+  ): {
     shade: Shade;
     colors: ColorsWithShade;
   } {
@@ -195,8 +198,10 @@ export class ColorsCore {
       colors["950"] = "#000000";
     }
 
+    const defaultShade = hsl.l >= 60 ? "light" : "dark";
+
     return {
-      shade: hsl.l >= 60 ? "light" : "dark",
+      shade: shade || defaultShade,
       colors,
     };
   }

@@ -1,4 +1,9 @@
-import { ColorTheme, ShadeValue, VarColor } from "../types/color.types";
+import {
+  ColorOverride,
+  ColorTheme,
+  ShadeValue,
+  VarColor,
+} from "../types/color.types";
 import { Colors } from "./colors";
 import { Shade } from "../core/colors.core";
 
@@ -10,8 +15,11 @@ export type PureComponentColorWithTheme = Record<
 >;
 
 export abstract class PureComponentColors extends Colors<PureComponentColor> {
-  public constructor(shade?: Shade) {
-    super(shade);
+  public constructor({
+    shade,
+    override,
+  }: { shade?: Shade; override?: ColorOverride } = {}) {
+    super(shade, override);
     this.colors = this.create();
   }
 }

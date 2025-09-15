@@ -1,3 +1,5 @@
+"use client";
+
 import {
   CSSProperties,
   DetailedHTMLProps,
@@ -12,7 +14,6 @@ import styles from "./Dialog.module.css";
 
 import { withClassPrefix } from "lib/helpers/classNames.tsx";
 import { Flex } from "lib/stories/Layout/Flex";
-import { Card } from "lib/stories/Surfaces/Card";
 import { Button } from "lib/stories/Inputs/Button";
 import { Close } from "lib/stories/Icons/assets";
 import { Box } from "lib/stories/Layout/Box";
@@ -67,13 +68,14 @@ export const Dialog: FC<Props> = ({
       className={classNameVal}
       alignItems="center"
       justifyContent="center"
+      ref={contentRef}
       {...props}
     >
-      <Card ref={contentRef} style={containerStyle} className={styles.card}>
+      <Flex className={styles.body} style={containerStyle}>
         <Flex
           justifyContent="space-between"
           alignItems="center"
-          className={styles.card_header}
+          className={styles.header}
         >
           {title ? <Text variant="h6">{title}</Text> : <Box />}
           <Button
@@ -82,13 +84,13 @@ export const Dialog: FC<Props> = ({
             disableSpacing
             onClick={() => onClose?.()}
           >
-            <Close width="18px" height="18px" />
+            <Close width="32px" height="32px" />
           </Button>
         </Flex>
-        <Flex flexDirection="column" className={styles.card_content}>
+        <Flex flexDirection="column" className={styles.content}>
           {children}
         </Flex>
-      </Card>
+      </Flex>
     </Flex>
   );
 };

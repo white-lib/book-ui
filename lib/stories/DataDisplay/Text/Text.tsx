@@ -11,10 +11,13 @@ import styles from "./Text.module.css";
 
 import { withClassPrefix } from "lib/helpers/classNames.tsx";
 
+import { ColorType } from "lib/system/color.types.ts";
+
 type Tag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "span";
 
 type Props = {
   variant?: Tag | "hint";
+  color?: ColorType;
   component?: Tag;
   error?: boolean;
   className?: string;
@@ -30,6 +33,7 @@ const validTags: Array<Tag> = ["h1", "h2", "h3", "h4", "h5", "h6", "p", "span"];
 
 export const Text: FC<Props> = ({
   variant = "p",
+  color,
   component,
   error,
   className,
@@ -40,6 +44,7 @@ export const Text: FC<Props> = ({
     withClassPrefix("tp"),
     styles.main,
     styles[variant],
+    color && styles[color],
     error && styles.error,
     className,
   );

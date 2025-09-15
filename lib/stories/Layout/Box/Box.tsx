@@ -1,4 +1,4 @@
-import { createElement, DetailedHTMLProps, FC, HTMLAttributes } from "react";
+import { createElement, DetailedHTMLProps, HTMLAttributes } from "react";
 import classnames from "classnames";
 
 import styles from "./Box.module.css";
@@ -13,12 +13,12 @@ export type Props = { component?: Tags } & DetailedHTMLProps<
 > &
   DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 
-export const Box: FC<Props> = ({
+export const Box = ({
   component = "div",
   children,
   className,
   ...props
-}) => {
+}: Props) => {
   const classNameVal = classnames(
     withClassPrefix("box"),
     styles.main,

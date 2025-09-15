@@ -1,3 +1,6 @@
+.main {
+  color: var(--bu-iconColor);
+}
 .main.hidden {
   display: none;
 }

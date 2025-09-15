@@ -9,4 +9,13 @@
   position: relative;
 }
 
-/*# sourceMappingURL=TextField.module.css.map */
+.fullWidth {
+  width: 100%;
+}
+
+.inputContent {
+  height: 100%;
+  width: 100%;
+}
+
+/*# sourceMappingURL=Input.module.css.map */

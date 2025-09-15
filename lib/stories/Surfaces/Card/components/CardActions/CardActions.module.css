@@ -1,5 +1,5 @@
 .main {
-  padding-left: var(--bu-container-space);
+  padding: 0 var(--bu-container-space);
   display: flex;
   gap: var(--bu-gap);
 }
@@ -8,7 +8,6 @@
 }
 .main.end {
   justify-content: flex-end;
-  padding-right: var(--bu-container-space);
 }
 
 /*# sourceMappingURL=CardActions.module.css.map */

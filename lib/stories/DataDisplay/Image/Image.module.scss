@@ -9,6 +9,8 @@ $objectFit: cover, contain, fill, none, scale-down;
 }
 
 .main {
+  color: var(--bu-iconColor);
+
   &.hidden {
     display: none;
   }

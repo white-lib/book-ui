@@ -2,7 +2,7 @@
   width: 100%;
   background: var(--bu-containerBg);
   border-bottom: var(--bu-container-border) solid var(--bu-containerBorderColor);
-  padding: var(--bu-space);
+  padding: var(--bu-space) 0;
   min-height: var(--bu-height);
   top: 0;
   left: 0;
@@ -17,7 +17,6 @@
 .main.sticky {
   position: sticky;
   top: 0;
-  margin-bottom: var(--bu-size-xs);
 }
 
 /*# sourceMappingURL=AppBar.module.css.map */

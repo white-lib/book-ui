@@ -10,11 +10,13 @@ import { Props as BoxProps } from "lib/stories/Layout/Box";
 import { JustifyContent, AlignItems } from "lib/helpers/classNames.tsx";
 import { Size } from "lib/system/measurement.types.ts";
 
-type Props = {
+const gaps: Size[] = ["xs", "sm", "md", "lg", "xl"];
+
+export type Props = {
   flexDirection?: FlexDirection;
   justifyContent?: JustifyContent;
   alignItems?: AlignItems;
-  gap?: Size;
+  gap?: Size | number | string;
 } & BoxProps;
 
 export const Flex = ({
@@ -39,7 +41,13 @@ export const Flex = ({
 
   return createElement(
     component,
-    { ...props, className: classNameVal },
+    {
+      ...props,
+      className: classNameVal,
+      style: !gaps.includes(gap as Size)
+        ? { gap, ...props.style }
+        : props.style,
+    },
     children,
   );
 };
