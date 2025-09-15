@@ -1,12 +1,13 @@
 {
-  "name": "@book-ui/react",
-  "private": true,
+  "name": "@white-lib/book-ui",
+  "private": false,
   "version": "0.0.1",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
-  "bin": {
-    "book-ui": "cli/dist/lazy.js"
+  "author": {
+    "name": "Hrach Martirosyan",
+    "url": "https://www.linkedin.com/in/hrachmartirosyan/"
   },
   "files": [
     "dist"
@@ -82,7 +83,6 @@
     "lite",
     "small"
   ],
-  "author": "Hrachya Martirosyan (Rach)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/white-lib/book-ui/issues"
