@@ -1,0 +1,21 @@
+@use "../../../../../assets/styles/mixins";
+
+@include mixins.disabled;
+
+.main {
+  cursor: pointer;
+  width: 100%;
+  height: 36px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  padding: 0 var(--bu-space);
+
+  &.active {
+    background: var(--bu-primary-500);
+  }
+
+  * {
+    color: white !important;
+  }
+}

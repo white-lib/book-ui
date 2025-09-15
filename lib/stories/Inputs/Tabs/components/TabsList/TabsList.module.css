@@ -1,0 +1,9 @@
+.main {
+  height: var(--bu-input-height);
+  padding: calc(var(--bu-space) / 2);
+  background: #1c1c23;
+  border-radius: 12px;
+  width: 100%;
+}
+
+/*# sourceMappingURL=TabsList.module.css.map */

@@ -1,0 +1,25 @@
+.disabled,
+*:disabled {
+  pointer-events: var(--bu-disabled-pointer-events);
+  cursor: var(--bu-disabled-cursor);
+  filter: var(--bu-disabled-filter);
+  opacity: var(--bu-disabled-opacity);
+}
+
+.main {
+  cursor: pointer;
+  width: 100%;
+  height: 36px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  white-space: nowrap;
+  padding: 0 var(--bu-space);
+}
+.main.active {
+  background: var(--bu-primary-500);
+}
+.main * {
+  color: white !important;
+}
+
+/*# sourceMappingURL=TabsTrigger.module.css.map */
