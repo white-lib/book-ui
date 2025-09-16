@@ -1,17 +1,32 @@
 {
   "name": "@white-lib/book-ui",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.29",
   "type": "module",
   "main": "dist/main.js",
   "types": "dist/main.d.ts",
+  "bin": {
+    "book-ui": "cli/dist/index.cjs"
+  },
   "author": {
     "name": "Hrach Martirosyan",
     "url": "https://www.linkedin.com/in/hrachmartirosyan/"
   },
   "files": [
-    "dist"
+    "dist",
+    "cli/dist"
   ],
+  "exports": {
+    ".": {
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js",
+      "require": "./dist/main.js"
+    },
+    "./root.css": {
+      "import": "./dist/assets/root.css",
+      "require": "./dist/assets/root.css"
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc --p ./tsconfig-build.json && vite build",
@@ -20,7 +35,7 @@
     "preview": "vite preview",
     "scss:watch": "sass --watch lib:lib",
     "scss:build": "sass lib:lib",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "./scripts/prepublish.sh",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
@@ -60,7 +75,8 @@
     "vite-plugin-lib-inject-css": "^2.1.1"
   },
   "dependencies": {
-    "classnames": "^2.5.1"
+    "classnames": "^2.5.1",
+    "commander": "^13.1.0"
   },
   "description": "This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.",
   "directories": {

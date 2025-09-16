@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { program } from "commander";
 
 import { ScssRootCore } from "./core/scssRoot.core";

@@ -561,14 +561,9 @@ export class ScssRootCore {
   }
 
   save(rootVars: string) {
-    const outPath = `${__dirname}/../../../dist/assets/root.css`;
-    const outDevPath = `${__dirname}/../../../lib/assets/styles/root.scss`;
+    const outPath = `${process.cwd()}/node_modules/@white-lib/book-ui/dist/assets/root.css`;
 
     const paths = [outPath];
-
-    if (process.env.CLI_MODE === "development") {
-      paths.push(outDevPath);
-    }
 
     paths.forEach((path) => {
       fs.writeFile(path, rootVars, (err) => {
